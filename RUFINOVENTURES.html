@@ -220,7 +220,39 @@
     ::-webkit-scrollbar-thumb:hover {
       background: #52525b;
     }
-  </style>
+  
+    /* Leaflet overrides for dark aerospace styling */
+    .leaflet-container {
+      background-color: #030305 !important;
+      font-family: 'JetBrains Mono', monospace !important;
+    }
+    .leaflet-container img {
+      max-width: none !important;
+    }
+    .leaflet-bar a {
+      background-color: rgba(7, 7, 11, 0.9) !important;
+      color: #00e5ff !important;
+      border-color: rgba(255, 255, 255, 0.15) !important;
+    }
+    .leaflet-bar a:hover {
+      background-color: #00e5ff !important;
+      color: #030305 !important;
+    }
+    .leaflet-popup-content-wrapper {
+      background-color: rgba(7, 7, 11, 0.95) !important;
+      color: #e4e4e7 !important;
+      border: 1px solid rgba(0, 229, 255, 0.4) !important;
+      border-radius: 0px !important;
+      box-shadow: 0 0 25px rgba(0, 229, 255, 0.2) !important;
+    }
+    .leaflet-popup-tip {
+      background-color: rgba(7, 7, 11, 0.95) !important;
+      border: 1px solid rgba(0, 229, 255, 0.4) !important;
+    }
+</style>
+  <!-- Leaflet CSS & JS for Interactive Global Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 </head>
 <body class="bg-space-950 text-zinc-200 antialiased selection:bg-telemetry-cyan selection:text-black">
 
@@ -444,59 +476,67 @@
   <!-- PANE 01: SATELLITE INFRARED CLIMATE TRACKING & GEOSPATIAL SIMULATOR        -->
   <!-- Contextual HD Image: Space Observation Satellite & Pacific Orbit          -->
   <!-- ========================================================================= -->
-  <section id="pane-telemetry" class="relative min-h-screen w-full flex flex-col justify-between py-24 px-6 sm:px-12 lg:px-20 overflow-hidden bg-space-950 border-t border-white/10 scroll-mt-16">
-    <!-- HD Background Image -->
-    <div class="absolute inset-0 z-0">
-      <img 
-        src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=2560&q=85" 
-        alt="Space satellite monitoring Pacific ocean climate" 
-        class="w-full h-full object-cover object-center filter brightness-[0.55] contrast-[1.25]" 
-        loading="lazy"
-      />
-      <div class="pane-scrim"></div>
-      <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
+    <!-- ========================================================================= -->
+  <!-- PANE 01: SINGULAR INTERACTIVE GLOBAL MAP & CASUALTY TELEMETRY RADAR       -->
+  <!-- Real-time pan/zoom global map, weather movement, and 3-way trajectory     -->
+  <!-- ========================================================================= -->
+    <!-- ========================================================================= -->
+  <!-- PANE 01: SATELLITE INFRARED CLIMATE TRACKING & GEOSPATIAL SIMULATOR        -->
+  <!-- Scope 1: Philippines Vector Radar (Default) // Scope 2: Worldwide Global  -->
+  <!-- ========================================================================= -->
+  <section id="pane-telemetry" class="relative min-h-screen w-full flex flex-col justify-between py-20 px-4 sm:px-8 lg:px-16 overflow-hidden bg-space-950 border-t border-white/10 scroll-mt-16">
+    <!-- Subtle Background Ambient Glow -->
+    <div class="absolute inset-0 z-0 pointer-events-none">
+      <div class="absolute inset-0 bg-grid-pattern opacity-25"></div>
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-red-600/10 rounded-full blur-[140px] pointer-events-none"></div>
     </div>
 
     <!-- HUD Top Bar -->
     <div class="relative z-10 max-w-[1720px] w-full mx-auto flex items-center justify-between border-b border-white/15 pb-4">
       <div class="flex items-center gap-3">
         <span class="inline-block w-2.5 h-2.5 bg-red-500 rounded-full animate-ping"></span>
-        <span class="font-mono text-xs text-telemetry-cyan uppercase tracking-widest font-bold">PANE 01 // GEOSPATIAL TELEMETRY &amp; TIME-TO-IMPACT RADAR</span>
+        <span class="font-mono text-xs text-telemetry-cyan uppercase tracking-widest font-bold">PANE 01 // GEOSPATIAL RADAR TELEMETRY</span>
         <span class="text-zinc-600">/</span>
-        <span class="font-mono text-xs text-zinc-400">DYNAMIC WEATHER-FRONT PROPAGATION</span>
+        <span class="font-mono text-xs text-zinc-400 hidden sm:inline">OVERTIME WEATHER-FRONT &amp; CASUALTY SIMULATOR</span>
       </div>
-      <div class="font-mono text-xs text-zinc-400 hidden sm:flex items-center gap-4">
-        <span>SENSORS: NOAA-21 &bull; SENTINEL-3 &bull; PAGASA RADAR NETWORK</span>
-        <span class="text-emerald-400 font-bold border border-emerald-500/40 px-2 py-0.5 bg-emerald-500/10">100% FREE CONSULTATION</span>
+      <div class="font-mono text-xs text-zinc-400 flex items-center gap-4">
+        <span class="hidden md:inline">RADAR TELEMETRY: PAGASA NETWORK &bull; NOAA &bull; CARTO-DARK</span>
+        <span class="text-emerald-400 font-bold border border-emerald-500/40 px-2.5 py-0.5 bg-emerald-500/10">100% FREE CONSULTATION</span>
       </div>
     </div>
 
     <!-- Main Content Container -->
-    <div class="relative z-10 max-w-[1720px] w-full mx-auto my-auto py-8">
+    <div class="relative z-10 max-w-[1720px] w-full mx-auto my-auto py-6">
       
-      <!-- Section Header -->
-      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
+      <!-- Top Section Header & Urgency Countdown Strip -->
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-6">
         <div>
-          <div class="inline-flex items-center gap-2 px-3 py-1 bg-red-500/10 border border-red-500/30 text-[10px] sm:text-[11px] font-mono tracking-widest uppercase text-red-400 mb-3">
-            <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-            LIVE TIME-TO-IMPACT TELEMETRY // 2026–2027 SUPER EL NIÑO ONSET
+          <div class="flex flex-wrap items-center gap-2 mb-2">
+            <span class="inline-flex items-center gap-2 px-3 py-1 bg-red-500/15 border border-red-500/40 text-[10px] sm:text-[11px] font-mono tracking-widest uppercase text-red-400 font-semibold">
+              <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+              2026–2027 SUPER EL NIÑO // GEOSPATIAL TRAJECTORY ENGINE
+            </span>
+            <span class="px-2 py-0.5 bg-emerald-500/15 border border-emerald-500/30 text-[10px] font-mono text-emerald-300 font-bold uppercase">
+              100% FREE CONSULTATION &bull; ZERO GATEKEEPING
+            </span>
           </div>
+
           <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white font-display leading-[0.95]">
             GEOSPATIAL WEATHER-FRONT <br/>
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-amber-300 to-cyan-400">
-              TRAJECTORY &amp; CASUALTY CLOCK
+              TRAJECTORY &amp; CASUALTY RADAR
             </span>
           </h2>
           <p class="text-zinc-300 text-xs sm:text-sm mt-3 max-w-3xl leading-relaxed">
-            Super El Niño is not a static heatwave. It is a <strong>dynamically migrating weather event</strong> that sweeps across the Pacific into the Philippine archipelago—shifting from eastern trade-wind suppression to intense northern thermal domes, down into agricultural drought in the Visayas and hydroelectric depletion in Mindanao.
+            Super El Niño is a <strong>dynamically moving planetary weather event</strong>. Observe its overtime movement first across the <strong>Philippine archipelago</strong>, or switch to the <strong>Worldwide Global View</strong> to track its sweep across the 54-nation equatorial corridor. Compare Inaction vs. Current Work vs. The Rufino Synthesis in real time.
           </p>
         </div>
 
         <!-- Preemptive Lead-Time Countdown HUD -->
-        <div class="hud-box p-4 sm:p-5 border-l-4 border-l-red-500 bg-space-900/90 shrink-0">
+        <div class="hud-box p-4 sm:p-5 border-l-4 border-l-red-500 bg-space-900/95 shrink-0">
           <div class="flex items-center justify-between gap-4 mb-2">
             <span class="font-mono text-[10px] uppercase tracking-widest text-zinc-400">Time to Peak Thermal Envelope</span>
-            <span class="px-1.5 py-0.5 text-[9px] font-mono uppercase bg-red-500/20 text-red-400 border border-red-500/40 font-bold animate-pulse">TIME IS OF THE ESSENCE</span>
+            <span class="px-1.5 py-0.5 text-[9px] font-mono uppercase bg-red-500/20 text-red-400 border border-red-500/40 font-bold animate-pulse">TIME IS OF ESSENCE</span>
           </div>
           <div class="flex items-baseline gap-2 font-mono font-black text-xl sm:text-3xl text-white">
             <div class="flex flex-col items-center">
@@ -531,158 +571,173 @@
         </div>
       </div>
 
-      <!-- Real-Time Humanitarian Velocity & Impact Dashboard -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        <!-- Metric 1: Projected Unmitigated Mortality -->
-        <div class="hud-box p-4 border-l-4 border-l-red-500 bg-space-900/90">
-          <div class="flex items-center justify-between text-[10px] font-mono uppercase tracking-widest text-zinc-400 mb-1">
-            <span>Projected Lives at Risk (Inaction)</span>
-            <span class="text-red-400 font-bold animate-pulse">&bull; LIVE TICKER</span>
-          </div>
-          <div class="flex items-baseline gap-2">
-            <span id="mortality-counter-unmitigated" class="text-3xl sm:text-4xl font-black font-mono text-red-400">2,480</span>
-            <span class="text-xs font-mono text-zinc-400">FILIPINOS</span>
-          </div>
-          <div class="text-[10px] font-mono text-zinc-400 mt-2">
-            Based on historical wet-bulb thermal mortality curves (&gt;48°C heat index)
-          </div>
+      <!-- Scope Switcher: Philippines (Default) vs. Worldwide Global Option -->
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-5 p-3 bg-black/60 border border-white/15">
+        <div class="flex items-center gap-2 font-mono text-xs">
+          <span class="text-zinc-400 uppercase tracking-wider text-[11px] mr-1">SELECT RADAR SCOPE:</span>
+          
+          <button id="scope-btn-philippines" onclick="switchMapScope('philippines')" class="px-4 py-2 border-2 border-telemetry-cyan bg-cyan-950/50 text-telemetry-cyan font-bold flex items-center gap-2 transition shadow-[0_0_15px_rgba(0,229,255,0.25)]">
+            <span>🇵🇭</span>
+            <span>PHILIPPINES (NATIONAL RADAR)</span>
+          </button>
+          
+          <button id="scope-btn-global" onclick="switchMapScope('global')" class="px-4 py-2 border border-white/20 bg-black/40 text-zinc-400 hover:text-white hover:border-white/40 font-bold flex items-center gap-2 transition">
+            <span>🌐</span>
+            <span>WORLDWIDE (54 EQUATORIAL NATIONS)</span>
+          </button>
         </div>
 
-        <!-- Metric 2: Lives Preserved via Rufino Synthesis -->
-        <div class="hud-box p-4 border-l-4 border-l-emerald-400 bg-space-900/90">
-          <div class="flex items-center justify-between text-[10px] font-mono uppercase tracking-widest text-zinc-400 mb-1">
-            <span>Shielded via Rufino Synthesis</span>
-            <span class="text-emerald-400 font-bold">94% SURVIVAL</span>
-          </div>
-          <div class="flex items-baseline gap-2">
-            <span id="mortality-counter-shielded" class="text-3xl sm:text-4xl font-black font-mono text-emerald-400">2,331</span>
-            <span class="text-xs font-mono text-zinc-400">LIVES SAVED</span>
-          </div>
-          <div class="text-[10px] font-mono text-zinc-400 mt-2">
-            Via canal cooling canopies, atmospheric water nodes &amp; cold-chain clinics
-          </div>
-        </div>
-
-        <!-- Metric 3: Mortality Velocity Rate -->
-        <div class="hud-box p-4 border-l-4 border-l-amber-400 bg-space-900/90">
-          <div class="flex items-center justify-between text-[10px] font-mono uppercase tracking-widest text-zinc-400 mb-1">
-            <span>Mortality Accumulation Velocity</span>
-            <span class="text-amber-400 font-bold">PEAK STRESS</span>
-          </div>
-          <div id="mortality-velocity-val" class="text-2xl sm:text-3xl font-black font-mono text-amber-300">
-            1 EVERY 26.4 MIN
-          </div>
-          <div class="text-[10px] font-mono text-zinc-400 mt-2">
-            Fatality rate during sustained 50°C+ thermal dome episodes
-          </div>
-        </div>
-
-        <!-- Metric 4: Reservoir Depletion Rate -->
-        <div class="hud-box p-4 border-l-4 border-l-telemetry-cyan bg-space-900/90">
-          <div class="flex items-center justify-between text-[10px] font-mono uppercase tracking-widest text-zinc-400 mb-1">
-            <span>Critical Angat Water Level</span>
-            <span id="reservoir-level-tag" class="text-red-400 font-bold">BELOW MIN (174.5M)</span>
-          </div>
-          <div id="reservoir-level-val" class="text-2xl sm:text-3xl font-black font-mono text-telemetry-cyan">
-            -6.8M DEFICIT
-          </div>
-          <div class="text-[10px] font-mono text-zinc-400 mt-2">
-            Daily raw water draw exceeds inflow; 14M NCR residents face rationing
-          </div>
+        <div class="font-mono text-[11px] text-zinc-400 flex items-center gap-3">
+          <span id="scope-status-label" class="text-telemetry-cyan font-semibold">VIEWING: PHILIPPINES HIGH-RESOLUTION VECTOR RADAR</span>
         </div>
       </div>
 
-      <!-- Main Geospatial Interactive Simulator Console -->
+      <!-- Real-Time 3-Way Comparative Ticker Dashboard -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6 font-mono text-xs">
+        
+        <!-- View 1: Current Trajectory (Inaction) -->
+        <button onclick="setMapScenario('inaction')" id="btn-scenario-inaction" class="text-left p-4 border-2 border-red-500 bg-red-950/20 hover:bg-red-950/40 transition relative">
+          <div class="flex items-center justify-between text-[10px] uppercase tracking-widest text-zinc-400 mb-1">
+            <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-red-500"></span> 01 // Current Trajectory</span>
+            <span class="text-red-400 font-bold">ZERO INTERVENTION</span>
+          </div>
+          <div class="text-2xl sm:text-3xl font-black text-red-400 font-mono">
+            <span id="stat-inaction-mortality">2,480</span> <span id="stat-inaction-unit" class="text-xs text-zinc-400 font-normal">FILIPINOS</span>
+          </div>
+          <div class="text-[11px] text-zinc-300 mt-2 normal-case font-sans">
+            Unmitigated compound thermal collapse. Wet-bulb exceedance (&gt;32°C), reservoir exhaustion, ER surge.
+          </div>
+          <div class="mt-2 text-[10px] text-red-400 font-mono font-bold flex items-center gap-1">
+            <span>&rarr; ACTIVE SCENARIO (CLICK TO RE-TRIGGER)</span>
+          </div>
+        </button>
+
+        <!-- View 2: What They Currently Have (Current Work) -->
+        <button onclick="setMapScenario('current')" id="btn-scenario-current" class="text-left p-4 border border-amber-500/40 bg-amber-950/10 hover:bg-amber-950/30 transition relative">
+          <div class="flex items-center justify-between text-[10px] uppercase tracking-widest text-zinc-400 mb-1">
+            <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-amber-400"></span> 02 // What They Have</span>
+            <span class="text-amber-400 font-bold">FRAGMENTED SILOS</span>
+          </div>
+          <div class="text-2xl sm:text-3xl font-black text-amber-300 font-mono">
+            <span id="stat-current-mortality">1,980</span> <span id="stat-current-unit" class="text-xs text-zinc-400 font-normal">FILIPINOS</span>
+          </div>
+          <div class="text-[11px] text-zinc-300 mt-2 normal-case font-sans">
+            Weather alerts without cooling refuges; cash handouts with 4x food inflation; seeds in dry canals.
+          </div>
+          <div class="mt-2 text-[10px] text-amber-400 font-mono font-bold flex items-center gap-1">
+            <span>&rarr; CLICK TO VIEW ON MAP</span>
+          </div>
+        </button>
+
+        <!-- View 3: Where Rufino Synthesis Helps Out -->
+        <button onclick="setMapScenario('rufino')" id="btn-scenario-rufino" class="text-left p-4 border border-emerald-500/40 bg-emerald-950/10 hover:bg-emerald-950/30 transition relative">
+          <div class="flex items-center justify-between text-[10px] uppercase tracking-widest text-zinc-400 mb-1">
+            <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> 03 // Rufino Synthesis</span>
+            <span class="text-emerald-400 font-bold">AVOIDED CATASTROPHE</span>
+          </div>
+          <div class="text-2xl sm:text-3xl font-black text-emerald-400 font-mono">
+            <span id="stat-rufino-shielded">2,331</span> <span id="stat-rufino-unit" class="text-xs text-zinc-400 font-normal">LIVES SAVED</span>
+          </div>
+          <div class="text-[11px] text-zinc-200 mt-2 normal-case font-sans">
+            Canal-top solar canopies (evaporation -65%), thermal ice banks, atmospheric water nodes, cold chains.
+          </div>
+          <div class="mt-2 text-[10px] text-emerald-400 font-mono font-bold flex items-center gap-1">
+            <span>&rarr; CLICK TO VIEW ON MAP</span>
+          </div>
+        </button>
+
+      </div>
+
+      <!-- Main Map & Control Console -->
       <div class="bg-space-900/95 border border-white/20 p-4 sm:p-6 lg:p-8">
         
-        <!-- Controls Strip: Timeline Scrubber, Playback, Speed, Phases -->
-        <div class="flex flex-col xl:flex-row xl:items-center justify-between gap-4 border-b border-white/10 pb-6 mb-6">
-          <!-- Left: Play/Pause, Speed, Phase Name -->
+        <!-- Controls Bar: Timeline Scrubber, Playback, Speed, Phases -->
+        <div class="flex flex-col xl:flex-row xl:items-center justify-between gap-4 border-b border-white/10 pb-5 mb-5 font-mono text-xs">
+          
+          <!-- Left: Play/Pause, Speed, Active Phase Title -->
           <div class="flex flex-wrap items-center gap-3">
             <button id="sim-play-btn" onclick="toggleSimulationPlay()" class="btn-mission-white !py-2 !px-4 text-xs flex items-center gap-2">
               <span id="sim-play-icon">&#9658;</span>
               <span id="sim-play-text">PLAY SIMULATION</span>
             </button>
 
-            <div class="flex items-center border border-white/20 p-0.5 bg-black/60 font-mono text-xs">
+            <div class="flex items-center border border-white/20 p-0.5 bg-black/60">
               <button onclick="setSimSpeed(1)" id="speed-btn-1" class="px-2.5 py-1 text-white bg-white/20 font-bold">1X</button>
               <button onclick="setSimSpeed(2)" id="speed-btn-2" class="px-2.5 py-1 text-zinc-400 hover:text-white">2X</button>
               <button onclick="setSimSpeed(5)" id="speed-btn-5" class="px-2.5 py-1 text-zinc-400 hover:text-white">5X</button>
             </div>
 
-            <div class="px-3 py-1.5 bg-black/50 border border-white/10 font-mono text-xs">
-              <span class="text-zinc-500 uppercase tracking-widest text-[10px] block">ACTIVE METEOROLOGICAL WINDOW</span>
-              <span id="sim-phase-title" class="text-amber-300 font-bold uppercase">PHASE 02: Q2 2026 // LUZON THERMAL DOME CREST (52°C)</span>
+            <div class="px-3 py-1.5 bg-black/50 border border-white/10">
+              <span class="text-zinc-500 uppercase tracking-widest text-[9px] block">ACTIVE METEOROLOGICAL WINDOW</span>
+              <span id="sim-phase-title" class="text-amber-300 font-bold uppercase">PHASE 02: Q2 2026 // LUZON HEAT DOME CREST (52°C)</span>
             </div>
           </div>
 
-          <!-- Right: Phase Selection Tabs -->
-          <div class="flex flex-wrap gap-2 font-mono text-[11px]">
-            <button onclick="selectSimPhase(0)" id="phase-tab-0" class="px-3 py-1.5 border border-white/10 text-zinc-400 hover:border-white/30 transition">
-              PHASE 1: PACIFIC ONSET
+          <!-- Right: Chronological Phase Quick Buttons -->
+          <div class="flex flex-wrap gap-1.5 text-[11px]">
+            <button onclick="selectSimPhase(0)" id="phase-tab-0" class="px-2.5 py-1 border border-white/10 text-zinc-400 hover:border-white/30 transition">
+              Q1 2026: Pacific Wave
             </button>
-            <button onclick="selectSimPhase(1)" id="phase-tab-1" class="px-3 py-1.5 border border-amber-400 bg-amber-400/20 text-amber-300 font-bold transition">
-              PHASE 2: LUZON DOME (52°C)
+            <button onclick="selectSimPhase(1)" id="phase-tab-1" class="px-2.5 py-1 border border-amber-400 bg-amber-400/20 text-amber-300 font-bold transition">
+              Q2 2026: Luzon Heat Dome
             </button>
-            <button onclick="selectSimPhase(2)" id="phase-tab-2" class="px-3 py-1.5 border border-white/10 text-zinc-400 hover:border-white/30 transition">
-              PHASE 3: VISAYAS DROUGHT
+            <button onclick="selectSimPhase(2)" id="phase-tab-2" class="px-2.5 py-1 border border-white/10 text-zinc-400 hover:border-white/30 transition">
+              Q3-Q4 2026: Visayas Drought
             </button>
-            <button onclick="selectSimPhase(3)" id="phase-tab-3" class="px-3 py-1.5 border border-white/10 text-zinc-400 hover:border-white/30 transition">
-              PHASE 4: MINDANAO DEPLETION
+            <button onclick="selectSimPhase(3)" id="phase-tab-3" class="px-2.5 py-1 border border-white/10 text-zinc-400 hover:border-white/30 transition">
+              Q1 2027: Southern Grid Collapse
             </button>
           </div>
         </div>
 
-        <!-- Scrubber Range Slider -->
-        <div class="mb-6">
+        <!-- Overtime Progression Slider -->
+        <div class="mb-5">
           <div class="flex items-center justify-between font-mono text-[10px] text-zinc-400 uppercase tracking-wider mb-2">
-            <span>CHRONOLOGICAL PROGRESSION (DRAG TO SCRUB WEATHER MOVEMENT)</span>
-            <span id="sim-timeline-date" class="text-telemetry-cyan font-bold">APRIL – JUNE 2026 (PEAK SUMMER RADIATION)</span>
+            <span>CHRONOLOGICAL WEATHER MOVEMENT SCRUBBER (DRAG TO TRAVEL OVER TIME)</span>
+            <span id="sim-timeline-date" class="text-telemetry-cyan font-bold">APRIL – JUNE 2026 (PEAK SUMMER INSOLATION)</span>
           </div>
           <input 
             type="range" 
             id="sim-timeline-slider" 
             min="0" 
             max="3" 
-            step="0.05" 
+            step="0.02" 
             value="1" 
             oninput="handleSliderScrub(this.value)" 
             class="w-full accent-telemetry-cyan cursor-pointer bg-zinc-800 h-2 rounded-none"
           />
           <div class="flex justify-between font-mono text-[10px] text-zinc-500 mt-1">
-            <span>Q1 2026 (Equatorial Deficit)</span>
-            <span>Q2 2026 (Luzon Heat Dome)</span>
-            <span>Q3–Q4 2026 (Visayas Drought)</span>
-            <span>Q1 2027 (Mindanao Hydro Crisis)</span>
+            <span>Q1 2026 (Trade-Wind Collapse)</span>
+            <span>Q2 2026 (Luzon Thermal Dome 52°C)</span>
+            <span>Q3–Q4 2026 (Visayas &amp; Indian Drought)</span>
+            <span>Q1 2027 (Mindanao &amp; Africa Grid Failure)</span>
           </div>
         </div>
 
-        <!-- Interactive 2-Column Grid: SVG Weather Map + Regional Telemetry Inspector -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <!-- Dual Scope Map Viewports + Inspector Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
           
-          <!-- Column 1: The Interactive SVG Philippine Weather Map -->
-          <div class="lg:col-span-7 bg-black/80 border border-white/15 p-4 sm:p-6 relative overflow-hidden">
-            <!-- Map Overlay Legend & Radar Status -->
-            <div class="flex items-center justify-between text-[11px] font-mono mb-3 border-b border-white/10 pb-2">
-              <div class="flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span class="text-zinc-300 uppercase tracking-wider font-semibold">RADAR SCAN: 118°E–128°E / 4°N–21°N</span>
-              </div>
-              <div class="text-zinc-400">
-                CLICK ANY REGION TO INSPECT TELEMETRY
-              </div>
+          <!-- Column 1: Map Display Area (Contains BOTH Philippine Vector Map and Worldwide Leaflet Map) -->
+          <div class="lg:col-span-8 bg-black/90 border border-white/20 p-2 relative">
+            
+            <!-- Map Top Overlay HUD -->
+            <div class="absolute top-4 left-4 z-[400] flex flex-wrap items-center gap-2 pointer-events-none">
+              <span id="map-mode-badge" class="px-2.5 py-1 bg-black/90 border border-red-500 text-red-400 font-mono text-[11px] font-bold shadow-lg pointer-events-auto">
+                VIEW: 01 // CURRENT TRAJECTORY (ZERO INTERVENTION)
+              </span>
+              <span id="map-sub-badge" class="px-2.5 py-1 bg-black/90 border border-white/20 text-zinc-300 font-mono text-[11px] pointer-events-auto hidden sm:inline">
+                PAGASA DOPPLER RADAR ACTIVE
+              </span>
             </div>
 
-            <!-- SVG Map Canvas with Responsive ViewBox -->
-            <div class="relative w-full aspect-[600/720] max-h-[680px] mx-auto">
+            <!-- VIEWPORT A: PHILIPPINES HIGH-RESOLUTION VECTOR RADAR MAP (DEFAULT ACTIVE) -->
+            <div id="view-philippines-container" class="relative w-full aspect-[600/680] max-h-[640px] mx-auto">
               <svg id="sim-map-svg" viewBox="0 0 600 750" class="w-full h-full select-none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                  <!-- Background grid -->
-                  <pattern id="radar-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                  <pattern id="radar-grid-ph" width="40" height="40" patternUnits="userSpaceOnUse">
                     <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
                   </pattern>
 
-                  <!-- Dynamic Moving Thermal Front Gradients -->
                   <radialGradient id="thermal-front-glow" cx="45%" cy="30%" r="40%">
                     <stop offset="0%" stop-color="#ff0055" stop-opacity="0.65" />
                     <stop offset="45%" stop-color="#ef4444" stop-opacity="0.45" />
@@ -693,9 +748,9 @@
 
                 <!-- Background & Coordinate Lines -->
                 <rect width="600" height="750" fill="#040407" />
-                <rect width="600" height="750" fill="url(#radar-grid)" />
+                <rect width="600" height="750" fill="url(#radar-grid-ph)" />
 
-                <!-- Coordinate Lat/Lon Annotations -->
+                <!-- Lat/Lon Annotations -->
                 <g class="text-[9px] font-mono fill-zinc-600">
                   <text x="10" y="70">20°N</text>
                   <text x="10" y="240">16°N</text>
@@ -721,147 +776,156 @@
 
                 <!-- PHILIPPINE ISLAND LANDMASSES (HIGH PRECISION VECTORS) -->
                 <g class="transition-all duration-500">
-                  <!-- Luzon Mainland -->
                   <path id="island-luzon" d="M 245,65 L 290,75 L 315,110 L 320,165 L 305,215 L 295,245 L 275,275 L 260,310 L 245,315 L 235,295 L 215,280 L 210,245 L 215,180 L 225,120 L 235,80 Z" fill="#14141e" stroke="rgba(255,255,255,0.3)" stroke-width="1.2" />
-                  
-                  <!-- Bicol Peninsula -->
                   <path id="island-bicol" d="M 275,285 L 310,315 L 350,335 L 385,365 L 420,385 L 425,405 L 395,420 L 375,395 L 340,365 L 305,335 Z" fill="#14141e" stroke="rgba(255,255,255,0.3)" stroke-width="1.2" />
-                  
-                  <!-- Mindoro -->
                   <path id="island-mindoro" d="M 215,360 L 245,365 L 260,395 L 250,430 L 220,435 L 205,400 Z" fill="#14141e" stroke="rgba(255,255,255,0.3)" stroke-width="1.2" />
-                  
-                  <!-- Palawan -->
                   <path id="island-palawan" d="M 175,455 L 185,470 L 155,515 L 130,560 L 105,605 L 90,625 L 85,615 L 110,565 L 140,510 L 165,460 Z" fill="#14141e" stroke="rgba(255,255,255,0.3)" stroke-width="1.2" />
-                  
-                  <!-- Panay -->
                   <path id="island-panay" d="M 290,460 L 325,465 L 335,495 L 315,525 L 280,515 L 275,480 Z" fill="#14141e" stroke="rgba(255,255,255,0.3)" stroke-width="1.2" />
-                  
-                  <!-- Negros -->
                   <path id="island-negros" d="M 330,485 L 355,495 L 360,535 L 350,575 L 335,570 L 330,520 Z" fill="#14141e" stroke="rgba(255,255,255,0.3)" stroke-width="1.2" />
-                  
-                  <!-- Cebu -->
                   <path id="island-cebu" d="M 365,480 L 375,485 L 385,530 L 380,560 L 370,555 L 365,515 Z" fill="#14141e" stroke="rgba(255,255,255,0.3)" stroke-width="1.2" />
-                  
-                  <!-- Bohol -->
                   <path id="island-bohol" d="M 395,535 L 425,535 L 435,555 L 415,570 L 395,560 Z" fill="#14141e" stroke="rgba(255,255,255,0.3)" stroke-width="1.2" />
-                  
-                  <!-- Samar -->
                   <path id="island-samar" d="M 425,410 L 455,420 L 465,455 L 445,485 L 425,470 L 415,440 Z" fill="#14141e" stroke="rgba(255,255,255,0.3)" stroke-width="1.2" />
-                  
-                  <!-- Leyte -->
                   <path id="island-leyte" d="M 425,475 L 445,485 L 440,535 L 420,545 L 415,505 Z" fill="#14141e" stroke="rgba(255,255,255,0.3)" stroke-width="1.2" />
-                  
-                  <!-- Mindanao Mainland -->
                   <path id="island-mindanao" d="M 385,575 L 440,570 L 485,585 L 490,635 L 465,690 L 435,715 L 405,710 L 375,675 L 370,630 L 335,630 L 295,645 L 275,660 L 270,645 L 310,615 L 365,615 L 380,580 Z" fill="#14141e" stroke="rgba(255,255,255,0.3)" stroke-width="1.2" />
                 </g>
 
-                <!-- DYNAMIC REGIONAL TELEMETRY NODES (CLICKABLE & INTERACTIVE) -->
+                <!-- DYNAMIC REGIONAL TELEMETRY NODES -->
                 <g id="map-telemetry-nodes">
-                  <!-- Generated dynamically via renderTelemetryNodes() -->
+                  <!-- Populated by renderPhilippineNodes() -->
                 </g>
               </svg>
             </div>
 
-            <!-- Heat Index Color Bar Legend -->
-            <div class="mt-4 pt-3 border-t border-white/10 flex flex-wrap items-center justify-between gap-2 font-mono text-[10px]">
-              <span class="text-zinc-400">HEAT INDEX THERMAL SPECTRUM:</span>
-              <div class="flex items-center gap-1">
-                <span class="px-1.5 py-0.5 bg-yellow-500/20 text-yellow-300 border border-yellow-500/40">38°C–41°C CAUTION</span>
-                <span class="px-1.5 py-0.5 bg-orange-500/20 text-orange-300 border border-orange-500/40">42°C–47°C DANGER</span>
-                <span class="px-1.5 py-0.5 bg-red-600/30 text-red-300 border border-red-500/50 font-bold">48°C–51°C EXTREME</span>
-                <span class="px-1.5 py-0.5 bg-rose-600/40 text-rose-200 border border-rose-500 font-bold animate-pulse">52°C+ CATASTROPHIC</span>
+            <!-- VIEWPORT B: WORLDWIDE GLOBAL INTERACTIVE MAP (LEAFLET + CARTODB DARK MATTER) -->
+            <div id="view-global-container" class="hidden w-full h-[580px] sm:h-[640px] z-10">
+              <div id="global-el-nino-map" class="w-full h-full"></div>
+            </div>
+
+            <!-- Map Footer Overlay (Legend & Quick Jumps) -->
+            <div class="p-3 bg-space-950/95 border-t border-white/15 flex flex-wrap items-center justify-between gap-3 font-mono text-[10px]">
+              <div class="flex items-center gap-2">
+                <span class="text-zinc-400">HEAT SPECTRUM:</span>
+                <span class="px-1.5 py-0.5 bg-yellow-500/20 text-yellow-300 border border-yellow-500/40">38°C–42°C</span>
+                <span class="px-1.5 py-0.5 bg-orange-500/20 text-orange-300 border border-orange-500/40">43°C–47°C</span>
+                <span class="px-1.5 py-0.5 bg-red-600/30 text-red-300 border border-red-500/50 font-bold">48°C–51°C</span>
+                <span class="px-1.5 py-0.5 bg-rose-600/40 text-rose-200 border border-rose-500 font-bold animate-pulse">52°C+ DOME</span>
+              </div>
+              <div class="flex items-center gap-2 text-zinc-400">
+                <span id="map-interaction-hint">CLICK ANY REGION TO INSPECT TELEMETRY &bull; DRAG SLIDER TO TIME-TRAVEL</span>
               </div>
             </div>
+
           </div>
 
-          <!-- Column 2: Regional Telemetry Inspector Console -->
-          <div class="lg:col-span-5 space-y-4">
+          <!-- Column 2: Selected Node Telemetry Inspector Console -->
+          <div class="lg:col-span-4 space-y-4">
             
-            <div class="hud-box p-6 border-l-4 border-l-amber-400 bg-space-900/95">
+            <div class="hud-box p-5 border-l-4 border-l-telemetry-cyan bg-space-900/95">
               <div class="flex items-center justify-between text-[10px] font-mono text-zinc-400 uppercase tracking-widest mb-1">
-                <span>REGIONAL TELEMETRY INSPECTION</span>
-                <span id="inspector-status-badge" class="px-2 py-0.5 bg-red-500/20 text-red-400 border border-red-500/40 font-bold">CRITICAL DANGER</span>
+                <span>HOTSPOT TELEMETRY INSPECTION</span>
+                <span id="inspector-badge" class="px-2 py-0.5 bg-red-500/20 text-red-400 border border-red-500/40 font-bold">CRITICAL DANGER</span>
               </div>
-              <h3 id="inspector-region-name" class="text-xl sm:text-2xl font-bold font-display text-white uppercase tracking-tight">
-                CENTRAL LUZON &amp; ANGAT CATCHMENT
+              
+              <h3 id="inspector-title" class="text-xl sm:text-2xl font-bold font-display text-white uppercase tracking-tight">
+                PHILIPPINES // CENTRAL LUZON &amp; ANGAT
               </h3>
-              <div id="inspector-coords" class="text-xs font-mono text-zinc-400 mb-4">
+              
+              <div id="inspector-coords" class="text-xs font-mono text-zinc-400 mb-3">
                 LAT 15.00°N / LON 120.70°E &bull; BREADBASKET &amp; CAPITAL WATER CATCHMENT
               </div>
 
-              <!-- Metric Pairs -->
-              <div class="grid grid-cols-2 gap-3 mb-4">
-                <div class="p-3 bg-black/60 border border-white/10">
-                  <div class="text-[10px] font-mono text-zinc-400 uppercase">Current Heat Index</div>
-                  <div id="inspector-heat-index" class="text-2xl sm:text-3xl font-mono font-black text-red-400">52°C</div>
-                  <div id="inspector-wet-bulb" class="text-[10px] font-mono text-zinc-500">Wet-Bulb: 33.2°C (Fatal limit: 35°C)</div>
+              <!-- Primary Metrics -->
+              <div class="grid grid-cols-2 gap-2 mb-3 font-mono text-xs">
+                <div class="p-2.5 bg-black/60 border border-white/10">
+                  <div class="text-[9px] text-zinc-400 uppercase">Projected Heat Index</div>
+                  <div id="inspector-heat" class="text-2xl font-black text-red-400">52°C</div>
+                  <div id="inspector-wetbulb" class="text-[9px] text-zinc-500">Wet-Bulb: 33.2°C</div>
                 </div>
-
-                <div class="p-3 bg-black/60 border border-white/10">
-                  <div class="text-[10px] font-mono text-zinc-400 uppercase">Population at High Risk</div>
-                  <div id="inspector-population" class="text-2xl sm:text-3xl font-mono font-black text-white">12.4M</div>
-                  <div class="text-[10px] font-mono text-zinc-500">Agricultural &amp; Urban belt</div>
-                </div>
-              </div>
-
-              <!-- Critical Infrastructure Alert -->
-              <div class="p-3 bg-red-950/30 border border-red-500/40 mb-4">
-                <div class="text-[10px] font-mono text-red-400 uppercase font-bold tracking-wider mb-1">// CRITICAL INFRASTRUCTURE AT RISK</div>
-                <p id="inspector-infra" class="text-xs text-zinc-300 leading-relaxed font-mono">
-                  Angat Dam (supplies 90% of Metro Manila raw water) plunges below 180m minimum operating level; 60% irrigation cutoffs shut down Central Luzon rice paddies.
-                </p>
-              </div>
-
-              <!-- Projected Excess Fatalities -->
-              <div class="p-3 bg-black/60 border border-white/10 mb-4">
-                <div class="text-[10px] font-mono text-zinc-400 uppercase mb-1">Projected Casualties (Inaction vs. Intervention)</div>
-                <div class="flex items-center justify-between text-xs font-mono">
-                  <span class="text-red-400 font-bold">Unmitigated: <span id="inspector-mortality-unmitigated" class="text-base">780</span> deaths</span>
-                  <span class="text-emerald-400 font-bold">Photosynthesis Defense: <span id="inspector-mortality-shielded" class="text-base">46</span> deaths</span>
-                </div>
-                <div class="w-full bg-zinc-800 h-1.5 mt-2">
-                  <div class="bg-gradient-to-r from-red-500 via-amber-400 to-emerald-400 h-full w-[94%]"></div>
+                <div class="p-2.5 bg-black/60 border border-white/10">
+                  <div class="text-[9px] text-zinc-400 uppercase">Exposed Population</div>
+                  <div id="inspector-pop" class="text-2xl font-black text-white">12.4M</div>
+                  <div class="text-[9px] text-zinc-500">Agricultural &amp; Urban</div>
                 </div>
               </div>
 
-              <!-- Specific Deployment Countermeasure -->
-              <div class="p-3 bg-emerald-950/30 border border-emerald-500/40">
-                <div class="text-[10px] font-mono text-emerald-400 uppercase font-bold tracking-wider mb-1">// RUFINO SYNTHESIS SPECIFICATION FOR THIS NODE</div>
-                <p id="inspector-action" class="text-xs text-zinc-200 leading-relaxed font-mono">
-                  Install canal-top solar canopies on Bustos-Angat conveyance (cuts 65% evaporation) + deploy district thermal ice storage to shave 35% off peak agricultural grid loads.
-                </p>
+              <!-- 3-Way Comparative Breakdown -->
+              <div class="space-y-2.5 mb-3 text-xs font-mono">
+                <!-- 01: Inaction -->
+                <div class="p-2.5 bg-red-950/20 border border-red-500/30">
+                  <div class="text-[9px] text-red-400 uppercase font-bold tracking-wider">// 01: CURRENT TRAJECTORY (ZERO INTERVENTION)</div>
+                  <p id="inspector-text-inaction" class="text-[11px] text-zinc-300 mt-1 leading-snug">
+                    780 excess fatalities. Angat Dam plunges below 180m minimum operating level; 60% irrigation cutoffs shut down Central Luzon rice paddies.
+                  </p>
+                </div>
+
+                <!-- 02: Current Work -->
+                <div class="p-2.5 bg-amber-950/20 border border-amber-500/30">
+                  <div class="text-[9px] text-amber-400 uppercase font-bold tracking-wider">// 02: WHAT THEY CURRENTLY HAVE (CURRENT WORK)</div>
+                  <p id="inspector-text-current" class="text-[11px] text-zinc-300 mt-1 leading-snug">
+                    PAGASA advisories &amp; cloud seeding flights. Warning issued, but water evaporates faster than replenished; farmers face 4x rice price surge.
+                  </p>
+                </div>
+
+                <!-- 03: Rufino Synthesis -->
+                <div class="p-2.5 bg-emerald-950/25 border border-emerald-500/40">
+                  <div class="text-[9px] text-emerald-400 uppercase font-bold tracking-wider">// 03: WHERE RUFINO SYNTHESIS HELPS OUT</div>
+                  <p id="inspector-text-rufino" class="text-[11px] text-zinc-200 mt-1 leading-snug font-medium">
+                    Canal-top solar canopies on Bustos-Angat conveyance (cuts 65% evaporation) + district thermal ice banks to shave 35% off peak agricultural grid loads.
+                  </p>
+                </div>
               </div>
 
-              <!-- Quick Region Selector Buttons -->
-              <div class="mt-4 pt-3 border-t border-white/10">
-                <div class="text-[10px] font-mono text-zinc-400 uppercase mb-2">QUICK JUMP TO KEY REGIONAL NODES:</div>
-                <div class="flex flex-wrap gap-1.5 font-mono text-[10px]">
-                  <button onclick="inspectRegion('cagayan')" class="px-2 py-1 bg-white/5 border border-white/10 text-zinc-300 hover:border-white/30">Cagayan</button>
-                  <button onclick="inspectRegion('centralluzon')" class="px-2 py-1 bg-white/5 border border-white/10 text-zinc-300 hover:border-white/30">Central Luzon</button>
-                  <button onclick="inspectRegion('ncr')" class="px-2 py-1 bg-white/5 border border-white/10 text-zinc-300 hover:border-white/30">Metro Manila</button>
-                  <button onclick="inspectRegion('bicol')" class="px-2 py-1 bg-white/5 border border-white/10 text-zinc-300 hover:border-white/30">Bicol</button>
-                  <button onclick="inspectRegion('westvisayas')" class="px-2 py-1 bg-white/5 border border-white/10 text-zinc-300 hover:border-white/30">W. Visayas</button>
-                  <button onclick="inspectRegion('eastvisayas')" class="px-2 py-1 bg-white/5 border border-white/10 text-zinc-300 hover:border-white/30">E. Visayas</button>
-                  <button onclick="inspectRegion('northmindanao')" class="px-2 py-1 bg-white/5 border border-white/10 text-zinc-300 hover:border-white/30">N. Mindanao</button>
-                  <button onclick="inspectRegion('southmindanao')" class="px-2 py-1 bg-white/5 border border-white/10 text-zinc-300 hover:border-white/30">S. Mindanao</button>
+              <!-- Regional Quick Jump Buttons for Philippines -->
+              <div id="philippines-quick-jumps" class="pt-2 border-t border-white/10 font-mono text-[10px]">
+                <div class="text-zinc-400 uppercase mb-1.5">QUICK INSPECT PHILIPPINE NODES:</div>
+                <div class="flex flex-wrap gap-1">
+                  <button onclick="inspectPhilippineRegion('cagayan')" class="px-2 py-0.5 bg-white/5 border border-white/10 text-zinc-300 hover:border-white/30">Cagayan</button>
+                  <button onclick="inspectPhilippineRegion('centralluzon')" class="px-2 py-0.5 bg-white/5 border border-white/10 text-zinc-300 hover:border-white/30">Central Luzon</button>
+                  <button onclick="inspectPhilippineRegion('ncr')" class="px-2 py-0.5 bg-white/5 border border-white/10 text-zinc-300 hover:border-white/30">Metro Manila</button>
+                  <button onclick="inspectPhilippineRegion('bicol')" class="px-2 py-0.5 bg-white/5 border border-white/10 text-zinc-300 hover:border-white/30">Bicol</button>
+                  <button onclick="inspectPhilippineRegion('westvisayas')" class="px-2 py-0.5 bg-white/5 border border-white/10 text-zinc-300 hover:border-white/30">W. Visayas</button>
+                  <button onclick="inspectPhilippineRegion('mindanao')" class="px-2 py-0.5 bg-white/5 border border-white/10 text-zinc-300 hover:border-white/30">Mindanao</button>
                 </div>
+              </div>
+
+              <!-- Regional Quick Jump Buttons for Global (when in global mode) -->
+              <div id="global-quick-jumps" class="hidden pt-2 border-t border-white/10 font-mono text-[10px]">
+                <div class="text-zinc-400 uppercase mb-1.5">QUICK INSPECT GLOBAL HOTSPOTS:</div>
+                <div class="flex flex-wrap gap-1">
+                  <button onclick="inspectGlobalHotspot('centralluzon')" class="px-2 py-0.5 bg-white/5 border border-white/10 text-zinc-300 hover:border-white/30">Philippines</button>
+                  <button onclick="inspectGlobalHotspot('indonesia')" class="px-2 py-0.5 bg-white/5 border border-white/10 text-zinc-300 hover:border-white/30">Indonesia</button>
+                  <button onclick="inspectGlobalHotspot('india')" class="px-2 py-0.5 bg-white/5 border border-white/10 text-zinc-300 hover:border-white/30">India</button>
+                  <button onclick="inspectGlobalHotspot('africa')" class="px-2 py-0.5 bg-white/5 border border-white/10 text-zinc-300 hover:border-white/30">East Africa</button>
+                  <button onclick="inspectGlobalHotspot('latam')" class="px-2 py-0.5 bg-white/5 border border-white/10 text-zinc-300 hover:border-white/30">Latin America</button>
+                </div>
+              </div>
+
+              <!-- External Live Radar Stream Launcher -->
+              <div class="pt-2 border-t border-white/10 flex flex-wrap items-center gap-2">
+                <a href="https://bagong.pagasa.dost.gov.ph/" target="_blank" rel="noopener" class="text-[10px] font-mono text-telemetry-cyan hover:underline flex items-center gap-1">
+                  <span>PAGASA DOPPLER RADAR NETWORK &rarr;</span>
+                </a>
+                <span class="text-zinc-600">&bull;</span>
+                <a href="https://www.jma.go.jp/bosai/nowc/" target="_blank" rel="noopener" class="text-[10px] font-mono text-zinc-400 hover:text-white flex items-center gap-1">
+                  <span>HIMAWARI-9 SATELLITE &rarr;</span>
+                </a>
               </div>
             </div>
 
             <!-- Free Consultation & Time-Urgency Callout -->
-            <div class="p-4 bg-emerald-950/40 border border-emerald-500/50 space-y-2">
-              <div class="flex items-center justify-between text-[10px] font-mono text-emerald-400 font-bold uppercase tracking-widest">
-                <span>// ZERO FEES TO SAVE HUMAN LIVES</span>
+            <div class="p-4 bg-emerald-950/40 border border-emerald-500/50 space-y-2 font-mono text-xs">
+              <div class="flex items-center justify-between text-[10px] text-emerald-400 font-bold uppercase tracking-widest">
+                <span>// ZERO CONSULTING FEES</span>
                 <span class="px-2 py-0.5 bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">100% FREE</span>
               </div>
-              <p class="text-white text-xs font-semibold">
+              <p class="text-white text-xs font-semibold normal-case font-sans">
                 "Let it be known the consultation is free. I'm not charging to save people's lives." — Jefferson Rafael Rufino
               </p>
-              <p class="text-zinc-300 text-[11px] leading-relaxed">
-                Time is of the essence. You do not need anyone's permission to protect your citizens—implement the steps yourselves, consult your own advisors, or consult with me for free to stress-test your existing plans.
+              <p class="text-zinc-300 text-[11px] leading-relaxed normal-case font-sans">
+                Time is of the essence. You do not need anyone's permission to protect your citizens—implement the steps yourselves, or consult with me for free to stress-test your existing plans.
               </p>
               <div class="pt-2">
-                <a href="mailto:jeffersonrrufino@gmail.com?subject=Free%20Regional%20Telemetry%20%26%20Plan%20Stress-Test%20Consultation" class="btn-mission-cyan w-full text-center text-xs justify-center">
+                <a href="mailto:jeffersonrrufino@gmail.com?subject=Free%20Telemetry%20%26%20Plan%20Stress-Test%20Consultation" class="btn-mission-cyan w-full text-center text-xs justify-center block">
                   REQUEST FREE PLAN STRESS-TEST CONSULTATION &rarr;
                 </a>
               </div>
@@ -877,7 +941,7 @@
 
     <!-- Bottom HUD Bar -->
     <div class="relative z-10 max-w-[1720px] w-full mx-auto flex items-center justify-between border-t border-white/10 pt-4 font-mono text-[11px] text-zinc-500">
-      <div>GEOSPATIAL WEATHER-FRONT TELEMETRY STREAM // UTC TIME-SYNCHRONIZED</div>
+      <div>GEOSPATIAL METEOROLOGICAL TELEMETRY STREAM // DUAL NATIONAL &amp; GLOBAL RUNTIMES</div>
       <div class="text-zinc-400">CONTACT ARCHITECT (100% FREE): jeffersonrrufino@gmail.com</div>
     </div>
   </section>
@@ -3717,205 +3781,687 @@ TRANSMITTED VIA RUFINOVENTURES.COM MISSION CONTROL`;
   </script>
 
 
+  
+
+  
+
   <!-- ========================================================================= -->
-  <!-- JAVASCRIPT: GEOSPATIAL WEATHER SIMULATOR, TICKING CLOCK & MORTALITY ENGINE -->
+  <!-- JAVASCRIPT: DUAL-SCOPE TELEMETRY (PHILIPPINES FIRST + WORLDWIDE OPTION)   -->
   <!-- ========================================================================= -->
   <script>
-    const SIM_REGIONS_DATA = [
-      {
-        id: 'cagayan',
-        name: 'Cagayan Valley & Northern Plains',
-        abbr: 'CAG',
-        lat: '17.61°N', lon: '121.72°E',
-        x: 286, y: 159,
-        phases: [
-          { hi: 40, wb: 28.5, pop: '3.7M', mort: 45, shield: 42, status: 'MODERATE', desc: 'Rainfall deficit -35%; initial trade wind suppression' },
-          { hi: 51, wb: 32.8, pop: '3.7M', mort: 420, shield: 395, status: 'CATASTROPHIC', desc: 'Thermal Dome Crest (51°C); Magat Dam water drops below irrigation sill' },
-          { hi: 46, wb: 30.4, pop: '3.7M', mort: 610, shield: 573, status: 'CRITICAL', desc: 'Severe topsoil desiccation; corn and rice yield crash -42%' },
-          { hi: 43, wb: 29.1, pop: '3.7M', mort: 720, shield: 677, status: 'HIGH', desc: 'Extended 12-month dry cycle with depleted aquifers' }
-        ],
-        infra: 'Magat Dam irrigation desiccation; grain harvest reduction -42%',
-        action: 'Canal-top solar canopies on Magat feeder canals + distributed atmospheric water nodes at public schools'
-      },
+    // Unified Hotspot & Region Data
+    const TELEMETRY_HOTSPOTS = [
       {
         id: 'centralluzon',
-        name: 'Central Luzon & Angat Catchment',
+        scope: 'philippines',
+        country: 'Philippines',
+        region: 'Central Luzon & Angat Catchment',
         abbr: 'CL',
-        lat: '15.00°N', lon: '120.70°E',
-        x: 235, y: 282,
-        phases: [
-          { hi: 39, wb: 28.1, pop: '12.4M', mort: 95, shield: 89, status: 'MODERATE', desc: 'Dry spell onset; Angat Reservoir at 202m operating elevation' },
-          { hi: 52, wb: 33.2, pop: '12.4M', mort: 780, shield: 733, status: 'CATASTROPHIC', desc: 'Angat plunges below 180m; Extreme Heat Dome locks over plains' },
-          { hi: 47, wb: 31.0, pop: '12.4M', mort: 1140, shield: 1071, status: 'CRITICAL', desc: 'Severe irrigation cutoffs; 14M NCR citizens face 12-hour water cuts' },
-          { hi: 44, wb: 29.5, pop: '12.4M', mort: 1320, shield: 1240, status: 'HIGH', desc: 'Secondary reservoir depletion; groundwater overdraft' }
-        ],
-        infra: 'Angat Dam (supplies 90% of Metro Manila raw water); rice paddies parched',
-        action: 'Bustos-Angat conveyance canopies (cuts evaporation 65%) + thermal ice storage for peak grid relief'
+        svgX: 235, svgY: 282,
+        mapCoords: [15.00, 120.70],
+        coordStr: 'LAT 15.00°N / LON 120.70°E • Breadbasket & NCR Water Sill',
+        heatByPhase: [39, 52, 47, 44],
+        wetbulbByPhase: [28.1, 33.2, 31.0, 29.5],
+        pop: '12.4M',
+        inactionMortality: [95, 780, 1140, 1320],
+        currentMortality: [75, 620, 910, 1050],
+        rufinoShielded: [89, 733, 1071, 1240],
+        inactionText: '780 excess fatalities. Angat Dam plunges below 180m minimum operating level; 60% irrigation cutoffs shut down Central Luzon rice paddies.',
+        currentText: 'PAGASA advisories & cloud seeding flights. Warning issued, but water evaporates faster than replenished; farmers face 4x rice price surge.',
+        rufinoText: 'Canal-top solar canopies on Bustos-Angat conveyance (cuts 65% evaporation) + district thermal ice banks to shave 35% off peak agricultural grid loads.'
       },
       {
         id: 'ncr',
-        name: 'National Capital Region (Metro Manila)',
+        scope: 'philippines',
+        country: 'Philippines',
+        region: 'National Capital Region (Metro Manila)',
         abbr: 'NCR',
-        lat: '14.59°N', lon: '120.98°E',
-        x: 249, y: 301,
-        phases: [
-          { hi: 39, wb: 28.0, pop: '14.2M', mort: 80, shield: 75, status: 'MODERATE', desc: 'Urban heat island baseline; elevated nighttime minimum temperatures' },
-          { hi: 49, wb: 32.1, pop: '14.2M', mort: 680, shield: 639, status: 'CATASTROPHIC', desc: 'Intense Urban Heat Island + 12-hour municipal water rationing' },
-          { hi: 45, wb: 30.2, pop: '14.2M', mort: 990, shield: 930, status: 'CRITICAL', desc: 'Public hospital ER cardiovascular & heat stroke overload' },
-          { hi: 42, wb: 28.8, pop: '14.2M', mort: 1150, shield: 1081, status: 'HIGH', desc: 'Water pressure collapse in high-density informal settlements' }
-        ],
-        infra: 'High-density urban core; emergency room surge capacity exhausted',
-        action: 'Civic cooling refuges at sports domes & schools + distributed AWG hydration nodes'
+        svgX: 249, svgY: 301,
+        mapCoords: [14.59, 120.98],
+        coordStr: 'LAT 14.59°N / LON 120.98°E • Dense Megacity & Critical Urban Grid',
+        heatByPhase: [39, 49, 45, 42],
+        wetbulbByPhase: [28.0, 32.1, 30.2, 28.8],
+        pop: '14.2M',
+        inactionMortality: [80, 680, 990, 1150],
+        currentMortality: [60, 540, 790, 920],
+        rufinoShielded: [75, 639, 930, 1081],
+        inactionText: 'Public hospital ER heat stroke surge; 12-hour rotating municipal water cutoffs across 14 million citizens.',
+        currentText: 'LGU water tankers & emergency hydration tents. Tankers quickly run dry in traffic gridlock while blackouts trip water pumps.',
+        rufinoText: 'Decentralized civic cooling refuges at sports arenas and public schools powered by solar micro-grids + atmospheric water generation.'
+      },
+      {
+        id: 'cagayan',
+        scope: 'philippines',
+        country: 'Philippines',
+        region: 'Cagayan Valley & Northern Plains',
+        abbr: 'CAG',
+        svgX: 286, svgY: 159,
+        mapCoords: [17.61, 121.72],
+        coordStr: 'LAT 17.61°N / LON 121.72°E • Northern Grain & Corn Basin',
+        heatByPhase: [40, 51, 46, 43],
+        wetbulbByPhase: [28.5, 32.8, 30.4, 29.1],
+        pop: '3.7M',
+        inactionMortality: [45, 420, 610, 720],
+        currentMortality: [35, 330, 480, 570],
+        rufinoShielded: [42, 395, 573, 677],
+        inactionText: 'Magat Dam level drops below power generation sill; agricultural field desiccation triggers 42% staple harvest reduction.',
+        currentText: 'Emergency seed subsidies from DA. Seeds wither in cracked unshaded soil without continuous irrigation.',
+        rufinoText: 'Canal-top solar canopies over Magat feeder canals prevent evaporation and supply steady solar pumping power.'
       },
       {
         id: 'bicol',
-        name: 'Bicol Peninsula & Eastern Pacific Gate',
+        scope: 'philippines',
+        country: 'Philippines',
+        region: 'Bicol Peninsula & Eastern Pacific Gate',
         abbr: 'BCL',
-        lat: '13.14°N', lon: '123.74°E',
-        x: 387, y: 369,
-        phases: [
-          { hi: 42, wb: 29.8, pop: '6.1M', mort: 60, shield: 56, status: 'HIGH', desc: 'Early trade-wind reversal; rainfall deficit hits eastern coastline' },
-          { hi: 48, wb: 31.8, pop: '6.1M', mort: 240, shield: 225, status: 'CRITICAL', desc: 'Intense coastal wet-bulb crest; high relative humidity trap' },
-          { hi: 45, wb: 30.1, pop: '6.1M', mort: 380, shield: 357, status: 'HIGH', desc: 'Aquifer depletion in coastal fishing municipalities' },
-          { hi: 42, wb: 28.5, pop: '6.1M', mort: 460, shield: 432, status: 'MODERATE', desc: 'Coconut and abaca plantation agricultural stress' }
-        ],
-        infra: 'Tiwi geothermal cooling water stress; rural barangay clinic refrigeration outages',
-        action: 'Off-grid clinic vaccine cold-chains + solar-powered atmospheric water generation'
+        svgX: 387, svgY: 369,
+        mapCoords: [13.14, 123.74],
+        coordStr: 'LAT 13.14°N / LON 123.74°E • Pacific Trade-Wind Barrier',
+        heatByPhase: [42, 48, 45, 42],
+        wetbulbByPhase: [29.8, 31.8, 30.1, 28.5],
+        pop: '6.1M',
+        inactionMortality: [60, 240, 380, 460],
+        currentMortality: [48, 192, 304, 368],
+        rufinoShielded: [56, 225, 357, 432],
+        inactionText: 'Early trade-wind collapse; high relative humidity creates lethal wet-bulb trap for coastal fishing towns.',
+        currentText: 'Early warning sirens & disaster council meetings. Leaves clinics with zero backup refrigeration.',
+        rufinoText: 'Off-grid clinic vaccine cold-chains + solar-powered atmospheric water generation.'
       },
       {
         id: 'westvisayas',
-        name: 'Western Visayas (Panay & Negros)',
+        scope: 'philippines',
+        country: 'Philippines',
+        region: 'Western Visayas (Panay & Negros)',
         abbr: 'WV',
-        lat: '10.72°N', lon: '122.56°E',
-        x: 328, y: 483,
-        phases: [
-          { hi: 39, wb: 27.9, pop: '8.0M', mort: 50, shield: 47, status: 'MODERATE', desc: 'Initial soil moisture deficit across Iloilo plain' },
-          { hi: 46, wb: 30.5, pop: '8.0M', mort: 220, shield: 207, status: 'HIGH', desc: 'Sugarcane & rice desiccation across Negros Occidental' },
-          { hi: 50, wb: 32.5, pop: '8.0M', mort: 750, shield: 705, status: 'CATASTROPHIC', desc: 'Agricultural Drought Epicenter (50°C); 42% rainfed crop failure' },
-          { hi: 45, wb: 30.0, pop: '8.0M', mort: 980, shield: 921, status: 'CRITICAL', desc: 'Rural agricultural livelihood collapse & malnutrition risk' }
-        ],
-        infra: 'Jalaur River low flow; rainfed sugarcane & rice agricultural poverty belt',
-        action: 'Agrivoltaic shade canopies over crops + decentralized agricultural AWG micro-grids'
+        svgX: 328, svgY: 483,
+        mapCoords: [10.72, 122.56],
+        coordStr: 'LAT 10.72°N / LON 122.56°E • Sugar Basin & Rainfed Agriculture',
+        heatByPhase: [39, 46, 50, 45],
+        wetbulbByPhase: [27.9, 30.5, 32.5, 30.0],
+        pop: '8.0M',
+        inactionMortality: [50, 220, 750, 980],
+        currentMortality: [40, 175, 600, 780],
+        rufinoShielded: [47, 207, 705, 921],
+        inactionText: 'Agricultural drought epicenter; 42% rainfed crop failure and severe groundwater overdraft across Iloilo and Negros.',
+        currentText: 'State of Calamity declaration & food pack distributions. Vanishes within weeks, leaving national debt higher.',
+        rufinoText: 'Agrivoltaic biospheres over sugarcane & vegetable crops + atmospheric water condensation micro-grids.'
       },
       {
-        id: 'eastvisayas',
-        name: 'Eastern Visayas (Samar & Leyte)',
-        abbr: 'EV',
-        lat: '11.24°N', lon: '125.00°E',
-        x: 450, y: 459,
-        phases: [
-          { hi: 41, wb: 29.2, pop: '4.8M', mort: 45, shield: 42, status: 'HIGH', desc: 'Pre-monsoon drought alerts; coastal humidity saturation' },
-          { hi: 47, wb: 31.2, pop: '4.8M', mort: 190, shield: 178, status: 'CRITICAL', desc: 'Prolonged dry season thermal stress across rural settlements' },
-          { hi: 48, wb: 31.9, pop: '4.8M', mort: 390, shield: 366, status: 'CRITICAL', desc: 'Severe municipal water rationing in Tacloban and Ormoc' },
-          { hi: 44, wb: 29.2, pop: '4.8M', mort: 510, shield: 479, status: 'HIGH', desc: 'Recovery lag in isolated island clinics' }
-        ],
-        infra: 'Isolated rural barangay health stations lacking reliable cold-chain power',
-        action: 'Cold-chain vaccine/insulin containers + community water condensers'
+        id: 'mindanao',
+        scope: 'philippines',
+        country: 'Philippines',
+        region: 'Mindanao (Bukidnon & Davao Basin)',
+        abbr: 'MIN',
+        svgX: 432, svgY: 588,
+        mapCoords: [7.50, 125.00],
+        coordStr: 'LAT 7.50°N / LON 125.00°E • Hydroelectric Basin & Food Hub',
+        heatByPhase: [38, 43, 47, 51],
+        wetbulbByPhase: [27.1, 29.1, 30.8, 32.9],
+        pop: '10.7M',
+        inactionMortality: [50, 240, 630, 1310],
+        currentMortality: [40, 190, 500, 1040],
+        rufinoShielded: [47, 225, 593, 1231],
+        inactionText: 'Pulangi IV and Agus hydroelectric reservoirs drop to critical head; 6-8 hour rotational blackouts collapse cold storage.',
+        currentText: 'Diesel generator peaking units. Fuel costs spike electricity rates by 80%, forcing factory and clinic shutdowns.',
+        rufinoText: 'Thermal ice storage at food storage warehouses + solar canal canopies across Mindanao irrigation corridors.'
       },
       {
-        id: 'northmindanao',
-        name: 'Northern Mindanao & Bukidnon Plateau',
-        abbr: 'NM',
-        lat: '8.48°N', lon: '124.64°E',
-        x: 432, y: 588,
-        phases: [
-          { hi: 38, wb: 27.2, pop: '5.2M', mort: 30, shield: 28, status: 'LOW', desc: 'Elevated plateau temperatures remain near seasonal baseline' },
-          { hi: 44, wb: 29.3, pop: '5.2M', mort: 130, shield: 122, status: 'MODERATE', desc: 'Pineapple and corn moisture deficit emerging' },
-          { hi: 47, wb: 30.8, pop: '5.2M', mort: 340, shield: 320, status: 'HIGH', desc: 'Pulangi IV Hydro reservoir low head reduces power output' },
-          { hi: 51, wb: 32.9, pop: '5.2M', mort: 680, shield: 639, status: 'CATASTROPHIC', desc: 'Severe Hydro Depletion & Grid Collapse; rotational power blackouts' }
-        ],
-        infra: 'Pulangi IV hydroelectric plant; food processing and grain storage hubs',
-        action: 'Thermal ice storage at food hubs + canal solar coverage on irrigation networks'
+        id: 'indonesia',
+        scope: 'global',
+        country: 'Indonesia',
+        region: 'Java & Kalimantan Peatlands',
+        abbr: 'IDN',
+        mapCoords: [-2.50, 115.00],
+        coordStr: 'LAT 2.50°S / LON 115.00°E • Peatland Fire Risk & High Population',
+        heatByPhase: [37, 44, 48, 46],
+        wetbulbByPhase: [27.0, 30.0, 31.8, 30.5],
+        pop: '145M',
+        inactionMortality: [300, 4800, 18500, 24000],
+        currentMortality: [240, 3800, 14800, 19200],
+        rufinoShielded: [282, 4512, 17390, 22560],
+        inactionText: 'Peatland fires trigger transboundary toxic haze; severe water rationing across urban Java.',
+        currentText: 'Water bombing helicopters & cloud seeding. High wind dispersion renders cloud seeding ineffective.',
+        rufinoText: 'Canal re-wetting solar barriers to extinguish peat fires + atmospheric water generation at municipal water stations.'
       },
       {
-        id: 'southmindanao',
-        name: 'Davao & Southern Mindanao',
-        abbr: 'SM',
-        lat: '7.19°N', lon: '125.45°E',
-        x: 473, y: 649,
-        phases: [
-          { hi: 38, wb: 27.0, pop: '5.5M', mort: 20, shield: 19, status: 'LOW', desc: 'Seasonal equatorial baseline temperatures' },
-          { hi: 43, wb: 28.9, pop: '5.5M', mort: 110, shield: 103, status: 'MODERATE', desc: 'Drying winds and banana plantation wilt alert' },
-          { hi: 46, wb: 30.2, pop: '5.5M', mort: 290, shield: 273, status: 'HIGH', desc: 'Davao river basin discharge deficit hits municipal intake' },
-          { hi: 49, wb: 32.0, pop: '5.5M', mort: 630, shield: 592, status: 'CATASTROPHIC', desc: 'Rolling blackouts & Urban Heat Dome trap across Davao City' }
-        ],
-        infra: 'Davao urban grid peak loads; export fruit plantation irrigation exhaustion',
-        action: 'Export plantation agrivoltaic shading + commercial thermal storage peak-shaving'
+        id: 'india',
+        scope: 'global',
+        country: 'India',
+        region: 'Peninsular India (Maharashtra & Tamil Nadu)',
+        abbr: 'IND',
+        mapCoords: [16.00, 78.00],
+        coordStr: 'LAT 16.00°N / LON 78.00°E • High Wet-Bulb Vulnerability Belt',
+        heatByPhase: [38, 48, 51, 44],
+        wetbulbByPhase: [28.0, 32.0, 33.5, 29.8],
+        pop: '280M',
+        inactionMortality: [600, 9500, 38000, 49000],
+        currentMortality: [480, 7600, 30400, 39200],
+        rufinoShielded: [564, 8930, 35720, 46060],
+        inactionText: 'Wet-bulb temperatures surpass human physiological survival limit (35°C); agricultural day labor becomes lethal.',
+        currentText: 'Municipal heat action plans & advisory sirens. Workers forced to choose between heat stroke or starvation.',
+        rufinoText: 'Canal-top solar canopies on Narmada & Krishna irrigation canal networks + off-grid shaded community cooling centers.'
+      },
+      {
+        id: 'africa',
+        scope: 'global',
+        country: 'East Africa',
+        region: 'Horn of Africa (Kenya, Somalia, Ethiopia)',
+        abbr: 'AFR',
+        mapCoords: [3.00, 40.00],
+        coordStr: 'LAT 3.00°N / LON 40.00°E • Severe Pastoral Desiccation',
+        heatByPhase: [37, 43, 47, 49],
+        wetbulbByPhase: [26.5, 28.5, 30.2, 31.5],
+        pop: '68M',
+        inactionMortality: [400, 3200, 14000, 28000],
+        currentMortality: [320, 2560, 11200, 22400],
+        rufinoShielded: [376, 3008, 13160, 26320],
+        inactionText: 'Borehole aquifer depletion kills 2.4 million livestock; catastrophic acute food insecurity.',
+        currentText: 'UN emergency food parcels & water trucking. High diesel costs limit water delivery to once a month per village.',
+        rufinoText: 'Solar-powered atmospheric water harvesting + cold-chain vaccine preservation containers for nomadic populations.'
+      },
+      {
+        id: 'latam',
+        scope: 'global',
+        country: 'Latin America',
+        region: 'Peru Coastal Belt & Northeast Brazil',
+        abbr: 'LAT',
+        mapCoords: [-8.00, -78.00],
+        coordStr: 'LAT 8.00°S / LON 78.00°W • Pacific Marine Heatwave Epicenter',
+        heatByPhase: [38, 45, 48, 44],
+        wetbulbByPhase: [27.5, 30.1, 31.8, 29.2],
+        pop: '42M',
+        inactionMortality: [250, 1800, 7500, 12000],
+        currentMortality: [200, 1440, 6000, 9600],
+        rufinoShielded: [235, 1692, 7050, 11280],
+        inactionText: 'Anchovy fishery collapse + flash floods alternating with prolonged interior agricultural drought.',
+        currentText: 'Government disaster relief credit lines. Consumed on temporary tarps with zero permanent defense.',
+        rufinoText: 'Thermal ice storage at coastal fishery processing ports + agricultural solar shading for interior crop zones.'
       }
     ];
 
-    const SIM_PHASES = [
+    // Phases Data
+    const SIM_CHRONOLOGY = [
       {
         index: 0,
-        name: 'PHASE 01: Q1 2026 // PACIFIC KELVIN WAVE & EASTERN DEFICIT',
-        dateText: 'JANUARY – MARCH 2026 (INITIAL TRADE-WIND FAILURE)',
-        coreX: 430, coreY: 420, coreR: 210,
-        glowColor: '#f59e0b',
-        mortality: 425,
-        shielded: 400,
-        velocity: '1 EVERY 148 MIN',
-        reservoirTag: 'NOMINAL (202M)',
-        reservoirVal: '+2.0M SURPLUS',
-        isCritical: false
+        name: 'PHASE 01: Q1 2026 // PACIFIC KELVIN WAVE ONSET',
+        dateText: 'JANUARY – MARCH 2026 (TRADE-WIND COLLAPSE & EASTERN SEABOARD DEFICIT)',
+        ph: { inaction: 425, current: 340, shielded: 400 },
+        global: { inaction: 42500, current: 34000, shielded: 39950 },
+        svgCore: { cx: 430, cy: 420, r: 210, color: '#f59e0b' }
       },
       {
         index: 1,
-        name: 'PHASE 02: Q2 2026 // LUZON THERMAL DOME CREST (52°C)',
+        name: 'PHASE 02: Q2 2026 // LUZON HEAT DOME CREST (52°C)',
         dateText: 'APRIL – JUNE 2026 (PEAK SUMMER RADIATION & MONSOON STALLING)',
-        coreX: 260, coreY: 240, coreR: 240,
-        glowColor: '#ff0055',
-        mortality: 2480,
-        shielded: 2331,
-        velocity: '1 EVERY 26.4 MIN',
-        reservoirTag: 'BELOW MIN (174.5M)',
-        reservoirVal: '-6.8M DEFICIT',
-        isCritical: true
+        ph: { inaction: 2480, current: 1980, shielded: 2331 },
+        global: { inaction: 185000, current: 148000, shielded: 173900 },
+        svgCore: { cx: 260, cy: 240, r: 240, color: '#ff0055' }
       },
       {
         index: 2,
-        name: 'PHASE 03: Q3–Q4 2026 // VISAYAS AGRICULTURAL DESICCATION',
-        dateText: 'JULY – OCTOBER 2026 (DEEP AGRICULTURAL SOIL EXHAUSTION)',
-        coreX: 350, coreY: 490, coreR: 220,
-        glowColor: '#ef4444',
-        mortality: 4650,
-        shielded: 4371,
-        velocity: '1 EVERY 38.2 MIN',
-        reservoirTag: 'CRITICAL (168.0M)',
-        reservoirVal: '-12.0M SEVERE',
-        isCritical: true
+        name: 'PHASE 03: Q3–Q4 2026 // VISAYAS & INDIAN AGRICULTURAL DROUGHT',
+        dateText: 'JULY – OCTOBER 2026 (SOIL MOISTURE COLLAPSE ACROSS SOUTHEAST & SOUTH ASIA)',
+        ph: { inaction: 4650, current: 3720, shielded: 4371 },
+        global: { inaction: 340000, current: 272000, shielded: 319600 },
+        svgCore: { cx: 350, cy: 490, r: 220, color: '#ef4444' }
       },
       {
         index: 3,
-        name: 'PHASE 04: Q1 2027 // MINDANAO HYDRO & GRID COLLAPSE',
-        dateText: 'NOVEMBER 2026 – FEBRUARY 2027 (SOUTHERN BASIN CRISIS)',
-        coreX: 420, coreY: 630, coreR: 240,
-        glowColor: '#ff0055',
-        mortality: 6500,
-        shielded: 6110,
-        velocity: '1 EVERY 31.5 MIN',
-        reservoirTag: 'EMERGENCY SHUTOFF',
-        reservoirVal: 'HYDRO OUTAGE',
-        isCritical: true
+        name: 'PHASE 04: Q1 2027 // SOUTHERN GRID & HYDROELECTRIC DEPLETION',
+        dateText: 'NOVEMBER 2026 – FEBRUARY 2027 (PULANGI, LAKE LANAO & EAST AFRICA CRISIS)',
+        ph: { inaction: 6500, current: 5200, shielded: 6110 },
+        global: { inaction: 451000, current: 385000, shielded: 423900 },
+        svgCore: { cx: 420, cy: 630, r: 240, color: '#ff0055' }
       }
     ];
 
-    let currentSimPhase = 1;
-    let selectedRegionId = 'centralluzon';
-    let isSimPlaying = false;
-    let simPlayInterval = null;
-    let simSpeedMultiplier = 1;
+    let currentMapScope = 'philippines'; // 'philippines' (default) or 'global'
+    let currentMapPhase = 1;
+    let activeScenario = 'inaction'; // 'inaction', 'current', 'rufino'
+    let selectedHotspotId = 'centralluzon';
+    let leafletMap = null;
+    let leafletCircleLayer = null;
+    let leafletMarkerLayer = null;
+    let isMapSimPlaying = false;
+    let mapSimInterval = null;
+    let mapSimSpeed = 1;
 
-    // Initialize Telemetry Simulator
-    function initTelemetrySimulator() {
-      renderTelemetryNodes();
-      selectSimPhase(1);
-      inspectRegion('centralluzon');
-      startCountdownClock();
+    // Switch Scope: Philippines (Default) vs Worldwide Global
+    function switchMapScope(scope) {
+      currentMapScope = scope;
+
+      const btnPh = document.getElementById('scope-btn-philippines');
+      const btnGlobal = document.getElementById('scope-btn-global');
+      const containerPh = document.getElementById('view-philippines-container');
+      const containerGlobal = document.getElementById('view-global-container');
+      const label = document.getElementById('scope-status-label');
+      const jumpsPh = document.getElementById('philippines-quick-jumps');
+      const jumpsGlobal = document.getElementById('global-quick-jumps');
+      const unitInaction = document.getElementById('stat-inaction-unit');
+      const unitCurrent = document.getElementById('stat-current-unit');
+      const unitRufino = document.getElementById('stat-rufino-unit');
+
+      if (scope === 'philippines') {
+        if (btnPh) btnPh.className = 'px-4 py-2 border-2 border-telemetry-cyan bg-cyan-950/50 text-telemetry-cyan font-bold flex items-center gap-2 transition shadow-[0_0_15px_rgba(0,229,255,0.25)]';
+        if (btnGlobal) btnGlobal.className = 'px-4 py-2 border border-white/20 bg-black/40 text-zinc-400 hover:text-white hover:border-white/40 font-bold flex items-center gap-2 transition';
+        if (containerPh) containerPh.classList.remove('hidden');
+        if (containerGlobal) containerGlobal.classList.add('hidden');
+        if (label) label.textContent = 'VIEWING: PHILIPPINES HIGH-RESOLUTION VECTOR RADAR';
+        if (jumpsPh) jumpsPh.classList.remove('hidden');
+        if (jumpsGlobal) jumpsGlobal.classList.add('hidden');
+        if (unitInaction) unitInaction.textContent = 'FILIPINOS';
+        if (unitCurrent) unitCurrent.textContent = 'FILIPINOS';
+        if (unitRufino) unitRufino.textContent = 'LIVES SAVED';
+
+        renderPhilippineNodes();
+        inspectHotspot('centralluzon');
+      } else {
+        if (btnPh) btnPh.className = 'px-4 py-2 border border-white/20 bg-black/40 text-zinc-400 hover:text-white hover:border-white/40 font-bold flex items-center gap-2 transition';
+        if (btnGlobal) btnGlobal.className = 'px-4 py-2 border-2 border-telemetry-cyan bg-cyan-950/50 text-telemetry-cyan font-bold flex items-center gap-2 transition shadow-[0_0_15px_rgba(0,229,255,0.25)]';
+        if (containerPh) containerPh.classList.add('hidden');
+        if (containerGlobal) containerGlobal.classList.remove('hidden');
+        if (label) label.textContent = 'VIEWING: WORLDWIDE 54 EQUATORIAL NATIONS RADAR';
+        if (jumpsPh) jumpsPh.classList.add('hidden');
+        if (jumpsGlobal) jumpsGlobal.classList.remove('hidden');
+        if (unitInaction) unitInaction.textContent = 'WORLDWIDE';
+        if (unitCurrent) unitCurrent.textContent = 'WORLDWIDE';
+        if (unitRufino) unitRufino.textContent = 'LIVES SAVED';
+
+        if (!leafletMap) {
+          initLeafletGlobalInstance();
+        } else {
+          setTimeout(() => { leafletMap.invalidateSize(); }, 50);
+        }
+        renderLeafletElements();
+        inspectHotspot(selectedHotspotId);
+      }
+
+      updateTopSummaryTickers();
     }
 
-    // Live Ticking Countdown Clock to Peak Thermal Envelope
-    function startCountdownClock() {
-      // Countdown to target date: June 15, 2026
+    // Initialize Leaflet Map for Worldwide View
+    function initLeafletGlobalInstance() {
+      const container = document.getElementById('global-el-nino-map');
+      if (!container || leafletMap) return;
+
+      leafletMap = L.map('global-el-nino-map', {
+        center: [10.0, 60.0],
+        zoom: 3,
+        minZoom: 2,
+        maxZoom: 14,
+        zoomControl: true,
+        scrollWheelZoom: true
+      });
+
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; OpenStreetMap &copy; CARTO',
+        subdomains: 'abcd',
+        maxZoom: 19
+      }).addTo(leafletMap);
+
+      leafletCircleLayer = L.layerGroup().addTo(leafletMap);
+      leafletMarkerLayer = L.layerGroup().addTo(leafletMap);
+
+      renderLeafletElements();
+    }
+
+    // Render Leaflet Weather Circles & Markers
+    function renderLeafletElements() {
+      if (!leafletMap || !leafletCircleLayer || !leafletMarkerLayer) return;
+      leafletCircleLayer.clearLayers();
+      leafletMarkerLayer.clearLayers();
+
+      const pIdx = currentMapPhase;
+
+      // Thermal Zones
+      const thermalZones = [
+        { center: [0.0, 160.0], radius: pIdx === 0 ? 2600000 : 2000000, color: '#f59e0b', opacity: 0.25 },
+        { 
+          center: [14.0, 121.0], 
+          radius: pIdx === 1 ? 1000000 : (pIdx === 2 ? 850000 : 700000), 
+          color: activeScenario === 'rufino' ? '#00e5ff' : (pIdx === 1 ? '#ff0055' : '#ef4444'),
+          opacity: activeScenario === 'rufino' ? 0.35 : 0.45 
+        },
+        { center: [18.0, 78.0], radius: pIdx >= 2 ? 1400000 : 800000, color: activeScenario === 'rufino' ? '#10b981' : '#ef4444', opacity: 0.3 },
+        { center: [2.0, 42.0], radius: pIdx >= 2 ? 1100000 : 600000, color: activeScenario === 'rufino' ? '#10b981' : '#f97316', opacity: 0.3 },
+        { center: [-8.0, -78.0], radius: pIdx >= 2 ? 1200000 : 900000, color: activeScenario === 'rufino' ? '#10b981' : '#ef4444', opacity: 0.3 }
+      ];
+
+      thermalZones.forEach(z => {
+        L.circle(z.center, {
+          radius: z.radius,
+          color: z.color,
+          fillColor: z.color,
+          fillOpacity: z.opacity,
+          weight: 1.5,
+          dashArray: activeScenario === 'rufino' ? '4, 4' : null
+        }).addTo(leafletCircleLayer);
+      });
+
+      // Markers for All Hotspots
+      TELEMETRY_HOTSPOTS.forEach(spot => {
+        if (!spot.mapCoords) return;
+        const isSelected = spot.id === selectedHotspotId;
+        const heat = spot.heatByPhase[pIdx];
+
+        let markerColor = '#f59e0b';
+        if (activeScenario === 'rufino') markerColor = '#00e5ff';
+        else if (activeScenario === 'current') markerColor = '#f59e0b';
+        else {
+          if (heat >= 50) markerColor = '#ff0055';
+          else if (heat >= 46) markerColor = '#ef4444';
+          else if (heat >= 42) markerColor = '#f97316';
+        }
+
+        const iconHtml = `
+          <div style="
+            display:flex;align-items:center;justify-content:center;
+            width:${isSelected ? '30px' : '22px'};height:${isSelected ? '30px' : '22px'};
+            border-radius:50%;background-color:${markerColor}22;
+            border:2px solid ${markerColor};box-shadow:0 0 ${isSelected ? '14px' : '6px'} ${markerColor};
+            cursor:pointer;
+          ">
+            <div style="width:6px;height:6px;border-radius:50%;background-color:${markerColor};"></div>
+          </div>
+        `;
+
+        const icon = L.divIcon({
+          html: iconHtml,
+          className: 'custom-radar-pin',
+          iconSize: [isSelected ? 30 : 22, isSelected ? 30 : 22],
+          iconAnchor: [isSelected ? 15 : 11, isSelected ? 15 : 11]
+        });
+
+        const marker = L.marker(spot.mapCoords, { icon }).addTo(leafletMarkerLayer);
+        marker.on('click', () => { inspectHotspot(spot.id); });
+        marker.bindTooltip(`<strong>${spot.region}</strong><br/>Heat: ${heat}°C`, { direction: 'top', offset: [0, -10] });
+      });
+    }
+
+    // Render Philippine Vector Map Nodes
+    function renderPhilippineNodes() {
+      const container = document.getElementById('map-telemetry-nodes');
+      if (!container) return;
+      container.innerHTML = '';
+
+      const pIdx = currentMapPhase;
+      const phHotspots = TELEMETRY_HOTSPOTS.filter(h => h.scope === 'philippines');
+
+      phHotspots.forEach(spot => {
+        const isSelected = spot.id === selectedHotspotId;
+        const heat = spot.heatByPhase[pIdx];
+
+        let nodeColor = '#f59e0b';
+        if (activeScenario === 'rufino') nodeColor = '#00e5ff';
+        else if (activeScenario === 'current') nodeColor = '#f59e0b';
+        else {
+          if (heat >= 50) nodeColor = '#ff0055';
+          else if (heat >= 46) nodeColor = '#ef4444';
+          else if (heat >= 42) nodeColor = '#f97316';
+        }
+
+        const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+        g.setAttribute('class', 'cursor-pointer group');
+        g.setAttribute('onclick', `inspectPhilippineRegion('${spot.id}')`);
+
+        // Pulsing radar ring
+        const ring = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        ring.setAttribute('cx', spot.svgX);
+        ring.setAttribute('cy', spot.svgY);
+        ring.setAttribute('r', isSelected ? '18' : '12');
+        ring.setAttribute('fill', 'none');
+        ring.setAttribute('stroke', nodeColor);
+        ring.setAttribute('stroke-width', '1.5');
+        ring.setAttribute('opacity', '0.6');
+        if (heat >= 48) {
+          const anim = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+          anim.setAttribute('attributeName', 'r');
+          anim.setAttribute('values', '10;24;10');
+          anim.setAttribute('dur', '2.5s');
+          anim.setAttribute('repeatCount', 'indefinite');
+          ring.appendChild(anim);
+        }
+        g.appendChild(ring);
+
+        // Core dot
+        const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        dot.setAttribute('cx', spot.svgX);
+        dot.setAttribute('cy', spot.svgY);
+        dot.setAttribute('r', isSelected ? '7' : '5');
+        dot.setAttribute('fill', nodeColor);
+        dot.setAttribute('stroke', '#ffffff');
+        dot.setAttribute('stroke-width', isSelected ? '2' : '1');
+        g.appendChild(dot);
+
+        // Text label
+        const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        text.setAttribute('x', spot.svgX + 10);
+        text.setAttribute('y', spot.svgY + 4);
+        text.setAttribute('font-family', 'JetBrains Mono, monospace');
+        text.setAttribute('font-size', '10');
+        text.setAttribute('font-weight', isSelected ? 'bold' : 'normal');
+        text.setAttribute('fill', isSelected ? '#00e5ff' : '#e4e4e7');
+        text.textContent = `${spot.abbr}: ${heat}°C`;
+        g.appendChild(text);
+
+        container.appendChild(g);
+      });
+
+      // Update SVG Thermal Front Core
+      const core = document.getElementById('weather-thermal-core');
+      const phaseData = SIM_CHRONOLOGY[pIdx];
+      if (core && phaseData && phaseData.svgCore) {
+        core.setAttribute('cx', phaseData.svgCore.cx);
+        core.setAttribute('cy', phaseData.svgCore.cy);
+        core.setAttribute('r', phaseData.svgCore.r);
+      }
+    }
+
+    // Inspect Hotspot
+    function inspectHotspot(hotspotId) {
+      selectedHotspotId = hotspotId;
+      const spot = TELEMETRY_HOTSPOTS.find(h => h.id === hotspotId);
+      if (!spot) return;
+
+      const pIdx = currentMapPhase;
+
+      const titleElem = document.getElementById('inspector-title');
+      const coordsElem = document.getElementById('inspector-coords');
+      const badgeElem = document.getElementById('inspector-badge');
+      const heatElem = document.getElementById('inspector-heat');
+      const wbElem = document.getElementById('inspector-wetbulb');
+      const popElem = document.getElementById('inspector-pop');
+      const textInaction = document.getElementById('inspector-text-inaction');
+      const textCurrent = document.getElementById('inspector-text-current');
+      const textRufino = document.getElementById('inspector-text-rufino');
+
+      if (titleElem) titleElem.textContent = `${spot.country.toUpperCase()} // ${spot.region.toUpperCase()}`;
+      if (coordsElem) coordsElem.textContent = spot.coordStr;
+      
+      const heat = spot.heatByPhase[pIdx];
+      const wb = spot.wetbulbByPhase[pIdx];
+      if (heatElem) heatElem.textContent = `${heat}°C`;
+      if (wbElem) wbElem.textContent = `Wet-Bulb: ${wb}°C`;
+      if (popElem) popElem.textContent = spot.pop;
+
+      if (badgeElem) {
+        if (activeScenario === 'rufino') {
+          badgeElem.textContent = 'DEFENDED (RUFINO SYNTHESIS)';
+          badgeElem.className = 'px-2 py-0.5 bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-bold';
+        } else if (activeScenario === 'current') {
+          badgeElem.textContent = 'FRAGMENTED WORK (HIGH RISK)';
+          badgeElem.className = 'px-2 py-0.5 bg-amber-500/20 text-amber-300 border border-amber-500/40 font-bold';
+        } else {
+          badgeElem.textContent = heat >= 50 ? 'CATASTROPHIC DOME' : 'CRITICAL DANGER';
+          badgeElem.className = 'px-2 py-0.5 bg-red-500/20 text-red-400 border border-red-500/40 font-bold animate-pulse';
+        }
+      }
+
+      if (textInaction) textInaction.textContent = `${spot.inactionMortality[pIdx].toLocaleString()} projected fatalities. ${spot.inactionText}`;
+      if (textCurrent) textCurrent.textContent = `${spot.currentMortality[pIdx].toLocaleString()} fatalities remain. ${spot.currentText}`;
+      if (textRufino) textRufino.textContent = `${spot.rufinoShielded[pIdx].toLocaleString()} lives shielded. ${spot.rufinoText}`;
+
+      if (currentMapScope === 'philippines') {
+        renderPhilippineNodes();
+      } else {
+        renderLeafletElements();
+      }
+    }
+
+    function inspectPhilippineRegion(rId) { inspectHotspot(rId); }
+    function inspectGlobalHotspot(hId) { inspectHotspot(hId); }
+
+    // Set Scenario (inaction, current, rufino)
+    function setMapScenario(scenario) {
+      activeScenario = scenario;
+
+      const btnInaction = document.getElementById('btn-scenario-inaction');
+      const btnCurrent = document.getElementById('btn-scenario-current');
+      const btnRufino = document.getElementById('btn-scenario-rufino');
+      const badge = document.getElementById('map-mode-badge');
+
+      if (btnInaction) {
+        btnInaction.className = scenario === 'inaction' 
+          ? 'text-left p-4 border-2 border-red-500 bg-red-950/40 transition relative shadow-lg'
+          : 'text-left p-4 border border-white/10 bg-black/40 hover:bg-black/60 transition relative opacity-70';
+      }
+      if (btnCurrent) {
+        btnCurrent.className = scenario === 'current'
+          ? 'text-left p-4 border-2 border-amber-400 bg-amber-950/40 transition relative shadow-lg'
+          : 'text-left p-4 border border-white/10 bg-black/40 hover:bg-black/60 transition relative opacity-70';
+      }
+      if (btnRufino) {
+        btnRufino.className = scenario === 'rufino'
+          ? 'text-left p-4 border-2 border-emerald-400 bg-emerald-950/40 transition relative shadow-lg'
+          : 'text-left p-4 border border-white/10 bg-black/40 hover:bg-black/60 transition relative opacity-70';
+      }
+
+      if (badge) {
+        if (scenario === 'inaction') {
+          badge.textContent = 'VIEW: 01 // CURRENT TRAJECTORY (ZERO INTERVENTION)';
+          badge.className = 'px-2.5 py-1 bg-black/90 border border-red-500 text-red-400 font-mono text-[11px] font-bold shadow-lg pointer-events-auto';
+        } else if (scenario === 'current') {
+          badge.textContent = 'VIEW: 02 // WHAT NATIONS CURRENTLY HAVE (FRAGMENTED WORK)';
+          badge.className = 'px-2.5 py-1 bg-black/90 border border-amber-400 text-amber-300 font-mono text-[11px] font-bold shadow-lg pointer-events-auto';
+        } else {
+          badge.textContent = 'VIEW: 03 // WHERE THE RUFINO SYNTHESIS HELPS OUT (AVOIDED CATASTROPHE)';
+          badge.className = 'px-2.5 py-1 bg-black/90 border border-emerald-400 text-emerald-300 font-mono text-[11px] font-bold shadow-lg pointer-events-auto';
+        }
+      }
+
+      if (currentMapScope === 'philippines') {
+        renderPhilippineNodes();
+      } else {
+        renderLeafletElements();
+      }
+      inspectHotspot(selectedHotspotId);
+    }
+
+    // Select Chronological Phase (0 to 3)
+    function selectSimPhase(phaseIdx) {
+      phaseIdx = Math.max(0, Math.min(3, parseInt(phaseIdx)));
+      currentMapPhase = phaseIdx;
+
+      for (let i = 0; i < 4; i++) {
+        const tab = document.getElementById(`phase-tab-${i}`);
+        if (tab) {
+          tab.className = (i === phaseIdx)
+            ? 'px-2.5 py-1 border border-amber-400 bg-amber-400/20 text-amber-300 font-bold transition'
+            : 'px-2.5 py-1 border border-white/10 text-zinc-400 hover:border-white/30 transition';
+        }
+      }
+
+      const phase = SIM_CHRONOLOGY[phaseIdx];
+      const titleElem = document.getElementById('sim-phase-title');
+      const dateElem = document.getElementById('sim-timeline-date');
+      const sliderElem = document.getElementById('sim-timeline-slider');
+
+      if (titleElem) titleElem.textContent = phase.name;
+      if (dateElem) dateElem.textContent = phase.dateText;
+      if (sliderElem) sliderElem.value = phaseIdx;
+
+      updateTopSummaryTickers();
+
+      if (currentMapScope === 'philippines') {
+        renderPhilippineNodes();
+      } else {
+        renderLeafletElements();
+      }
+      inspectHotspot(selectedHotspotId);
+    }
+
+    // Update Top Summary Tickers based on Scope and Phase
+    function updateTopSummaryTickers() {
+      const pIdx = currentMapPhase;
+      const phase = SIM_CHRONOLOGY[pIdx];
+      const statInaction = document.getElementById('stat-inaction-mortality');
+      const statCurrent = document.getElementById('stat-current-mortality');
+      const statRufino = document.getElementById('stat-rufino-shielded');
+
+      if (currentMapScope === 'philippines') {
+        if (statInaction) statInaction.textContent = phase.ph.inaction.toLocaleString();
+        if (statCurrent) statCurrent.textContent = phase.ph.current.toLocaleString();
+        if (statRufino) statRufino.textContent = phase.ph.shielded.toLocaleString();
+      } else {
+        if (statInaction) statInaction.textContent = phase.global.inaction.toLocaleString();
+        if (statCurrent) statCurrent.textContent = phase.global.current.toLocaleString();
+        if (statRufino) statRufino.textContent = phase.global.shielded.toLocaleString();
+      }
+    }
+
+    // Toggle Simulation Play/Pause
+    function toggleSimulationPlay() {
+      isMapSimPlaying = !isMapSimPlaying;
+      const playIcon = document.getElementById('sim-play-icon');
+      const playText = document.getElementById('sim-play-text');
+
+      if (isMapSimPlaying) {
+        if (playIcon) playIcon.innerHTML = '&#10074;&#10074;';
+        if (playText) playText.textContent = 'PAUSE SIMULATION';
+
+        const stepDelay = Math.max(900, Math.floor(3200 / mapSimSpeed));
+        mapSimInterval = setInterval(() => {
+          let nextPhase = (currentMapPhase + 1) % 4;
+          selectSimPhase(nextPhase);
+        }, stepDelay);
+      } else {
+        if (playIcon) playIcon.innerHTML = '&#9658;';
+        if (playText) playText.textContent = 'PLAY SIMULATION';
+        if (mapSimInterval) {
+          clearInterval(mapSimInterval);
+          mapSimInterval = null;
+        }
+      }
+    }
+
+    // Set Speed
+    function setSimSpeed(spd) {
+      mapSimSpeed = spd;
+      [1, 2, 5].forEach(s => {
+        const btn = document.getElementById(`speed-btn-${s}`);
+        if (btn) {
+          btn.className = (s === spd) 
+            ? 'px-2.5 py-1 text-white bg-white/20 font-bold' 
+            : 'px-2.5 py-1 text-zinc-400 hover:text-white';
+        }
+      });
+
+      if (isMapSimPlaying) {
+        toggleSimulationPlay();
+        toggleSimulationPlay();
+      }
+    }
+
+    // Handle range slider scrubbing
+    function handleSliderScrub(val) {
+      const pIdx = Math.round(parseFloat(val));
+      if (pIdx !== currentMapPhase) {
+        selectSimPhase(pIdx);
+      }
+    }
+
+    // Live Ticking Countdown Clock
+    function startLiveCountdownClock() {
       const targetDate = new Date('2026-06-15T00:00:00Z').getTime();
 
       function updateClock() {
@@ -3946,226 +4492,13 @@ TRANSMITTED VIA RUFINOVENTURES.COM MISSION CONTROL`;
       setInterval(updateClock, 100);
     }
 
-    // Render interactive SVG telemetry nodes
-    function renderTelemetryNodes() {
-      const container = document.getElementById('map-telemetry-nodes');
-      if (!container) return;
-
-      container.innerHTML = '';
-      const pIdx = currentSimPhase;
-
-      SIM_REGIONS_DATA.forEach(region => {
-        const pData = region.phases[pIdx];
-        const isSelected = region.id === selectedRegionId;
-
-        let nodeColor = '#f59e0b';
-        if (pData.hi >= 50) nodeColor = '#ff0055';
-        else if (pData.hi >= 46) nodeColor = '#ef4444';
-        else if (pData.hi >= 42) nodeColor = '#f97316';
-
-        const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-        g.setAttribute('class', 'cursor-pointer group');
-        g.setAttribute('onclick', `inspectRegion('${region.id}')`);
-
-        // Pulsing radar ring
-        const ring = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-        ring.setAttribute('cx', region.x);
-        ring.setAttribute('cy', region.y);
-        ring.setAttribute('r', isSelected ? '18' : '12');
-        ring.setAttribute('fill', 'none');
-        ring.setAttribute('stroke', nodeColor);
-        ring.setAttribute('stroke-width', '1.5');
-        ring.setAttribute('opacity', '0.6');
-        if (pData.hi >= 48) {
-          const anim = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
-          anim.setAttribute('attributeName', 'r');
-          anim.setAttribute('values', '10;24;10');
-          anim.setAttribute('dur', '2.5s');
-          anim.setAttribute('repeatCount', 'indefinite');
-          ring.appendChild(anim);
-        }
-        g.appendChild(ring);
-
-        // Core dot
-        const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-        dot.setAttribute('cx', region.x);
-        dot.setAttribute('cy', region.y);
-        dot.setAttribute('r', isSelected ? '7' : '5');
-        dot.setAttribute('fill', nodeColor);
-        dot.setAttribute('stroke', '#ffffff');
-        dot.setAttribute('stroke-width', isSelected ? '2' : '1');
-        g.appendChild(dot);
-
-        // Label
-        const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-        text.setAttribute('x', region.x + 10);
-        text.setAttribute('y', region.y + 4);
-        text.setAttribute('font-family', 'JetBrains Mono, monospace');
-        text.setAttribute('font-size', '10');
-        text.setAttribute('font-weight', isSelected ? 'bold' : 'normal');
-        text.setAttribute('fill', isSelected ? '#00e5ff' : '#e4e4e7');
-        text.textContent = `${region.abbr}: ${pData.hi}°C`;
-        g.appendChild(text);
-
-        container.appendChild(g);
-      });
+    // Initialize Simulator on Load (Philippines First)
+    function initTelemetrySimulator() {
+      switchMapScope('philippines');
+      selectSimPhase(1);
+      startLiveCountdownClock();
     }
 
-    // Select Phase via Tabs or Programmatic
-    function selectSimPhase(phaseIdx) {
-      phaseIdx = Math.max(0, Math.min(3, parseInt(phaseIdx)));
-      currentSimPhase = phaseIdx;
-
-      // Update Phase Tab UI
-      for (let i = 0; i < 4; i++) {
-        const tab = document.getElementById(`phase-tab-${i}`);
-        if (tab) {
-          if (i === phaseIdx) {
-            tab.className = 'px-3 py-1.5 border border-amber-400 bg-amber-400/20 text-amber-300 font-bold transition';
-          } else {
-            tab.className = 'px-3 py-1.5 border border-white/10 text-zinc-400 hover:border-white/30 transition';
-          }
-        }
-      }
-
-      const phase = SIM_PHASES[phaseIdx];
-      const titleElem = document.getElementById('sim-phase-title');
-      const dateElem = document.getElementById('sim-timeline-date');
-      const sliderElem = document.getElementById('sim-timeline-slider');
-
-      if (titleElem) titleElem.textContent = phase.name;
-      if (dateElem) dateElem.textContent = phase.dateText;
-      if (sliderElem) sliderElem.value = phaseIdx;
-
-      // Update Weather Front Gradient Position & Core
-      const core = document.getElementById('weather-thermal-core');
-      if (core) {
-        core.setAttribute('cx', phase.coreX);
-        core.setAttribute('cy', phase.coreY);
-        core.setAttribute('r', phase.coreR);
-      }
-
-      // Update Dashboard Counters
-      const mortElem = document.getElementById('mortality-counter-unmitigated');
-      const shieldElem = document.getElementById('mortality-counter-shielded');
-      const velElem = document.getElementById('mortality-velocity-val');
-      const resTag = document.getElementById('reservoir-level-tag');
-      const resVal = document.getElementById('reservoir-level-val');
-
-      if (mortElem) mortElem.textContent = phase.mortality.toLocaleString();
-      if (shieldElem) shieldElem.textContent = phase.shielded.toLocaleString();
-      if (velElem) velElem.textContent = phase.velocity;
-      if (resTag) {
-        resTag.textContent = phase.reservoirTag;
-        resTag.className = phase.isCritical ? 'text-red-400 font-bold' : 'text-emerald-400 font-bold';
-      }
-      if (resVal) resVal.textContent = phase.reservoirVal;
-
-      // Re-render nodes
-      renderTelemetryNodes();
-
-      // Refresh inspector
-      inspectRegion(selectedRegionId);
-    }
-
-    // Inspect a specific region
-    function inspectRegion(regionId) {
-      selectedRegionId = regionId;
-      const region = SIM_REGIONS_DATA.find(r => r.id === regionId);
-      if (!region) return;
-
-      const pData = region.phases[currentSimPhase];
-
-      const nameElem = document.getElementById('inspector-region-name');
-      const coordsElem = document.getElementById('inspector-coords');
-      const badgeElem = document.getElementById('inspector-status-badge');
-      const hiElem = document.getElementById('inspector-heat-index');
-      const wbElem = document.getElementById('inspector-wet-bulb');
-      const popElem = document.getElementById('inspector-population');
-      const infraElem = document.getElementById('inspector-infra');
-      const mortElem = document.getElementById('inspector-mortality-unmitigated');
-      const shieldElem = document.getElementById('inspector-mortality-shielded');
-      const actionElem = document.getElementById('inspector-action');
-
-      if (nameElem) nameElem.textContent = region.name;
-      if (coordsElem) coordsElem.textContent = `LAT ${region.lat} / LON ${region.lon} • ${pData.desc}`;
-      if (badgeElem) {
-        badgeElem.textContent = pData.status;
-        if (pData.status === 'CATASTROPHIC') {
-          badgeElem.className = 'px-2 py-0.5 bg-rose-600/30 text-rose-300 border border-rose-500 font-bold animate-pulse';
-        } else if (pData.status === 'CRITICAL') {
-          badgeElem.className = 'px-2 py-0.5 bg-red-500/20 text-red-400 border border-red-500/40 font-bold';
-        } else if (pData.status === 'HIGH') {
-          badgeElem.className = 'px-2 py-0.5 bg-orange-500/20 text-orange-300 border border-orange-500/40 font-bold';
-        } else {
-          badgeElem.className = 'px-2 py-0.5 bg-yellow-500/20 text-yellow-300 border border-yellow-500/40 font-bold';
-        }
-      }
-      if (hiElem) hiElem.textContent = `${pData.hi}°C`;
-      if (wbElem) wbElem.textContent = `Wet-Bulb: ${pData.wb}°C (Fatal threshold: 35.0°C)`;
-      if (popElem) popElem.textContent = pData.pop;
-      if (infraElem) infraElem.textContent = region.infra;
-      if (mortElem) mortElem.textContent = pData.mort.toLocaleString();
-      if (shieldElem) shieldElem.textContent = pData.shield.toLocaleString();
-      if (actionElem) actionElem.textContent = region.action;
-
-      renderTelemetryNodes();
-    }
-
-    // Toggle Simulation Play/Pause
-    function toggleSimulationPlay() {
-      isSimPlaying = !isSimPlaying;
-      const playIcon = document.getElementById('sim-play-icon');
-      const playText = document.getElementById('sim-play-text');
-
-      if (isSimPlaying) {
-        if (playIcon) playIcon.innerHTML = '&#10074;&#10074;';
-        if (playText) playText.textContent = 'PAUSE SIMULATION';
-
-        const stepDelay = Math.max(800, Math.floor(3000 / simSpeedMultiplier));
-        simPlayInterval = setInterval(() => {
-          let nextPhase = (currentSimPhase + 1) % 4;
-          selectSimPhase(nextPhase);
-        }, stepDelay);
-      } else {
-        if (playIcon) playIcon.innerHTML = '&#9658;';
-        if (playText) playText.textContent = 'PLAY SIMULATION';
-        if (simPlayInterval) {
-          clearInterval(simPlayInterval);
-          simPlayInterval = null;
-        }
-      }
-    }
-
-    // Set speed multiplier
-    function setSimSpeed(spd) {
-      simSpeedMultiplier = spd;
-      [1, 2, 5].forEach(s => {
-        const btn = document.getElementById(`speed-btn-${s}`);
-        if (btn) {
-          if (s === spd) {
-            btn.className = 'px-2.5 py-1 text-white bg-white/20 font-bold';
-          } else {
-            btn.className = 'px-2.5 py-1 text-zinc-400 hover:text-white';
-          }
-        }
-      });
-
-      if (isSimPlaying) {
-        toggleSimulationPlay();
-        toggleSimulationPlay();
-      }
-    }
-
-    // Handle range slider scrubbing
-    function handleSliderScrub(val) {
-      const pIdx = Math.round(parseFloat(val));
-      if (pIdx !== currentSimPhase) {
-        selectSimPhase(pIdx);
-      }
-    }
-
-    // Hook into window onload
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', initTelemetrySimulator);
     } else {
