@@ -76,6 +76,82 @@ def build():
         flags=re.DOTALL
     )
 
+    # 1b. Update Contact Pane text: Zero Gatekeeping / No Hardware Procurement / Let Nations Do Their Jobs
+    old_contact_intro_pattern = r'<div class="lg:col-span-6">\s*<p class="font-mono text-xs tracking-\[0\.3em\] text-telemetry-cyan uppercase mb-3 font-semibold">\s*ACTIVATE SOVEREIGN CONTINGENCY // 2026–2027 WINDOW\s*</p>\s*<h2 class="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-white mb-6 font-display leading-\[0\.95\]">\s*COMMISSION <br/>\s*<span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-zinc-400">THE SYNTHESIS</span>\s*</h2>\s*<p class="text-zinc-300 text-base sm:text-lg leading-relaxed mb-6 font-normal">\s*The 2026–2027 Super El Niño is an unavoidable planetary thermodynamic reality\. The catastrophe, however, is completely preventable\.\s*</p>\s*<p class="text-zinc-400 text-sm sm:text-base leading-relaxed mb-8">\s*We invite heads of state, ministers of water, energy, and agriculture, disaster risk management agencies, sovereign wealth funds, and multilateral defense organizations to commission <strong class="text-white">The Photosynthesis Project</strong>\. Our team provides end-to-end hardware procurement, telemetry calibration, and rapid modular deployment across all 54 target nations\.\s*</p>'
+
+    new_contact_intro = '''<div class="lg:col-span-6">
+        <p class="font-mono text-xs tracking-[0.3em] text-telemetry-cyan uppercase mb-3 font-semibold">
+          SOVEREIGN EMPOWERMENT // SYSTEM ARCHITECTURE &amp; CONSULTATION
+        </p>
+        <h2 class="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-white mb-6 font-display leading-[0.95]">
+          WORK WITH ME. <br/>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-white to-amber-300">LET NATIONS DO THEIR JOBS.</span>
+        </h2>
+
+        <div class="p-4 bg-amber-500/10 border-l-4 border-l-amber-400 mb-6 text-xs font-mono text-amber-200 uppercase tracking-wider">
+          // ARCHITECTURAL BOUNDARY: NO HARDWARE PROCUREMENT &bull; ZERO GATEKEEPING
+        </div>
+
+        <p class="text-zinc-300 text-base sm:text-lg leading-relaxed mb-4 font-normal">
+          The 2026–2027 Super El Niño is an unavoidable planetary thermodynamic reality. The catastrophe, however, is completely preventable.
+        </p>
+
+        <div class="space-y-4 text-zinc-300 text-xs sm:text-sm leading-relaxed mb-8">
+          <p>
+            <strong class="text-white">Our team is NOT in charge of hardware procurement.</strong> Hardware procurement, civil works execution, and physical asset ownership belong 100% to sovereign nations, local government units (LGUs), and certified engineering contractors.
+          </p>
+          <p>
+            <strong class="text-white">I am simply the architect of the system.</strong> Protecting citizens from extreme heat catastrophe is the sovereign duty of each country's leaders, engineers, and public servants. This blueprint is open so that nations can implement the steps themselves. I am not an essential bottleneck—this is me letting you do your jobs.
+          </p>
+          <p class="text-zinc-400">
+            <strong class="text-white">Where I enter:</strong> If you want to consult with me—to ask my opinion on your integration, to share what you're currently doing and what your current plans are, and to let us stress-test your plan against thermodynamic collapse models to see if it will hold up when applied. If you want to commission this advisory or support the project, reach out and let's build the coalition.
+          </p>
+        </div>'''
+
+    html = re.sub(old_contact_intro_pattern, new_contact_intro, html, flags=re.DOTALL)
+
+    # 1c. Update form header and labels
+    html = html.replace(
+        '<span class="font-mono text-xs uppercase tracking-widest text-white font-bold">SOVEREIGN TRANSMISSION DISPATCH</span>\n            <p class="text-xs text-zinc-400 mt-1">Direct pipeline to Jefferson Rafael Rufino. Expect response within 12 hours.</p>',
+        '<span class="font-mono text-xs uppercase tracking-widest text-white font-bold">CONSULTATION &amp; PLAN AUDIT TRANSMISSION</span>\n            <p class="text-xs text-zinc-400 mt-1">Direct pipeline to Jefferson Rafael Rufino. Share your current El Niño plans or request an architectural consultation.</p>'
+    )
+    html = html.replace(
+        '<label class="block text-zinc-400 uppercase tracking-wider mb-2">Priority Operational Vectors Requested:</label>',
+        '<label class="block text-zinc-400 uppercase tracking-wider mb-2">Consultation &amp; Architectural Focus Areas:</label>'
+    )
+    html = html.replace(
+        '<span>Satellite Telemetry</span>',
+        '<span>Plan Review &amp; Stress-Testing</span>'
+    )
+    html = html.replace(
+        '<span>Solar Canopies & Storage</span>',
+        '<span>Canopies &amp; Ice Storage Integration</span>'
+    )
+    html = html.replace(
+        '<span>Agrivoltaic Biospheres</span>',
+        '<span>Agrivoltaic Evaporation Defense</span>'
+    )
+    html = html.replace(
+        '<span>AWG & Aquifer Recharge</span>',
+        '<span>Atmospheric Water Generation</span>'
+    )
+    html = html.replace(
+        '<span>Off-Grid Cold-Chain Triage Field Clinics</span>',
+        '<span>Off-Grid Clinic Cold-Chain</span>'
+    )
+    html = html.replace(
+        '<label class="block text-zinc-400 uppercase tracking-wider mb-1">Brief Statement of Emergency / Requirements *</label>',
+        '<label class="block text-zinc-400 uppercase tracking-wider mb-1">What is your country/agency currently doing, current plans, or consultation request? *</label>'
+    )
+    html = html.replace(
+        'placeholder="Detail current rainfall deficits, reservoir depletion status, or requested briefing timeline..."',
+        'placeholder="Share what your country or agency is currently doing, your current plans, or what you would like to consult on..."'
+    )
+    html = html.replace(
+        'TRANSMIT HIGH-PRIORITY DISPATCH TO JEFFERSONRRUFINO@GMAIL.COM &rarr;',
+        'REQUEST CONSULTATION WITH JEFFERSON RAFAEL RUFINO &rarr;'
+    )
+
     # 2. Update Navigation
     new_nav = '''<nav class="hidden 2xl:flex items-center gap-5 text-[10px] uppercase font-mono tracking-widest text-zinc-400">
         <a href="#pane-telemetry" class="hover:text-white transition">01 Financial Toll</a>
@@ -218,54 +294,58 @@ def build():
       <!-- Architectural Boundary & Division of Responsibilities -->
       <div class="mt-8 p-6 sm:p-8 bg-space-900/90 border border-amber-500/40 relative overflow-hidden">
         <div class="absolute top-0 right-0 px-3 py-1 bg-amber-500/20 text-amber-400 font-mono text-[10px] uppercase tracking-widest font-bold border-b border-l border-amber-500/30">
-          ARCHITECTURAL CHARTER &bull; NO HARDWARE PROCUREMENT
+          ZERO GATEKEEPING &bull; SOVEREIGN EMPOWERMENT
         </div>
         <div class="flex items-center gap-3 mb-3">
           <span class="text-2xl text-amber-400">⚖️</span>
           <h3 class="text-xl sm:text-2xl font-bold font-display text-white uppercase tracking-tight">
-            THE ARCHITECT'S CHARTER: WHO IMPLEMENTS WHAT?
+            THE ARCHITECT'S POSTURE: LETTING NATIONS DO THEIR JOBS
           </h3>
         </div>
         <p class="text-zinc-300 text-xs sm:text-sm leading-relaxed mb-6 max-w-4xl">
-          To maintain total integrity and zero conflict of interest, our boundary is absolute: <strong>Our team does not procure, warehouse, mark up, or sell hardware.</strong> Hardware procurement, civil works execution, and physical asset ownership belong 100% to sovereign nations, local government units (LGUs), and certified engineering contractors.
+          I am not an essential bottleneck, and I am not trying to gatekeep sovereign action. <strong>Protecting citizens from extreme climate shock is the sovereign duty of each nation and its public servants.</strong> This architecture is open so governments can do their jobs. Our team does not procure, warehouse, or mark up hardware. Nations procure their own equipment and implement the steps themselves.
         </p>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
           <div class="p-4 bg-black/60 border border-white/10 space-y-2">
-            <div class="font-mono text-[10px] text-zinc-400 uppercase tracking-widest font-bold">// THE SOVEREIGN NATION'S ROLE (HARDWARE &amp; PROCUREMENT):</div>
+            <div class="font-mono text-[10px] text-zinc-400 uppercase tracking-widest font-bold">// THE SOVEREIGN NATION'S ROLE (IMPLEMENT THE STEPS YOURSELVES):</div>
             <ul class="space-y-1.5 text-zinc-300 text-[11px]">
               <li class="flex items-start gap-2">
                 <span class="text-emerald-400 font-bold shrink-0">&check;</span>
-                <span>Procuring solar panels, inverters, batteries, chillers, and atmospheric water machines through national competitive bidding.</span>
+                <span><strong>Hardware Procurement:</strong> Procuring solar panels, inverters, batteries, chillers, and atmospheric water units through your own sovereign national bidding processes.</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-emerald-400 font-bold shrink-0">&check;</span>
-                <span>Executing local civil works, municipal permitting, and grid interconnection using domestic labor and local contractors.</span>
+                <span><strong>Local Civil Execution:</strong> Mobilizing local labor, municipal permits, and domestic engineering contractors to erect physical catchment infrastructure.</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-emerald-400 font-bold shrink-0">&check;</span>
-                <span>Retaining 100% sovereign asset ownership, municipal maintenance, and community utility revenue.</span>
+                <span><strong>100% Asset Ownership:</strong> The facilities, water yields, and clean energy belong entirely to your municipalities and citizens—not to external vendors.</span>
               </li>
             </ul>
           </div>
 
           <div class="p-4 bg-black/60 border border-amber-500/30 space-y-2">
-            <div class="font-mono text-[10px] text-amber-400 uppercase tracking-widest font-bold">// WHERE THE ARCHITECT ENTERS (SYSTEM ARCHITECTURE &amp; INTEGRATION):</div>
+            <div class="font-mono text-[10px] text-amber-400 uppercase tracking-widest font-bold">// WHERE I ENTER (OPTIONAL CONSULTATION &amp; INTEGRATION):</div>
             <ul class="space-y-1.5 text-zinc-200 text-[11px]">
               <li class="flex items-start gap-2">
                 <span class="text-amber-400 font-bold shrink-0">&rarr;</span>
-                <span><strong>Diagnostic Stress-Testing:</strong> Send us what you are currently doing and your country's current plans. We test them against thermodynamic collapse models to uncover fatal blind spots.</span>
+                <span><strong>Consult With Me If You Want:</strong> If you want my opinion, or want to share what you're currently doing and what your current plans are, we will review them together.</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-amber-400 font-bold shrink-0">&rarr;</span>
-                <span><strong>System Integration Architecture:</strong> Designing how your disjointed procurements (solar, water, health, grid) communicate and operate as a unified, life-saving machine.</span>
+                <span><strong>Diagnostic Stress-Testing:</strong> We run your existing plan through our system to see if it will hold up during peak thermal load, uncovering blind spots before lives are lost.</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-amber-400 font-bold shrink-0">&rarr;</span>
-                <span><strong>Commissioning &amp; Coalition Building:</strong> Advising ministries and international financiers on how to commission this architecture to ensure zero avoidable death.</span>
+                <span><strong>Integration Advisory:</strong> Advising how to integrate your separate department initiatives into one coordinated life-saving coalition—then you take over and run it.</span>
               </li>
             </ul>
           </div>
+        </div>
+
+        <div class="mt-4 p-3 bg-black/40 border border-white/5 font-mono text-[11px] text-zinc-400">
+          <strong class="text-amber-400">THE BOTTOM LINE:</strong> You don't need my permission to save lives. Implement the playbook yourself. But if you want a strategic sounding board, second opinion, or diagnostic audit, you can consult with me.
         </div>
       </div>
 
@@ -356,14 +436,14 @@ def build():
       <!-- Commissioning Invitation Banner -->
       <div class="mt-8 p-6 sm:p-8 bg-gradient-to-r from-space-900 via-emerald-950/40 to-space-900 border border-emerald-500/40 flex flex-col lg:flex-row items-center justify-between gap-6">
         <div>
-          <div class="text-xs font-mono uppercase tracking-widest text-emerald-400 font-bold mb-1">// COMMISSION AN ARCHITECTURAL REVIEW</div>
+          <div class="text-xs font-mono uppercase tracking-widest text-emerald-400 font-bold mb-1">// CONSULTATION &amp; ARCHITECTURAL REVIEW</div>
           <h3 class="text-xl sm:text-2xl font-bold text-white font-display">Have an existing El Niño plan in your country, city, or agency?</h3>
           <p class="text-zinc-300 text-xs sm:text-sm mt-1 max-w-2xl leading-relaxed">
             Let me know what you're currently doing in your country and what your current plans are. We will stress-test your plan against thermodynamic collapse thresholds, reveal where your departmental silos fall short, and see if it works with the system applied.
           </p>
         </div>
-        <a href="mailto:jeffersonrrufino@gmail.com?subject=National%20Plan%20Review%20%26%20Architecture%20Commission" class="btn-spacex-cyan whitespace-nowrap">
-          WORK WITH ME (TEST YOUR PLAN) &rarr;
+        <a href="mailto:jeffersonrrufino@gmail.com?subject=National%20Plan%20Review%20%26%20Architecture%20Consultation" class="btn-spacex-cyan whitespace-nowrap">
+          WORK WITH ME (REQUEST A CONSULTATION) &rarr;
         </a>
       </div>
 
