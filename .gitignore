@@ -1,0 +1,65 @@
+# =============================================================================
+# RUFINOVENTURES.COM — GITHUB PAGES REPOSITORY GITIGNORE
+# =============================================================================
+
+# System & OS Artifacts
+.DS_Store
+Thumbs.db
+*.env
+
+# Python Caches & Environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# IDE & Editor Artifacts
+.agents/
+.idea/
+.vscode/
+
+# Confidential Forensic Teardowns, Dossiers & Legal Complaints
+BPI_*
+bpi_lerm_run/
+*UNIONBANK*
+unionbank_lerm_run/
+jefferson_existence_iamfp_lerm/
+iamfp_banking_simulation/
+sentry_middleware_platform/
+workspace_drift_audit/
+email_attachments/
+private_provenance_vault/
+lerm/
+*LERM*
+
+# Large Media, Binaries & Archives (>500KB)
+*.mp4
+*.m4a
+*.zip
+*.pdf
+rufinoventures.png
+preview_hud.jpg
+rufino_lerm_footer_banner.png
+
+# Deprecated Themes & Workspace Scratch Files
+shopify_theme_export/
+sections/
+templates/
+akma_*
+mutant_sovereign_assessor.html
+the_architects_mirror.html
+central_command_dashboard.html
+schedule_appointment.html
+CALIBRATED_ZERO_RESIDUAL_VS_ASSESSOR_V2_COMPARISON.md
+FIGMA_INSTITUTIONAL_WEBSITE_SPEC.md
+FINANCIAL_THERMODYNAMICS_RESEARCH_PAPER.md
+IAMF_P_V2_REAL_WORLD_MASTER_TELEMETRY_EXECUTION.md
+ORIGINAL_REQUEST.md
+SHOPIFY_INSTALLATION_GUIDE.md
+SHOPIFY_SPACEX_PATTERN_PROMPT.md
+TEST_READY.md
+ALASKA_FOOD_CO_LERM_STRATEGY_GUIDE.txt
+architect_narration.txt
+EXECO_LERM_IAMFP_MASTER_DIAGNOSTIC.md
