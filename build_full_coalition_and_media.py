@@ -342,10 +342,24 @@ def build():
               </li>
             </ul>
           </div>
+
+          <!-- 100% Free Consultation Declaration Card -->
+          <div class="p-4 bg-emerald-950/40 border border-emerald-500/50 space-y-2 md:col-span-2">
+            <div class="flex items-center justify-between flex-wrap gap-2">
+              <div class="font-mono text-[10px] text-emerald-400 uppercase tracking-widest font-bold">// ZERO-FEE HUMANITARIAN MANDATE: 100% FREE CONSULTATION</div>
+              <span class="px-2 py-0.5 bg-emerald-500/20 text-emerald-300 text-[10px] font-mono font-bold uppercase border border-emerald-500/30">ZERO CHARGE TO SOVEREIGN STATES</span>
+            </div>
+            <p class="text-white text-xs sm:text-sm font-semibold">
+              "Let it be known the consultation is free. I'm not charging to save people's lives." — Jefferson Rafael Rufino
+            </p>
+            <p class="text-zinc-300 text-[11px] leading-relaxed">
+              I am putting up this website and open-sourcing the system architecture so that sovereign leaders, disaster councils, and municipal engineers know what is about to happen before the heat arrives. You can choose to work with me, consult with me for free, or consult with your own national advisors. I am not an essential bottleneck—it is each nation's sovereign duty to protect their citizens. But if you want my opinion, a plan review, or a stress-test against our thermodynamic model, you can consult with me at zero cost.
+            </p>
+          </div>
         </div>
 
-        <div class="mt-4 p-3 bg-black/40 border border-white/5 font-mono text-[11px] text-zinc-400">
-          <strong class="text-amber-400">THE BOTTOM LINE:</strong> You don't need my permission to save lives. Implement the playbook yourself. But if you want a strategic sounding board, second opinion, or diagnostic audit, you can consult with me.
+        <div class="mt-4 p-3.5 bg-black/50 border border-emerald-500/30 font-mono text-[11px] text-zinc-300">
+          <strong class="text-emerald-400">THE BOTTOM LINE:</strong> All consultations with Jefferson Rafael Rufino are <strong>100% free of charge</strong>. You don't need anyone's permission to save lives—implement the steps yourselves, consult your own advisors, or consult with me for free.
         </div>
       </div>
 
@@ -436,14 +450,17 @@ def build():
       <!-- Commissioning Invitation Banner -->
       <div class="mt-8 p-6 sm:p-8 bg-gradient-to-r from-space-900 via-emerald-950/40 to-space-900 border border-emerald-500/40 flex flex-col lg:flex-row items-center justify-between gap-6">
         <div>
-          <div class="text-xs font-mono uppercase tracking-widest text-emerald-400 font-bold mb-1">// CONSULTATION &amp; ARCHITECTURAL REVIEW</div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-xs font-mono uppercase tracking-widest text-emerald-400 font-bold">// 100% FREE CONSULTATION &amp; ARCHITECTURAL REVIEW</span>
+            <span class="px-1.5 py-0.5 text-[9px] font-mono uppercase bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-bold">ZERO CHARGE</span>
+          </div>
           <h3 class="text-xl sm:text-2xl font-bold text-white font-display">Have an existing El Niño plan in your country, city, or agency?</h3>
           <p class="text-zinc-300 text-xs sm:text-sm mt-1 max-w-2xl leading-relaxed">
-            Let me know what you're currently doing in your country and what your current plans are. We will stress-test your plan against thermodynamic collapse thresholds, reveal where your departmental silos fall short, and see if it works with the system applied.
+            Let me know what you're currently doing in your country and what your current plans are. We will stress-test your plan against thermodynamic collapse thresholds, reveal where your departmental silos fall short, and see if it works with the system applied. <strong>This consultation is 100% free of charge—I am not charging to save lives.</strong>
           </p>
         </div>
-        <a href="mailto:jeffersonrrufino@gmail.com?subject=National%20Plan%20Review%20%26%20Architecture%20Consultation" class="btn-mission-cyan whitespace-nowrap">
-          WORK WITH ME (REQUEST A CONSULTATION) &rarr;
+        <a href="mailto:jeffersonrrufino@gmail.com?subject=Free%20National%20Plan%20Review%20%26%20Architecture%20Consultation" class="btn-mission-cyan whitespace-nowrap">
+          WORK WITH ME (FREE CONSULTATION) &rarr;
         </a>
       </div>
 
