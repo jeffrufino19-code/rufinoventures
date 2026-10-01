@@ -1,25 +1,39 @@
 #!/usr/bin/env python3
 """
-Comprehensive Generator for RUFINOVENTURES.html, index.html, and PHOTOSYNTHESIS_PROJECT_PREVIEW.html
+Comprehensive Master Generator for RUFINOVENTURES.html, index.html, and PHOTOSYNTHESIS_PROJECT_PREVIEW.html
 Implements:
-1. All CTAs updated to "Work with me." (pointing to jeffersonrrufino@gmail.com).
-2. Dedicated "Per Country" Coalition Panel (#pane-coalition) with Philippines as flagship landing view,
-   featuring governing bodies, inter-agency pairings ("who works with whom towards what"),
-   what they should be doing, and how we help them.
-3. Dedicated Media & Attention Architecture Panel (#pane-media):
+1. Operational Boundary & Division of Labor (The Architect's Charter):
+   - Nations and LGUs are strictly in charge of hardware procurement, civil construction, and asset ownership.
+   - The Architect (Jefferson Rafael Rufino) provides the system architecture, integration advisory, diagnostic stress-testing of existing national/municipal plans, and global coalition building.
+   - Clear invitation for governments and agencies to submit their current El Niño plans for stress-testing and architecture commissioning.
+2. Global Steps & Zero-Redundancy Analysis:
+   - Deep evaluation of active global and national initiatives (UN WMO Early Warnings for All, FAO/WFP Anticipatory Action $202M appeal, Philippines Task Force El Niño EO 53, World Bank Cat-DDO).
+   - Demonstrates exact compatibility and explains how The Photosynthesis Project eliminates fatal gaps without duplicating existing state programs.
+3. Dedicated Per-Country Coalition Panel (#pane-coalition) with Philippines as flagship default landing,
+   profiling 8 key governing bodies and inter-agency strategic pairings ("who works with whom towards what").
+4. Dedicated Media & Attention Architecture Panel (#pane-media):
    - The Attention War: Where Filipino Attention Is (Distraction/Doomscrolling) vs. Where It Must Be (Survival/Accountability).
-   - The Broadcasting Matrix: Who Broadcasts What to Whom (TV/Radio, Telco Emergency Cell Broadcasts, Digital Creators/Influencers, Grassroots Recorida/Megaphones, Campus Media).
-   - How The Photosynthesis Project equips media and content creators with open telemetry and zero-jargon social kits.
-4. Country tabs for Philippines, Nigeria, Indonesia, India, Brazil, Kenya.
-5. Verifies all images and anchors.
+   - The Broadcasting Matrix: Who Broadcasts What to Whom across 5 broadcast channels.
+   - Free Media Toolkit (Open Telemetry API and Plug-and-Play Creator Social Kits).
+5. All CTAs updated to "Work with me." (pointing to jeffersonrrufino@gmail.com).
+6. Idempotent baseline reset to commit 588c9a8 before applying transformations.
 """
 
 import os
 import re
+import subprocess
 
 def build():
     base_dir = "/Users/thehighlandboy/Downloads/RUFINOVENTURES"
     index_path = os.path.join(base_dir, "index.html")
+
+    # Step 0: Reset to clean baseline commit 588c9a8 for 100% idempotence
+    print("[*] Resetting working files to baseline commit 588c9a8...")
+    subprocess.run(
+        ["git", "checkout", "588c9a8", "--", "index.html", "RUFINOVENTURES.html", "PHOTOSYNTHESIS_PROJECT_PREVIEW.html"],
+        cwd=base_dir,
+        check=True
+    )
 
     with open(index_path, "r", encoding="utf-8") as f:
         html = f.read()
@@ -201,17 +215,155 @@ def build():
         </div>
       </div>
 
-      <!-- Call to Action Banner -->
-      <div class="mt-8 p-6 sm:p-8 bg-black/90 border border-emerald-500/30 flex flex-col lg:flex-row items-center justify-between gap-6">
+      <!-- Architectural Boundary & Division of Responsibilities -->
+      <div class="mt-8 p-6 sm:p-8 bg-space-900/90 border border-amber-500/40 relative overflow-hidden">
+        <div class="absolute top-0 right-0 px-3 py-1 bg-amber-500/20 text-amber-400 font-mono text-[10px] uppercase tracking-widest font-bold border-b border-l border-amber-500/30">
+          ARCHITECTURAL CHARTER &bull; NO HARDWARE PROCUREMENT
+        </div>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="text-2xl text-amber-400">⚖️</span>
+          <h3 class="text-xl sm:text-2xl font-bold font-display text-white uppercase tracking-tight">
+            THE ARCHITECT'S CHARTER: WHO IMPLEMENTS WHAT?
+          </h3>
+        </div>
+        <p class="text-zinc-300 text-xs sm:text-sm leading-relaxed mb-6 max-w-4xl">
+          To maintain total integrity and zero conflict of interest, our boundary is absolute: <strong>Our team does not procure, warehouse, mark up, or sell hardware.</strong> Hardware procurement, civil works execution, and physical asset ownership belong 100% to sovereign nations, local government units (LGUs), and certified engineering contractors.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+          <div class="p-4 bg-black/60 border border-white/10 space-y-2">
+            <div class="font-mono text-[10px] text-zinc-400 uppercase tracking-widest font-bold">// THE SOVEREIGN NATION'S ROLE (HARDWARE &amp; PROCUREMENT):</div>
+            <ul class="space-y-1.5 text-zinc-300 text-[11px]">
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-400 font-bold shrink-0">&check;</span>
+                <span>Procuring solar panels, inverters, batteries, chillers, and atmospheric water machines through national competitive bidding.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-400 font-bold shrink-0">&check;</span>
+                <span>Executing local civil works, municipal permitting, and grid interconnection using domestic labor and local contractors.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-400 font-bold shrink-0">&check;</span>
+                <span>Retaining 100% sovereign asset ownership, municipal maintenance, and community utility revenue.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="p-4 bg-black/60 border border-amber-500/30 space-y-2">
+            <div class="font-mono text-[10px] text-amber-400 uppercase tracking-widest font-bold">// WHERE THE ARCHITECT ENTERS (SYSTEM ARCHITECTURE &amp; INTEGRATION):</div>
+            <ul class="space-y-1.5 text-zinc-200 text-[11px]">
+              <li class="flex items-start gap-2">
+                <span class="text-amber-400 font-bold shrink-0">&rarr;</span>
+                <span><strong>Diagnostic Stress-Testing:</strong> Send us what you are currently doing and your country's current plans. We test them against thermodynamic collapse models to uncover fatal blind spots.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-amber-400 font-bold shrink-0">&rarr;</span>
+                <span><strong>System Integration Architecture:</strong> Designing how your disjointed procurements (solar, water, health, grid) communicate and operate as a unified, life-saving machine.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-amber-400 font-bold shrink-0">&rarr;</span>
+                <span><strong>Commissioning &amp; Coalition Building:</strong> Advising ministries and international financiers on how to commission this architecture to ensure zero avoidable death.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Anti-Redundancy & Global Compatibility Matrix -->
+      <div class="mt-8 p-6 sm:p-8 bg-space-900/90 border border-white/15">
+        <div class="flex items-center justify-between flex-wrap gap-2 mb-4 border-b border-white/10 pb-3">
+          <div>
+            <div class="text-xs font-mono uppercase tracking-widest text-emerald-400 font-bold mb-1">// ZERO REDUNDANCY POLICY</div>
+            <h3 class="text-xl sm:text-2xl font-bold font-display text-white uppercase tracking-tight">
+              CURRENT GLOBAL STEPS VS. THE RUFINO SYNTHESIS
+            </h3>
+          </div>
+          <div class="text-[11px] font-mono text-zinc-400">
+            WE DO NOT DUPLICATE &bull; WE INTEGRATE &amp; COMPLETE
+          </div>
+        </div>
+        <p class="text-zinc-300 text-xs sm:text-sm leading-relaxed mb-6 max-w-4xl">
+          Billions of dollars are already allocated globally toward climate resilience. Yet populations still suffer fatal heat stroke, crops wither, and reservoirs run dry. <strong>We do not reinvent or compete with existing programs.</strong> We diagnose why they fail in isolation, and supply the thermodynamic integration architecture that makes their existing investments actually prevent death.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+          <!-- Initiative 1: WMO & PAGASA Forecasting -->
+          <div class="p-4 bg-black/60 border border-white/10 flex flex-col justify-between space-y-3">
+            <div>
+              <div class="flex items-center justify-between text-[10px] font-mono text-blue-400 uppercase tracking-wider mb-1">
+                <span>GLOBAL PILLAR 01</span>
+                <span class="px-1.5 py-0.5 border border-blue-500/30 bg-blue-500/10">WMO &amp; PAGASA</span>
+              </div>
+              <h4 class="text-sm font-bold text-white font-display">WMO "EARLY WARNINGS FOR ALL" &amp; PAGASA ADVISORIES</h4>
+              <div class="mt-2 space-y-1.5 text-[11px] text-zinc-300">
+                <p><strong>What They Do Well:</strong> High-precision satellite monitoring, equatorial sea surface temperature tracking (RONI), and 60-day rainfall deficit forecasts.</p>
+                <p class="text-red-300"><strong>The Fatal Gap:</strong> A meteorological warning cannot cool a fever or hydrate an infant. Issuing an advisory without a physical cooling refuge simply announces disaster without providing defense.</p>
+                <p class="text-emerald-300"><strong>How We Integrate (No Redundancy):</strong> We do NOT launch competing satellites or weather models. We use WMO and PAGASA forecast feeds as automated digital triggers that immediately ramp up physical cooling refuges and water condensation nodes before the heat crests.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Initiative 2: FAO & WFP Anticipatory Action -->
+          <div class="p-4 bg-black/60 border border-white/10 flex flex-col justify-between space-y-3">
+            <div>
+              <div class="flex items-center justify-between text-[10px] font-mono text-amber-400 uppercase tracking-wider mb-1">
+                <span>GLOBAL PILLAR 02</span>
+                <span class="px-1.5 py-0.5 border border-amber-500/30 bg-amber-500/10">FAO &amp; WFP</span>
+              </div>
+              <h4 class="text-sm font-bold text-white font-display">UN FAO &amp; WFP $202M ANTICIPATORY ACTION APPEAL</h4>
+              <div class="mt-2 space-y-1.5 text-[11px] text-zinc-300">
+                <p><strong>What They Do Well:</strong> Anticipatory cash-based transfers (CERF), distributing drought-tolerant seeds, livestock vaccinations, and temporary canal desilting.</p>
+                <p class="text-red-300"><strong>The Fatal Gap:</strong> Cash payouts rapidly erode as local food prices quadruple during national drought. Drought seeds wither into dust when unshaded irrigation canals evaporate dry under 45°C sun.</p>
+                <p class="text-emerald-300"><strong>How We Integrate (No Redundancy):</strong> We do NOT hand out emergency cash or food parcels. We design canal-top solar canopies that slash canal water evaporation by 60%+, ensuring the irrigation water actually reaches the FAO seeds while generating clean rural power.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Initiative 3: Philippine Executive Order 53 (Task Force El Niño) -->
+          <div class="p-4 bg-black/60 border border-white/10 flex flex-col justify-between space-y-3">
+            <div>
+              <div class="flex items-center justify-between text-[10px] font-mono text-yellow-400 uppercase tracking-wider mb-1">
+                <span>NATIONAL PILLAR 03</span>
+                <span class="px-1.5 py-0.5 border border-yellow-500/30 bg-yellow-500/10">EO 53 TASK FORCE</span>
+              </div>
+              <h4 class="text-sm font-bold text-white font-display">PHILIPPINES TASK FORCE EL NIÑO (EXECUTIVE ORDER 53)</h4>
+              <div class="mt-2 space-y-1.5 text-[11px] text-zinc-300">
+                <p><strong>What They Do Well:</strong> Multi-agency coordination led by DND &amp; DOST across 5 sectors: Water, Food, Energy, Health, and Public Safety; monitoring Angat Dam levels and cloud seeding.</p>
+                <p class="text-red-300"><strong>The Fatal Gap:</strong> Departmental silos. DA addresses crops, DOE manages grid alerts, NWRB rations municipal water, and DOH records heat exhaustion in ERs. None of them deploy co-located solar thermal ice catchment at the community level.</p>
+                <p class="text-emerald-300"><strong>How We Integrate (No Redundancy):</strong> We provide the physical cross-sectoral connective tissue. One solar canopy array simultaneously cuts DA irrigation evaporation, relieves DOE grid peaks via thermal ice storage, and supplies NWRB with decentralized atmospheric drinking water.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Initiative 4: World Bank & Multilateral Cat-DDO Credit -->
+          <div class="p-4 bg-black/60 border border-white/10 flex flex-col justify-between space-y-3">
+            <div>
+              <div class="flex items-center justify-between text-[10px] font-mono text-purple-400 uppercase tracking-wider mb-1">
+                <span>FINANCE PILLAR 04</span>
+                <span class="px-1.5 py-0.5 border border-purple-500/30 bg-purple-500/10">WORLD BANK &amp; ADB</span>
+              </div>
+              <h4 class="text-sm font-bold text-white font-display">MULTILATERAL CONTINGENCY FINANCING (CAT-DDO &amp; CERCs)</h4>
+              <div class="mt-2 space-y-1.5 text-[11px] text-zinc-300">
+                <p><strong>What They Do Well:</strong> Instant sovereign liquidity disbursals once national states of calamity are declared, preventing immediate sovereign debt default.</p>
+                <p class="text-red-300"><strong>The Fatal Gap:</strong> Emergency debt is consumed on consumable relief (tarps, water trucking, canned food) that vanishes within weeks, leaving national debt higher with zero permanent physical protection.</p>
+                <p class="text-emerald-300"><strong>How We Integrate (No Redundancy):</strong> We convert emergency capital into permanent physical infrastructure that outlives the El Niño, delivering up to $7 in avoided socioeconomic destruction for every $1 invested.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Commissioning Invitation Banner -->
+      <div class="mt-8 p-6 sm:p-8 bg-gradient-to-r from-space-900 via-emerald-950/40 to-space-900 border border-emerald-500/40 flex flex-col lg:flex-row items-center justify-between gap-6">
         <div>
-          <div class="text-xs font-mono uppercase tracking-widest text-emerald-400 font-bold mb-1">// GOVERNMENT &amp; INSTITUTIONAL DIRECTIVE</div>
-          <h3 class="text-xl sm:text-2xl font-bold text-white font-display">Are you in government, a local municipality, or a public utility?</h3>
-          <p class="text-zinc-400 text-xs sm:text-sm mt-1 max-w-2xl">
-            We do not compete with state mandates—we integrate, un-silo, and accelerate them with physical catchment nodes, telemetry, and non-displacement finance.
+          <div class="text-xs font-mono uppercase tracking-widest text-emerald-400 font-bold mb-1">// COMMISSION AN ARCHITECTURAL REVIEW</div>
+          <h3 class="text-xl sm:text-2xl font-bold text-white font-display">Have an existing El Niño plan in your country, city, or agency?</h3>
+          <p class="text-zinc-300 text-xs sm:text-sm mt-1 max-w-2xl leading-relaxed">
+            Let me know what you're currently doing in your country and what your current plans are. We will stress-test your plan against thermodynamic collapse thresholds, reveal where your departmental silos fall short, and see if it works with the system applied.
           </p>
         </div>
-        <a href="mailto:jeffersonrrufino@gmail.com?subject=Inter-Agency%20Coalition%20Briefing%20Request" class="btn-spacex-cyan whitespace-nowrap">
-          WORK WITH ME (CONVENE COALITION) &rarr;
+        <a href="mailto:jeffersonrrufino@gmail.com?subject=National%20Plan%20Review%20%26%20Architecture%20Commission" class="btn-spacex-cyan whitespace-nowrap">
+          WORK WITH ME (TEST YOUR PLAN) &rarr;
         </a>
       </div>
 
@@ -903,7 +1055,7 @@ def build():
         target = os.path.join(base_dir, fname)
         with open(target, "w", encoding="utf-8") as out:
             out.write(html)
-        print(f"✓ Successfully generated {fname} with Per-Country Coalition, Media & Attention Matrix, and 'Work with me' ({len(html)} bytes)")
+        print(f"✓ Successfully generated {fname} with Architect's Charter, Anti-Redundancy, Coalition, Media Matrix, and 'Work with me' ({len(html)} bytes)")
 
 if __name__ == "__main__":
     build()
