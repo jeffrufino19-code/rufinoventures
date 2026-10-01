@@ -41,22 +41,21 @@ Your workspace already has every required file in place at the root level:
 
 ### Step 1: Initialize Git and Commit All Files Locally
 
-Open your terminal in this directory (`/Users/thehighlandboy/Downloads/RUFINOVENTURES`) and run:
+*(Note: A clean initial commit has already been initialized and committed on `main` in this workspace. You can proceed directly to **Step 2**!)*
+
+If making future updates or committing manually, run:
 
 ```bash
-# 1. Initialize git if not already initialized
-git init
-
-# 2. Check status (verify only public website files and docs are listed)
+# 1. Check status (verify only public website files and docs are listed)
 git status
 
-# 3. Stage the files
+# 2. Stage changes
 git add .
 
-# 4. Create initial commit
-git commit -m "Launch The Photosynthesis Project & Rufino Synthesis 2026-27 Super El Niño Playbook"
+# 3. Create commit
+git commit -m "Update The Photosynthesis Project & Rufino Synthesis Playbook"
 
-# 5. Set default branch to main
+# 4. Ensure branch is main
 git branch -M main
 ```
 
