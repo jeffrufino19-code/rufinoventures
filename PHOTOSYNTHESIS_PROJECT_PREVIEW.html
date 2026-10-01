@@ -2963,14 +2963,15 @@
     </div>
 
     <!-- Main Contact & Dispatch Grid -->
-    <div class="relative z-10 max-w-[1720px] w-full mx-auto my-auto py-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+    <div class="relative z-10 max-w-[1720px] w-full mx-auto my-auto py-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-start">
       
-      <div class="lg:col-span-6">
+      <div class="lg:col-span-6 min-w-0">
         <p class="font-mono text-xs tracking-[0.3em] text-telemetry-cyan uppercase mb-3 font-semibold">
           PLANETARY CIVIL DEFENSE // THE GLOBAL MOVEMENT
         </p>
-        <h2 class="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-white mb-6 font-display leading-[0.95]">
-          BRING THE PHOTOSYNTHESIS <br/>
+        <h2 class="text-3xl sm:text-5xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-black uppercase tracking-tight text-white mb-6 font-display leading-[1.02] break-words">
+          BRING THE<br/>
+          PHOTOSYNTHESIS<br/>
           <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-amber-300 to-white">PROJECT TO LIFE.</span>
         </h2>
 
@@ -3061,7 +3062,7 @@
       </div>
 
       <!-- Right Column: Interactive Dispatch Form -->
-      <div class="lg:col-span-6">
+      <div class="lg:col-span-6 min-w-0">
         <div class="hud-box p-6 sm:p-8">
           <div class="border-b border-white/10 pb-4 mb-6">
             <div class="flex items-center justify-between flex-wrap gap-2">
@@ -3072,15 +3073,15 @@
           </div>
 
           <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4 font-mono text-xs">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
               <div>
                 <label class="block text-zinc-400 uppercase tracking-wider mb-1">Your Operational Role *</label>
-                <select id="form-role" class="w-full bg-space-900 border border-white/20 p-2.5 text-white focus:outline-none focus:border-telemetry-cyan">
+                <select id="form-role" class="w-full bg-space-900 border border-white/20 p-2.5 text-white text-xs focus:outline-none focus:border-telemetry-cyan">
                   <option value="Citizen / Community Organizer">Citizen / Community Organizer</option>
-                  <option value="Commercial Mall / Business Enterprise">Commercial Mall / Business Enterprise</option>
+                  <option value="Commercial Mall / Business Enterprise">Commercial Mall / Enterprise</option>
                   <option value="Engineer / Systems Builder">Engineer / Systems Builder</option>
-                  <option value="Mayor / LGU / Government Official">Mayor / LGU / Government Official</option>
-                  <option value="Broadcaster / Content Creator / Journalist">Broadcaster / Content Creator / Journalist</option>
+                  <option value="Mayor / LGU / Government Official">Mayor / LGU Official</option>
+                  <option value="Broadcaster / Content Creator / Journalist">Broadcaster / Content Creator</option>
                   <option value="Diplomatic / Sovereign Delegate">Diplomatic / Sovereign Delegate</option>
                 </select>
               </div>
@@ -3091,13 +3092,13 @@
                   type="text" 
                   id="form-org" 
                   required 
-                  placeholder="e.g. Metro Retail Group / QC Community" 
+                  placeholder="e.g. Metro Retail / QC Community" 
                   class="w-full bg-space-900 border border-white/20 p-2.5 text-white placeholder-zinc-600 focus:outline-none focus:border-telemetry-cyan"
                 />
               </div>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
               <div>
                 <label class="block text-zinc-400 uppercase tracking-wider mb-1">Official Contact Email *</label>
                 <input 
@@ -3111,12 +3112,12 @@
 
               <div>
                 <label class="block text-zinc-400 uppercase tracking-wider mb-1">Target Geographic Zone</label>
-                <select id="form-region" class="w-full bg-space-900 border border-white/20 p-2.5 text-white focus:outline-none focus:border-telemetry-cyan">
+                <select id="form-region" class="w-full bg-space-900 border border-white/20 p-2.5 text-white text-xs focus:outline-none focus:border-telemetry-cyan">
                   <option value="Philippines (Archipelago)">Philippines (Archipelago)</option>
-                  <option value="Indonesia (Java & Kalimantan)">Indonesia (Java & Kalimantan)</option>
-                  <option value="Southeast Asia & Pacific Rim">Southeast Asia & Pacific Rim</option>
-                  <option value="South Asia (India & Pakistan)">South Asia (India & Pakistan)</option>
-                  <option value="Sub-Saharan & East Africa">Sub-Saharan & East Africa</option>
+                  <option value="Indonesia (Java & Kalimantan)">Indonesia (Java &amp; Peat)</option>
+                  <option value="Southeast Asia & Pacific Rim">Southeast Asia &amp; Pacific</option>
+                  <option value="South Asia (India & Pakistan)">South Asia (India &amp; Pak)</option>
+                  <option value="Sub-Saharan & East Africa">Sub-Saharan &amp; East Africa</option>
                   <option value="Latin America (Peru, Brazil)">Latin America (Peru, Brazil)</option>
                   <option value="Multilateral / Global">Multilateral / Global Movement</option>
                 </select>
