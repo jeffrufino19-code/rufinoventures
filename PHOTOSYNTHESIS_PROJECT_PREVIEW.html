@@ -500,7 +500,7 @@
         <span class="font-mono text-xs text-zinc-400 hidden sm:inline">OVERTIME WEATHER-FRONT &amp; CASUALTY SIMULATOR</span>
       </div>
       <div class="font-mono text-xs text-zinc-400 flex items-center gap-4">
-        <span class="hidden md:inline">RADAR TELEMETRY: PAGASA NETWORK &bull; NOAA &bull; CARTO-DARK</span>
+        <span class="hidden md:inline">RADAR TELEMETRY: PAGASA NETWORK &bull; NOAA &bull; ESRI DARK CANVAS</span>
         <span class="text-emerald-400 font-bold border border-emerald-500/40 px-2.5 py-0.5 bg-emerald-500/10">100% FREE CONSULTATION</span>
       </div>
     </div>
@@ -722,12 +722,17 @@
             
             <!-- Map Top Overlay HUD -->
             <div class="absolute top-4 left-4 z-[400] flex flex-wrap items-center gap-2 pointer-events-none">
-              <span id="map-mode-badge" class="px-2.5 py-1 bg-black/90 border border-red-500 text-red-400 font-mono text-[11px] font-bold shadow-lg pointer-events-auto">
-                VIEW: 01 // CURRENT TRAJECTORY (ZERO INTERVENTION)
-              </span>
-              <span id="map-sub-badge" class="px-2.5 py-1 bg-black/90 border border-white/20 text-zinc-300 font-mono text-[11px] pointer-events-auto hidden sm:inline">
-                PAGASA DOPPLER RADAR ACTIVE
-              </span>
+              <button id="map-mode-badge" onclick="cycleScenario()" class="px-2.5 py-1 bg-black/90 hover:bg-space-800 border border-red-500 text-red-400 font-mono text-[11px] font-bold shadow-lg pointer-events-auto transition cursor-pointer flex items-center gap-1.5 group" title="Click to cycle scenarios (01 Inaction &rarr; 02 Current Work &rarr; 03 Rufino Synthesis)">
+                <span>VIEW: 01 // CURRENT TRAJECTORY (ZERO INTERVENTION)</span>
+                <span class="text-zinc-500 group-hover:text-white transition">⟳</span>
+              </button>
+              <button id="map-sub-badge" onclick="openPagasaRadarModal()" class="px-3 py-1 bg-black/90 hover:bg-cyan-950/80 border border-telemetry-cyan text-telemetry-cyan hover:text-white font-mono text-[11px] font-bold shadow-[0_0_12px_rgba(0,229,255,0.3)] pointer-events-auto transition flex items-center gap-2 cursor-pointer group" title="Click to inspect DOST-PAGASA Doppler Radar Network & Telemetry">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-telemetry-cyan"></span>
+                </span>
+                <span class="tracking-wide">📡 PAGASA DOPPLER RADAR (CLICK TO INSPECT) &rarr;</span>
+              </button>
             </div>
 
             <!-- VIEWPORT A: PHILIPPINES HIGH-RESOLUTION VECTOR RADAR MAP (DEFAULT ACTIVE) -->
@@ -793,10 +798,63 @@
                 <g id="map-telemetry-nodes">
                   <!-- Populated by renderPhilippineNodes() -->
                 </g>
+
+                <!-- DOST-PAGASA ARCHIPELAGO DOPPLER RADAR NETWORK (CLICKABLE STATIONS) -->
+                <g id="pagasa-radar-network-svg" class="transition-all duration-300">
+                  <!-- Station 1: Aparri (18.35°N, 121.64°E) -->
+                  <g class="cursor-pointer group" onclick="openPagasaRadarModal()">
+                    <circle cx="275" cy="95" r="48" fill="none" stroke="rgba(0,229,255,0.2)" stroke-dasharray="2,3" />
+                    <circle cx="275" cy="95" r="5" fill="#00e5ff" fill-opacity="0.3" stroke="#00e5ff" stroke-width="1.5" />
+                    <circle cx="275" cy="95" r="2" fill="#ffffff" />
+                    <text x="284" y="98" fill="#00e5ff" font-size="7" font-family="monospace" font-weight="bold">📡 APARRI RADAR</text>
+                  </g>
+                  <!-- Station 2: Subic (14.82°N, 120.27°E) -->
+                  <g class="cursor-pointer group" onclick="openPagasaRadarModal()">
+                    <circle cx="225" cy="270" r="48" fill="none" stroke="rgba(0,229,255,0.2)" stroke-dasharray="2,3" />
+                    <circle cx="225" cy="270" r="5" fill="#00e5ff" fill-opacity="0.3" stroke="#00e5ff" stroke-width="1.5" />
+                    <circle cx="225" cy="270" r="2" fill="#ffffff" />
+                    <text x="145" y="273" fill="#00e5ff" font-size="7" font-family="monospace" font-weight="bold">📡 SUBIC RADAR</text>
+                  </g>
+                  <!-- Station 3: Tagaytay (14.12°N, 120.97°E) -->
+                  <g class="cursor-pointer group" onclick="openPagasaRadarModal()">
+                    <circle cx="245" cy="320" r="38" fill="none" stroke="rgba(0,229,255,0.2)" stroke-dasharray="2,3" />
+                    <circle cx="245" cy="320" r="5" fill="#00e5ff" fill-opacity="0.3" stroke="#00e5ff" stroke-width="1.5" />
+                    <circle cx="245" cy="320" r="2" fill="#ffffff" />
+                    <text x="255" y="323" fill="#00e5ff" font-size="7" font-family="monospace" font-weight="bold">📡 TAGAYTAY RADAR</text>
+                  </g>
+                  <!-- Station 4: Guiuan (11.03°N, 125.73°E) -->
+                  <g class="cursor-pointer group" onclick="openPagasaRadarModal()">
+                    <circle cx="445" cy="475" r="48" fill="none" stroke="rgba(0,229,255,0.2)" stroke-dasharray="2,3" />
+                    <circle cx="445" cy="475" r="5" fill="#00e5ff" fill-opacity="0.3" stroke="#00e5ff" stroke-width="1.5" />
+                    <circle cx="445" cy="475" r="2" fill="#ffffff" />
+                    <text x="365" y="470" fill="#00e5ff" font-size="7" font-family="monospace" font-weight="bold">📡 GUIUAN RADAR</text>
+                  </g>
+                  <!-- Station 5: Cebu / Mactan (10.32°N, 123.98°E) -->
+                  <g class="cursor-pointer group" onclick="openPagasaRadarModal()">
+                    <circle cx="375" cy="515" r="38" fill="none" stroke="rgba(0,229,255,0.2)" stroke-dasharray="2,3" />
+                    <circle cx="375" cy="515" r="5" fill="#00e5ff" fill-opacity="0.3" stroke="#00e5ff" stroke-width="1.5" />
+                    <circle cx="375" cy="515" r="2" fill="#ffffff" />
+                    <text x="385" y="525" fill="#00e5ff" font-size="7" font-family="monospace" font-weight="bold">📡 CEBU RADAR</text>
+                  </g>
+                  <!-- Station 6: Hinatuan (8.36°N, 126.33°E) -->
+                  <g class="cursor-pointer group" onclick="openPagasaRadarModal()">
+                    <circle cx="485" cy="615" r="48" fill="none" stroke="rgba(0,229,255,0.2)" stroke-dasharray="2,3" />
+                    <circle cx="485" cy="615" r="5" fill="#00e5ff" fill-opacity="0.3" stroke="#00e5ff" stroke-width="1.5" />
+                    <circle cx="485" cy="615" r="2" fill="#ffffff" />
+                    <text x="390" y="618" fill="#00e5ff" font-size="7" font-family="monospace" font-weight="bold">📡 HINATUAN RADAR</text>
+                  </g>
+                  <!-- Station 7: Zamboanga (6.92°N, 122.06°E) -->
+                  <g class="cursor-pointer group" onclick="openPagasaRadarModal()">
+                    <circle cx="275" cy="655" r="38" fill="none" stroke="rgba(0,229,255,0.2)" stroke-dasharray="2,3" />
+                    <circle cx="275" cy="655" r="5" fill="#00e5ff" fill-opacity="0.3" stroke="#00e5ff" stroke-width="1.5" />
+                    <circle cx="275" cy="655" r="2" fill="#ffffff" />
+                    <text x="180" y="658" fill="#00e5ff" font-size="7" font-family="monospace" font-weight="bold">📡 ZAMBOANGA RADAR</text>
+                  </g>
+                </g>
               </svg>
             </div>
 
-            <!-- VIEWPORT B: WORLDWIDE GLOBAL INTERACTIVE MAP (LEAFLET + CARTODB DARK MATTER) -->
+            <!-- VIEWPORT B: WORLDWIDE GLOBAL INTERACTIVE MAP (LEAFLET + ESRI DARK CANVAS) -->
             <div id="view-global-container" class="hidden w-full h-[580px] sm:h-[640px] z-10">
               <div id="global-el-nino-map" class="w-full h-full"></div>
             </div>
@@ -3349,6 +3407,176 @@ DIRECT ALL INQUIRIES TO: jeffersonrrufino@gmail.com
             <button onclick="closeModal()" class="btn-mission-outline text-xs">CLOSE CLINICAL SPEC</button>
           </div>
         `;
+      } else if (type === 'modal-pagasa-radar') {
+        content = `
+          <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
+            <div>
+              <div class="font-mono text-xs uppercase tracking-widest text-telemetry-cyan flex items-center gap-2 mb-1">
+                <span class="w-2 h-2 rounded-full bg-telemetry-cyan animate-ping"></span>
+                <span>DOST-PAGASA // PHILIPPINE AREA OF RESPONSIBILITY (PAR)</span>
+              </div>
+              <h3 class="text-2xl sm:text-3xl font-black uppercase text-white font-display">
+                NATIONAL DOPPLER WEATHER RADAR NETWORK
+              </h3>
+            </div>
+            <span class="px-2.5 py-1 bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 font-mono text-xs font-bold uppercase hidden sm:inline-block">
+              ● 100% OPERATIONAL
+            </span>
+          </div>
+
+          <!-- FREE CONSULTATION MANDATE NOTICE -->
+          <div class="p-3.5 bg-emerald-950/40 border border-emerald-500/40 rounded text-xs font-mono text-emerald-300 mb-6 flex items-start gap-3">
+            <span class="text-base">🛡️</span>
+            <div>
+              <strong class="text-white">PRO-BONO ARCHITECTURAL INTEGRATION GUARANTEE:</strong>
+              Rufino Ventures provides 100% free consultation for national agencies (DOST, PAGASA, DOH, DA) and LGUs to connect Doppler precipitation radar and heat telemetry directly into automated civil defense cooling triggers. Zero consulting fees. No hardware markups.
+            </div>
+          </div>
+
+          <p class="text-zinc-300 text-sm leading-relaxed mb-6">
+            PAGASA operates a multi-station S-Band (10cm wavelength) and C-Band (5cm wavelength) Doppler radar network spanning the Philippine archipelago. Under the Rufino Synthesis architecture, raw Doppler reflectivity (<strong class="text-white">dBZ</strong>), radial velocity, and precipitable water indices are streamed into local municipal triage centers to automatically dispatch cooling refuges and prevent agricultural desiccation before thermal crests occur.
+          </p>
+
+          <!-- 7 RADAR STATIONS NETWORK TELEMETRY -->
+          <div class="mb-6">
+            <div class="font-mono text-xs text-zinc-400 uppercase tracking-wider mb-3 flex items-center justify-between">
+              <span>ARCHIPELAGO RADAR STATIONS TELEMETRY (PAR SURVEILLANCE)</span>
+              <span class="text-telemetry-cyan font-bold">7/7 STATIONS REPORTING</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 font-mono text-xs">
+              
+              <!-- Station 1: Aparri -->
+              <div class="p-3 bg-black/60 border border-white/10 hover:border-cyan-500/50 transition">
+                <div class="flex items-center justify-between text-white font-bold mb-1">
+                  <span class="text-telemetry-cyan">1. APARRI DOPPLER (CAGAYAN VALLEY)</span>
+                  <span class="text-emerald-400 text-[10px]">ONLINE</span>
+                </div>
+                <div class="text-zinc-400 text-[11px] space-y-0.5">
+                  <div>Coordinates: 18.35°N, 121.64°E • Elevation: 28m</div>
+                  <div>Frequency: S-Band (2.8 GHz) • Range: 450 km (Surveillance)</div>
+                  <div class="text-zinc-500">Mission: Northern Luzon & Bashi Channel maritime surveillance</div>
+                </div>
+              </div>
+
+              <!-- Station 2: Subic -->
+              <div class="p-3 bg-black/60 border border-white/10 hover:border-cyan-500/50 transition">
+                <div class="flex items-center justify-between text-white font-bold mb-1">
+                  <span class="text-telemetry-cyan">2. SUBIC DOPPLER (ZAMBALES / CENTRAL LUZON)</span>
+                  <span class="text-emerald-400 text-[10px]">ONLINE</span>
+                </div>
+                <div class="text-zinc-400 text-[11px] space-y-0.5">
+                  <div>Coordinates: 14.82°N, 120.27°E • Elevation: 532m</div>
+                  <div>Frequency: S-Band (2.7 GHz) • Range: 450 km</div>
+                  <div class="text-zinc-500">Mission: Central Luzon agricultural basin & West Philippine Sea</div>
+                </div>
+              </div>
+
+              <!-- Station 3: Tagaytay -->
+              <div class="p-3 bg-black/60 border border-white/10 hover:border-cyan-500/50 transition">
+                <div class="flex items-center justify-between text-white font-bold mb-1">
+                  <span class="text-telemetry-cyan">3. TAGAYTAY DOPPLER (NCR / CALABARZON)</span>
+                  <span class="text-emerald-400 text-[10px]">ONLINE</span>
+                </div>
+                <div class="text-zinc-400 text-[11px] space-y-0.5">
+                  <div>Coordinates: 14.12°N, 120.97°E • Elevation: 752m</div>
+                  <div>Frequency: C-Band (5.6 GHz) • Range: 250 km Doppler</div>
+                  <div class="text-zinc-500">Mission: Metro Manila megacity & Southern Tagalog watershed</div>
+                </div>
+              </div>
+
+              <!-- Station 4: Guiuan -->
+              <div class="p-3 bg-black/60 border border-white/10 hover:border-cyan-500/50 transition">
+                <div class="flex items-center justify-between text-white font-bold mb-1">
+                  <span class="text-telemetry-cyan">4. GUIUAN DOPPLER (EASTERN SAMAR)</span>
+                  <span class="text-emerald-400 text-[10px]">ONLINE</span>
+                </div>
+                <div class="text-zinc-400 text-[11px] space-y-0.5">
+                  <div>Coordinates: 11.03°N, 125.73°E • Elevation: 60m</div>
+                  <div>Frequency: S-Band (2.8 GHz) • Range: 450 km</div>
+                  <div class="text-zinc-500">Mission: Pacific trade-wind front & Eastern Visayas gateway</div>
+                </div>
+              </div>
+
+              <!-- Station 5: Cebu / Mactan -->
+              <div class="p-3 bg-black/60 border border-white/10 hover:border-cyan-500/50 transition">
+                <div class="flex items-center justify-between text-white font-bold mb-1">
+                  <span class="text-telemetry-cyan">5. CEBU / MACTAN DOPPLER (CENTRAL VISAYAS)</span>
+                  <span class="text-emerald-400 text-[10px]">ONLINE</span>
+                </div>
+                <div class="text-zinc-400 text-[11px] space-y-0.5">
+                  <div>Coordinates: 10.32°N, 123.98°E • Elevation: 15m</div>
+                  <div>Frequency: C-Band (5.6 GHz) • Range: 250 km</div>
+                  <div class="text-zinc-500">Mission: Visayan Sea agricultural & urban water monitoring</div>
+                </div>
+              </div>
+
+              <!-- Station 6: Hinatuan -->
+              <div class="p-3 bg-black/60 border border-white/10 hover:border-cyan-500/50 transition">
+                <div class="flex items-center justify-between text-white font-bold mb-1">
+                  <span class="text-telemetry-cyan">6. HINATUAN DOPPLER (SURIGAO / CARAGA)</span>
+                  <span class="text-emerald-400 text-[10px]">ONLINE</span>
+                </div>
+                <div class="text-zinc-400 text-[11px] space-y-0.5">
+                  <div>Coordinates: 8.36°N, 126.33°E • Elevation: 35m</div>
+                  <div>Frequency: S-Band (2.8 GHz) • Range: 450 km</div>
+                  <div class="text-zinc-500">Mission: Eastern Mindanao Pacific equatorial swell tracking</div>
+                </div>
+              </div>
+
+              <!-- Station 7: Zamboanga -->
+              <div class="p-3 bg-black/60 border border-white/10 hover:border-cyan-500/50 transition md:col-span-2">
+                <div class="flex items-center justify-between text-white font-bold mb-1">
+                  <span class="text-telemetry-cyan">7. ZAMBOANGA DOPPLER (WESTERN MINDANAO & SULU SEA)</span>
+                  <span class="text-emerald-400 text-[10px]">ONLINE</span>
+                </div>
+                <div class="text-zinc-400 text-[11px] space-y-0.5">
+                  <div>Coordinates: 6.92°N, 122.06°E • Elevation: 20m • Frequency: C-Band (5.6 GHz) • Range: 250 km</div>
+                  <div class="text-zinc-500">Mission: Southwestern archipelago, Moro Gulf, and Celebes Sea thermal surveillance</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- DIRECT EXTERNAL LINKS & TACTICAL ACTIONS -->
+          <div class="bg-space-950 p-4 border border-white/15 rounded mb-6 font-mono text-xs">
+            <div class="text-zinc-400 uppercase tracking-widest text-[10px] mb-3">OFFICIAL METEOROLOGICAL TELEMETRY PORTALS</div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <a href="https://bagong.pagasa.dost.gov.ph/" target="_blank" rel="noopener" class="p-3 bg-blue-950/40 hover:bg-blue-900/60 border border-blue-500/50 text-blue-200 hover:text-white transition flex items-center justify-between group">
+                <div>
+                  <div class="font-bold text-white flex items-center gap-1.5">
+                    <span>DOST-PAGASA OFFICIAL PORTAL</span>
+                    <span class="group-hover:translate-x-1 transition">&rarr;</span>
+                  </div>
+                  <div class="text-[10px] text-blue-300/80">bagong.pagasa.dost.gov.ph (Live Radar Mosaic)</div>
+                </div>
+                <span class="text-lg">↗</span>
+              </a>
+
+              <a href="https://www.data.jma.go.jp/mscweb/data/himawari/sat_hrp.php" target="_blank" rel="noopener" class="p-3 bg-purple-950/40 hover:bg-purple-900/60 border border-purple-500/50 text-purple-200 hover:text-white transition flex items-center justify-between group">
+                <div>
+                  <div class="font-bold text-white flex items-center gap-1.5">
+                    <span>JMA HIMAWARI-9 SATELLITE</span>
+                    <span class="group-hover:translate-x-1 transition">&rarr;</span>
+                  </div>
+                  <div class="text-[10px] text-purple-300/80">Geostationary 10-min High-Res IR / VIS</div>
+                </div>
+                <span class="text-lg">↗</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- MODAL ACTIONS -->
+          <div class="border-t border-white/10 pt-4 flex flex-wrap items-center justify-between gap-3 font-mono text-xs">
+            <a href="mailto:jeffersonrrufino@gmail.com?subject=Free%20Consultation%20•%20DOST-PAGASA%20Doppler%20Integration" class="px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-black font-bold uppercase transition flex items-center gap-2">
+              <span>FREE CONSULTATION WITH JEFF RUFINO</span>
+              <span>&rarr;</span>
+            </a>
+            <button onclick="closeModal()" class="btn-mission-outline text-xs">
+              CLOSE RADAR INSPECTOR
+            </button>
+          </div>
+        `;
       }
 
       document.getElementById('modal-content').innerHTML = content;
@@ -3357,6 +3585,16 @@ DIRECT ALL INQUIRIES TO: jeffersonrrufino@gmail.com
 
     function closeModal() {
       document.getElementById('modal-container').classList.add('hidden');
+    }
+
+    function openPagasaRadarModal() {
+      openModal('modal-pagasa-radar');
+    }
+
+    function cycleScenario() {
+      const order = ['inaction', 'current', 'rufino'];
+      const nextIdx = (order.indexOf(activeScenario) + 1) % order.length;
+      setMapScenario(order[nextIdx]);
     }
 
     // Close on background click
@@ -4040,6 +4278,7 @@ TRANSMITTED VIA RUFINOVENTURES.COM MISSION CONTROL`;
       const unitInaction = document.getElementById('stat-inaction-unit');
       const unitCurrent = document.getElementById('stat-current-unit');
       const unitRufino = document.getElementById('stat-rufino-unit');
+      const subBadge = document.getElementById('map-sub-badge');
 
       if (scope === 'philippines') {
         if (btnPh) btnPh.className = 'px-4 py-2 border-2 border-telemetry-cyan bg-cyan-950/50 text-telemetry-cyan font-bold flex items-center gap-2 transition shadow-[0_0_15px_rgba(0,229,255,0.25)]';
@@ -4052,6 +4291,10 @@ TRANSMITTED VIA RUFINOVENTURES.COM MISSION CONTROL`;
         if (unitInaction) unitInaction.textContent = 'FILIPINOS';
         if (unitCurrent) unitCurrent.textContent = 'FILIPINOS';
         if (unitRufino) unitRufino.textContent = 'LIVES SAVED';
+        if (subBadge) {
+          subBadge.innerHTML = '<span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-telemetry-cyan"></span></span><span class="tracking-wide">📡 PAGASA DOPPLER RADAR (CLICK TO INSPECT) &rarr;</span>';
+          subBadge.title = 'Click to inspect DOST-PAGASA Doppler Radar Network & Telemetry';
+        }
 
         renderPhilippineNodes();
         inspectHotspot('centralluzon');
@@ -4066,6 +4309,10 @@ TRANSMITTED VIA RUFINOVENTURES.COM MISSION CONTROL`;
         if (unitInaction) unitInaction.textContent = 'WORLDWIDE';
         if (unitCurrent) unitCurrent.textContent = 'WORLDWIDE';
         if (unitRufino) unitRufino.textContent = 'LIVES SAVED';
+        if (subBadge) {
+          subBadge.innerHTML = '<span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-telemetry-cyan"></span></span><span class="tracking-wide">📡 PAGASA + WMO RADAR (CLICK TO INSPECT) &rarr;</span>';
+          subBadge.title = 'Click to inspect DOST-PAGASA & Global Doppler Radar Network Telemetry';
+        }
 
         if (!leafletMap) {
           initLeafletGlobalInstance();
@@ -4093,10 +4340,16 @@ TRANSMITTED VIA RUFINOVENTURES.COM MISSION CONTROL`;
         scrollWheelZoom: true
       });
 
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; OpenStreetMap &copy; CARTO',
-        subdomains: 'abcd',
-        maxZoom: 19
+      // Esri World Dark Gray Canvas Base (Free, no API key required, zero watermark, high contrast military/telemetry dark theme)
+      L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+        attribution: '&copy; Esri &mdash; Esri, DeLorme, NAVTEQ, OpenStreetMap contributors',
+        maxZoom: 16
+      }).addTo(leafletMap);
+
+      // Esri World Dark Gray Reference Layer (Boundaries & City Labels)
+      L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {
+        attribution: '',
+        maxZoom: 16
       }).addTo(leafletMap);
 
       leafletCircleLayer = L.layerGroup().addTo(leafletMap);
@@ -4136,6 +4389,43 @@ TRANSMITTED VIA RUFINOVENTURES.COM MISSION CONTROL`;
           weight: 1.5,
           dashArray: activeScenario === 'rufino' ? '4, 4' : null
         }).addTo(leafletCircleLayer);
+      });
+
+      // DOST-PAGASA Archipelago Doppler Radar Network on Global Map
+      const pagasaStations = [
+        { name: '1. Aparri Doppler Radar (S-Band • 450km)', coords: [18.35, 121.64], range: 450000 },
+        { name: '2. Subic Doppler Radar (S-Band • 450km)', coords: [14.82, 120.27], range: 450000 },
+        { name: '3. Tagaytay Doppler Radar (C-Band • 250km)', coords: [14.12, 120.97], range: 250000 },
+        { name: '4. Guiuan Doppler Radar (S-Band • 450km)', coords: [11.03, 125.73], range: 450000 },
+        { name: '5. Cebu / Mactan Doppler Radar (C-Band • 250km)', coords: [10.32, 123.98], range: 250000 },
+        { name: '6. Hinatuan Doppler Radar (S-Band • 450km)', coords: [8.36, 126.33], range: 450000 },
+        { name: '7. Zamboanga Doppler Radar (C-Band • 250km)', coords: [6.92, 122.06], range: 250000 }
+      ];
+
+      pagasaStations.forEach(st => {
+        L.circle(st.coords, {
+          radius: st.range,
+          color: '#00e5ff',
+          fillColor: '#00e5ff',
+          fillOpacity: 0.05,
+          weight: 1.2,
+          dashArray: '3, 4'
+        }).addTo(leafletCircleLayer);
+
+        const radarPinHtml = `
+          <div style="display:flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:#00e5ff22;border:1.5px solid #00e5ff;box-shadow:0 0 10px #00e5ff;cursor:pointer;">
+            <div style="width:5px;height:5px;border-radius:50%;background:#00e5ff;"></div>
+          </div>
+        `;
+        const rIcon = L.divIcon({
+          html: radarPinHtml,
+          className: 'pagasa-radar-leaflet-pin',
+          iconSize: [20, 20],
+          iconAnchor: [10, 10]
+        });
+        const rMarker = L.marker(st.coords, { icon: rIcon }).addTo(leafletMarkerLayer);
+        rMarker.on('click', () => { openPagasaRadarModal(); });
+        rMarker.bindTooltip(`<strong>${st.name}</strong><br/><span style="color:#00e5ff;font-family:monospace;">Click to open PAGASA Radar Telemetry</span>`, { direction: 'top', offset: [0, -8] });
       });
 
       // Markers for All Hotspots
@@ -4338,14 +4628,14 @@ TRANSMITTED VIA RUFINOVENTURES.COM MISSION CONTROL`;
 
       if (badge) {
         if (scenario === 'inaction') {
-          badge.textContent = 'VIEW: 01 // CURRENT TRAJECTORY (ZERO INTERVENTION)';
-          badge.className = 'px-2.5 py-1 bg-black/90 border border-red-500 text-red-400 font-mono text-[11px] font-bold shadow-lg pointer-events-auto';
+          badge.innerHTML = '<span>VIEW: 01 // CURRENT TRAJECTORY (ZERO INTERVENTION)</span> <span class="text-zinc-500 group-hover:text-white transition">⟳</span>';
+          badge.className = 'px-2.5 py-1 bg-black/90 hover:bg-space-800 border border-red-500 text-red-400 font-mono text-[11px] font-bold shadow-lg pointer-events-auto transition cursor-pointer flex items-center gap-1.5 group';
         } else if (scenario === 'current') {
-          badge.textContent = 'VIEW: 02 // WHAT NATIONS CURRENTLY HAVE (FRAGMENTED WORK)';
-          badge.className = 'px-2.5 py-1 bg-black/90 border border-amber-400 text-amber-300 font-mono text-[11px] font-bold shadow-lg pointer-events-auto';
+          badge.innerHTML = '<span>VIEW: 02 // WHAT NATIONS CURRENTLY HAVE (FRAGMENTED WORK)</span> <span class="text-zinc-500 group-hover:text-white transition">⟳</span>';
+          badge.className = 'px-2.5 py-1 bg-black/90 hover:bg-space-800 border border-amber-400 text-amber-300 font-mono text-[11px] font-bold shadow-lg pointer-events-auto transition cursor-pointer flex items-center gap-1.5 group';
         } else {
-          badge.textContent = 'VIEW: 03 // WHERE THE RUFINO SYNTHESIS HELPS OUT (AVOIDED CATASTROPHE)';
-          badge.className = 'px-2.5 py-1 bg-black/90 border border-emerald-400 text-emerald-300 font-mono text-[11px] font-bold shadow-lg pointer-events-auto';
+          badge.innerHTML = '<span>VIEW: 03 // WHERE THE RUFINO SYNTHESIS HELPS OUT (AVOIDED CATASTROPHE)</span> <span class="text-zinc-500 group-hover:text-white transition">⟳</span>';
+          badge.className = 'px-2.5 py-1 bg-black/90 hover:bg-space-800 border border-emerald-400 text-emerald-300 font-mono text-[11px] font-bold shadow-lg pointer-events-auto transition cursor-pointer flex items-center gap-1.5 group';
         }
       }
 
