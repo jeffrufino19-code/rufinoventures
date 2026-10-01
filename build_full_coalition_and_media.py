@@ -442,7 +442,7 @@ def build():
             Let me know what you're currently doing in your country and what your current plans are. We will stress-test your plan against thermodynamic collapse thresholds, reveal where your departmental silos fall short, and see if it works with the system applied.
           </p>
         </div>
-        <a href="mailto:jeffersonrrufino@gmail.com?subject=National%20Plan%20Review%20%26%20Architecture%20Consultation" class="btn-spacex-cyan whitespace-nowrap">
+        <a href="mailto:jeffersonrrufino@gmail.com?subject=National%20Plan%20Review%20%26%20Architecture%20Consultation" class="btn-mission-cyan whitespace-nowrap">
           WORK WITH ME (REQUEST A CONSULTATION) &rarr;
         </a>
       </div>
@@ -782,7 +782,7 @@ def build():
             Whether you run a national news desk, a community radio program, or a TikTok channel with millions of views—we will equip you with verified data, graphics, and survival protocols.
           </p>
         </div>
-        <a href="mailto:jeffersonrrufino@gmail.com?subject=Media%20%26%20Creator%20Broadcasting%20Partnership" class="btn-spacex-cyan whitespace-nowrap">
+        <a href="mailto:jeffersonrrufino@gmail.com?subject=Media%20%26%20Creator%20Broadcasting%20Partnership" class="btn-mission-cyan whitespace-nowrap">
           WORK WITH ME (BROADCAST MISSION) &rarr;
         </a>
       </div>
