@@ -31,8 +31,15 @@ sentry_middleware_platform/
 workspace_drift_audit/
 email_attachments/
 private_provenance_vault/
-lerm/
-*LERM*
+lerm/ledgers/
+lerm/spec/
+lerm/state/
+*LERM*.md
+*.bak
+*BACKUP.html
+*preview.html
+
+
 
 # Large Media, Binaries & Archives (>500KB)
 *.mp4

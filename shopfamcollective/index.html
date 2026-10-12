@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RUFINO VENTURES // SHOPFAM COLLECTIVE TESTBED</title>
+  <meta name="description" content="Rufino Ventures // Universal Reality Atlas. Consequential systems architecture by Jefferson Rafael Rufino." />
+  <link rel="canonical" href="https://rufinoventures.com/" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpolygon points='16,2 30,9 30,23 16,30 2,23 2,9' fill='%23000000' stroke='%23ffffff' stroke-width='1.5'/%3E%3Ccircle cx='16' cy='16' r='3' fill='%23ffffff'/%3E%3C/svg%3E">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '\\(', right: '\\)', display: false}]});"></script>
+
+  <!-- Google Fonts: Space Grotesk, Inter, JetBrains Mono (SpaceX Minimalist Aesthetic) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Inter:wght@200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Geist', 'Inter', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+            display: ['Space Grotesk', 'Geist', 'sans-serif'],
+          },
+          colors: {
+            space: {
+              950: '#000000',
+              900: '#050505',
+              850: '#0a0a0a',
+              800: '#121212',
+              750: '#18181b',
+              700: '#27272a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    ::-webkit-scrollbar { width: 4px; height: 4px; }
+    ::-webkit-scrollbar-track { background: #000000; }
+    ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 2px; }
+    ::-webkit-scrollbar-thumb:hover { background: #52525b; }
+    .grid-bg {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    }
+  </style>
+</head>
+
+<body class="bg-black text-zinc-300 font-sans antialiased selection:bg-white selection:text-black">
+
+  <!-- TOP TELEMETRY STRIP (SPACEX MINIMALIST) -->
+  <div class="px-4 py-1.5 bg-zinc-950 border-b border-zinc-900 flex flex-wrap items-center justify-between text-[10px] font-mono text-zinc-500 uppercase tracking-widest">
+    <div class="flex items-center space-x-3">
+      <span class="text-zinc-300 font-semibold flex items-center">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5 animate-pulse"></span>
+        CANONICAL ATLAS 1.0
+      </span>
+      <span>|</span>
+      <span>LERM v2.0.0 // IAMF-P // K_R v1.1</span>
+      <span>|</span>
+      <span class="hidden md:inline">120 ADAPTERS · 1,170 PAGES</span>
+    </div>
+    <div class="flex items-center space-x-4">
+      <span>PRINCIPAL: <span class="text-zinc-200 font-bold">JEFFERSON RAFAEL RUFINO</span></span>
+      <span class="hidden sm:inline text-zinc-400">VARIANCE: 0.00%</span>
+      <a href="/contactus" class="text-zinc-300 hover:text-white underline">DIRECT AUDIT</a>
+    </div>
+  </div>
+
+  <!-- MAIN SPACEX MINIMALIST NAVBAR -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-black/90 border-b border-zinc-800">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="/" class="flex items-center space-x-2.5 group">
+          <div class="w-8 h-8 bg-white text-black font-display font-black flex items-center justify-center text-sm tracking-tighter">
+            RV
+          </div>
+          <div>
+            <span class="font-display font-bold text-white text-sm tracking-wider uppercase block leading-none">RUFINO VENTURES</span>
+            <span class="font-mono text-[9px] text-zinc-500 uppercase tracking-widest block mt-0.5">Universal Reality Atlas</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Links (Desktop) -->
+      <div class="hidden xl:flex items-center space-x-6 text-[11px] font-mono">
+        <a href="/" class="text-zinc-400 hover:text-white transition pb-1 tracking-wider">ATLAS</a>
+<a href="/founder" class="text-zinc-400 hover:text-white transition pb-1 tracking-wider">FOUNDER</a>
+<a href="/realities" class="text-zinc-400 hover:text-white transition pb-1 tracking-wider">REALITIES</a>
+<a href="/LERM" class="text-zinc-400 hover:text-white transition pb-1 tracking-wider">LERM</a>
+<a href="/photosynthesisproject" class="text-zinc-400 hover:text-white transition pb-1 tracking-wider">PHOTOSYNTHESIS</a>
+<a href="/shopfamcollective" class="text-white font-bold border-b-2 border-white pb-1 tracking-wider">SHOPFAM</a>
+<a href="/scientists" class="text-zinc-400 hover:text-white transition pb-1 tracking-wider">SCIENTISTS</a>
+<a href="/build" class="text-zinc-400 hover:text-white transition pb-1 tracking-wider">BUILD</a>
+<a href="/contactus" class="text-zinc-400 hover:text-white transition pb-1 tracking-wider">CONTACT</a>
+
+      </div>
+
+      <!-- Quick Action Button -->
+      <div class="flex items-center space-x-3 font-mono text-xs">
+        <a href="/realities" class="px-3.5 py-1.5 border border-zinc-700 hover:border-white text-white text-[11px] uppercase tracking-wider transition">
+          120 ADAPTERS
+        </a>
+        <a href="/founder" class="hidden sm:inline-block px-3.5 py-1.5 bg-white text-black font-semibold text-[11px] uppercase tracking-wider hover:bg-zinc-200 transition">
+          FOUNDER DOSSIER
+        </a>
+      </div>
+    </nav>
+    <!-- Mobile Secondary Tab Strip -->
+    <div class="xl:hidden flex items-center space-x-5 px-4 py-2 bg-zinc-950 border-t border-zinc-900 overflow-x-auto text-[10px] font-mono whitespace-nowrap scrollbar-none">
+      <a href="/" class="text-zinc-400 hover:text-white transition pb-1 tracking-wider">ATLAS</a>
+<a href="/founder" class="text-zinc-400 hover:text-white transition pb-1 tracking-wider">FOUNDER</a>
+<a href="/realities" class="text-zinc-400 hover:text-white transition pb-1 tracking-wider">REALITIES</a>
+<a href="/LERM" class="text-zinc-400 hover:text-white transition pb-1 tracking-wider">LERM</a>
+<a href="/photosynthesisproject" class="text-zinc-400 hover:text-white transition pb-1 tracking-wider">PHOTOSYNTHESIS</a>
+<a href="/shopfamcollective" class="text-white font-bold border-b-2 border-white pb-1 tracking-wider">SHOPFAM</a>
+<a href="/scientists" class="text-zinc-400 hover:text-white transition pb-1 tracking-wider">SCIENTISTS</a>
+<a href="/build" class="text-zinc-400 hover:text-white transition pb-1 tracking-wider">BUILD</a>
+<a href="/contactus" class="text-zinc-400 hover:text-white transition pb-1 tracking-wider">CONTACT</a>
+
+    </div>
+  </header>
+
+  <main>
+    
+<section class="py-20 border-b border-zinc-900 grid-bg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+    <div class="inline-flex items-center gap-2 px-3 py-1 bg-zinc-900 border border-zinc-800 text-[10px] font-mono text-zinc-400 uppercase tracking-widest">
+      ORIGIN TESTBED // THE ARCH SPECIFICATION
+    </div>
+    <h1 class="font-display font-black text-4xl sm:text-6xl text-white uppercase tracking-tight leading-[1.08]">
+      SHOPFAM COLLECTIVE.<br />
+      <span class="text-zinc-500">WHERE THE MATH WAS DERIVED.</span>
+    </h1>
+    <p class="text-lg text-zinc-300 font-sans leading-relaxed">
+      The empirical origin of the Mutual Uptick (MU+) effect. 1.8 years of sole vertical commercial execution, ₱3.477M in gross receipts, and the Rockwell Center counterfeit inflection point that proved statutory customs compliance is not provenance.
+    </p>
+  </div>
+</section>
+
+<section class="py-20 border-b border-zinc-900">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+
+    <!-- KPI Grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono text-xs text-center">
+      <div class="p-5 bg-zinc-950 border border-zinc-900">
+        <div class="text-2xl font-display font-bold text-white">₱3,477,795.35</div>
+        <div class="text-[10px] text-zinc-500 uppercase tracking-widest mt-1">BPI GROSS CREDITS (P1)</div>
+      </div>
+      <div class="p-5 bg-zinc-950 border border-zinc-900">
+        <div class="text-2xl font-display font-bold text-white">₱264,434.09</div>
+        <div class="text-[10px] text-zinc-500 uppercase tracking-widest mt-1">META AD SPEND (P1)</div>
+      </div>
+      <div class="p-5 bg-zinc-950 border border-zinc-900">
+        <div class="text-2xl font-display font-bold text-white">2,945</div>
+        <div class="text-[10px] text-zinc-500 uppercase tracking-widest mt-1">LINES LIQUID CODE</div>
+      </div>
+      <div class="p-5 bg-zinc-950 border border-zinc-900">
+        <div class="text-2xl font-display font-bold text-white">8 NODES</div>
+        <div class="text-[10px] text-zinc-500 uppercase tracking-widest mt-1">SOLO BRICOLAGE</div>
+      </div>
+    </div>
+
+    <!-- The ARCH Founding Premise -->
+    <div class="p-8 bg-zinc-950 border border-zinc-800 space-y-4">
+      <div class="text-xs font-mono text-white font-bold uppercase tracking-wider">
+        THE ARCH FOUNDING PREMISE (ARCH.PDF)
+      </div>
+      <p class="text-xs text-zinc-300 font-sans leading-relaxed">
+        "The architectural feat is not simply manufacturing desire, but building infrastructure that preserves value when the surrounding market is in chaos." (Atlas p. 1166)
+      </p>
+      <p class="text-xs text-zinc-400 font-sans leading-relaxed">
+        ShopFam Collective was founded as an unhedged operational testbed in luxury resale. Because there was no venture capital or debt facility, every single operational defect had to be solved in real time with cash recycled directly from gross margins.
+      </p>
+    </div>
+
+    <!-- The Rockwell Epistemic Inflection Point -->
+    <div class="p-8 bg-zinc-950 border border-zinc-800 space-y-4">
+      <div class="text-xs font-mono text-white font-bold uppercase tracking-wider">
+        THE ROCKWELL INFLECTION: TARIFF COMPLIANCE ≠ IP PROVENANCE
+      </div>
+      <p class="text-xs text-zinc-300 font-sans leading-relaxed">
+        In late 2024, when mall security at Rockwell Center Makati publicly accused consignment inventory of counterfeit status, threatening criminal prosecution, Jefferson did not collapse. He executed an immediate forensic teardown across Philippine border import records.
+      </p>
+      <div class="p-4 bg-zinc-900 border-l-2 border-white font-mono text-xs text-zinc-200">
+        <strong class="text-white">THE DISCOVERY:</strong> Statutory Bureau of Customs (BOC) clearance verifies only border tariff duties. It does NOT verify authorized brand distribution provenance.
+      </div>
+      <p class="text-xs text-zinc-400 font-sans leading-relaxed">
+        This insight revealed that supply chain intermediaries systematically export intellectual property risk onto independent retailers while collecting clearing fees. This exact boundary divergence became Adapter 043 (Luxury Goods) and Adapter 066 (Digital Identity) in the Universal Reality Atlas.
+      </p>
+    </div>
+
+    <!-- The 8 Internalized Enterprise Nodes -->
+    <div class="space-y-6">
+      <h2 class="font-display font-bold text-2xl text-white uppercase tracking-wider">
+        8 ENTERPRISE NODES EXECUTED BY A SINGLE HUMAN BEING
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 font-mono text-xs">
+        <div class="p-4 bg-zinc-950 border border-zinc-900">
+          <span class="text-zinc-500 block mb-1">NODE 01</span>
+          <strong class="text-white block">Sourcing & Freight</strong>
+          <span class="text-zinc-400 text-[11px] font-sans">Customs inspection filings and international airway bills.</span>
+        </div>
+        <div class="p-4 bg-zinc-950 border border-zinc-900">
+          <span class="text-zinc-500 block mb-1">NODE 02</span>
+          <strong class="text-white block">Double-Entry Accounting</strong>
+          <span class="text-zinc-400 text-[11px] font-sans">BPI ledger reconciliation and Meta invoice audits.</span>
+        </div>
+        <div class="p-4 bg-zinc-950 border border-zinc-900">
+          <span class="text-zinc-500 block mb-1">NODE 03</span>
+          <strong class="text-white block">Liquid Web Engineering</strong>
+          <span class="text-zinc-400 text-[11px] font-sans">Custom headless theme, cart hooks, and API bridges.</span>
+        </div>
+        <div class="p-4 bg-zinc-950 border border-zinc-900">
+          <span class="text-zinc-500 block mb-1">NODE 04</span>
+          <strong class="text-white block">Tensor Mathematics</strong>
+          <span class="text-zinc-400 text-[11px] font-sans">Deriving LERM divergence operators from physical scars.</span>
+        </div>
+        <div class="p-4 bg-zinc-950 border border-zinc-900">
+          <span class="text-zinc-500 block mb-1">NODE 05</span>
+          <strong class="text-white block">Aesthetic Capital</strong>
+          <span class="text-zinc-400 text-[11px] font-sans">Luxury brand identity, typography, and UI ergonomics.</span>
+        </div>
+        <div class="p-4 bg-zinc-950 border border-zinc-900">
+          <span class="text-zinc-500 block mb-1">NODE 06</span>
+          <strong class="text-white block">Forensic Auditing</strong>
+          <span class="text-zinc-400 text-[11px] font-sans">250k-case ablation and adversarial stress tests.</span>
+        </div>
+        <div class="p-4 bg-zinc-950 border border-zinc-900">
+          <span class="text-zinc-500 block mb-1">NODE 07</span>
+          <strong class="text-white block">Fiduciary Defense</strong>
+          <span class="text-zinc-400 text-[11px] font-sans">Commercial dispute resolution and legal briefs.</span>
+        </div>
+        <div class="p-4 bg-zinc-950 border border-zinc-900">
+          <span class="text-zinc-500 block mb-1">NODE 08</span>
+          <strong class="text-white block">Autonomous AI Governance</strong>
+          <span class="text-zinc-400 text-[11px] font-sans">Multi-agent orchestration with strict contamination controls.</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+  </main>
+
+  <footer class="border-t border-zinc-900 bg-black py-12 font-mono text-[11px] text-zinc-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="space-y-1 text-center md:text-left">
+        <div class="font-display font-bold text-white tracking-wider text-xs uppercase">RUFINO VENTURES · THE UNIVERSAL REALITY ATLAS</div>
+        <div>Canonical Edition 1.0 // 1,170 Pages // October 9, 2026 Freeze</div>
+        <div>© 2026 Jefferson Rafael Rufino. All Rights Reserved.</div>
+      </div>
+      <div class="flex flex-wrap items-center justify-center gap-6 text-zinc-400">
+        <a href="/" class="hover:text-white transition">Atlas</a>
+        <a href="/founder" class="hover:text-white transition">Founder</a>
+        <a href="/realities" class="hover:text-white transition">120 Realities</a>
+        <a href="/LERM" class="hover:text-white transition">LERM</a>
+        <a href="/photosynthesisproject" class="hover:text-white transition">Photosynthesis</a>
+        <a href="/shopfamcollective" class="hover:text-white transition">ShopFam</a>
+        <a href="/scientists" class="hover:text-white transition">Scientists</a>
+        <a href="/build" class="hover:text-white transition">Build</a>
+        <a href="/contactus" class="hover:text-white transition">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  
+</body>
+</html>
