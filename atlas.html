@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Universal Reality Atlas — Visual Guide &amp; Navigator</title>
+<meta name="description" content="Visual guide and navigator for the 25,727-page Universal Reality Atlas by Jefferson Rafael Rufino. One grammar across 120 domain adapters." />
+<link rel="canonical" href="https://rufinoventures.com/navigator" />
+<style>
+:root{--bg:#faf8f4;--sf:#fff;--tx:#1d2330;--mu:#5d6676;--bd:#e3ded4;--ac:#b4532a;--a2:#1f6f78;--a3:#7a4fb0;--ok:#2e7d4f;--bad:#b3362e;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14171d;--sf:#1c2029;--tx:#eceae4;--mu:#9aa3b2;--bd:#2c313d;--ac:#e8895c;--a2:#5bc0c9;--a3:#b99be6;--ok:#6fcf97;--bad:#ef7b72;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#14171d;--sf:#1c2029;--tx:#eceae4;--mu:#9aa3b2;--bd:#2c313d;--ac:#e8895c;--a2:#5bc0c9;--a3:#b99be6;--ok:#6fcf97;--bad:#ef7b72;color-scheme:dark}
+html{scroll-padding-top:70px;scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.65 Georgia,'Times New Roman',serif;transition:background .2s,color .2s}
+h1,h2,h3,nav,.k,.tag,button,input,select{font-family:'Helvetica Neue',Arial,sans-serif}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--bg);border-bottom:1px solid var(--bd);display:flex;gap:18px;align-items:center;padding:12px 20px;overflow-x:auto;font-size:13px;white-space:nowrap}
+nav a{color:var(--mu);text-decoration:none;transition:color .15s}nav a:hover{color:var(--ac)}
+nav .brand{color:var(--tx);font-weight:700;display:flex;align-items:center;gap:6px}
+nav .brand span{background:var(--ac);color:#fff;border-radius:4px;padding:2px 6px;font-size:11px}
+.w{max-width:980px;margin:0 auto;padding:0 20px}
+.hero{padding:72px 0 48px;text-align:center}
+.k{letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--ac);font-weight:700}
+h1{font-size:clamp(34px,7vw,64px);line-height:1.05;margin:14px 0}
+.hero p{max-width:640px;margin:0 auto;color:var(--mu);font-size:18px}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+.tag{border:1px solid var(--bd);background:var(--sf);border-radius:99px;padding:4px 12px;font-size:12px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:34px 0}
+.st{background:var(--sf);border:1px solid var(--bd);border-radius:14px;padding:16px;text-align:center}
+.st b{display:block;font:700 30px 'Helvetica Neue',Arial,sans-serif;color:var(--ac)}
+.st span{font-size:13px;color:var(--mu)}
+section{padding:46px 0;border-top:1px solid var(--bd)}
+h2{font-size:30px;margin:6px 0 10px}h3{font-size:17px;margin:0 0 6px}
+.lead{color:var(--mu);max-width:700px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:22px}
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:14px;padding:18px}
+.card p{margin:4px 0 0;font-size:15px;color:var(--mu)}
+.eq{font:15px/1.4 'Cambria Math',Georgia,serif;background:var(--bg);border:1px dashed var(--bd);border-radius:8px;padding:8px 10px;margin:8px 0;overflow-x:auto}
+.ex{border-left:4px solid var(--a2);background:var(--sf);padding:14px 18px;border-radius:0 12px 12px 0;margin-top:14px}
+.ex .k{color:var(--a2)}
+.ov{overflow-x:auto}
+svg{max-width:100%;height:auto}
+svg text{font-family:'Helvetica Neue',Arial,sans-serif;fill:var(--tx)}
+.pipe rect{fill:var(--sf);stroke:var(--bd)}
+table{border-collapse:collapse;width:100%;font-size:15px}
+td,th{padding:9px 10px;border-bottom:1px solid var(--bd);text-align:left}th{font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;text-transform:uppercase;color:var(--mu)}
+.good{color:var(--ok);font-weight:700}.badc{color:var(--bad);font-weight:700}
+.fam{background:var(--sf);border:1px solid var(--bd);border-radius:12px;margin-top:10px}
+.fam summary{cursor:pointer;padding:14px 18px;font:600 16px 'Helvetica Neue',Arial,sans-serif;display:flex;gap:10px;align-items:center}
+.fam summary i{font-style:normal;color:#fff;background:var(--ac);border-radius:6px;padding:1px 8px;font-size:12px}
+.fam div{display:flex;flex-wrap:wrap;gap:6px;padding:0 18px 16px}
+.fam div span{font:13px 'Helvetica Neue',Arial,sans-serif;border:1px solid var(--bd);border-radius:8px;padding:3px 9px;color:var(--mu)}
+.fam div span b{color:var(--ac);margin-right:5px}
+.bar{display:flex;align-items:center;gap:10px;margin:8px 0;font:14px 'Helvetica Neue',Arial,sans-serif}
+.bar em{width:150px;font-style:normal;color:var(--mu)}.bar i{display:block;height:20px;border-radius:5px;background:var(--a2)}
+.steps{counter-reset:s;display:grid;gap:10px;margin-top:18px}
+.steps div{counter-increment:s;background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:12px 16px 12px 56px;position:relative}
+.steps div:before{content:counter(s);position:absolute;left:14px;top:10px;width:30px;height:30px;border-radius:50%;background:var(--ac);color:#fff;font:700 15px/30px Arial;text-align:center}
+.note{background:color-mix(in srgb,var(--ac) 10%,var(--sf));border:1px solid var(--ac);border-radius:12px;padding:14px 18px;margin-top:20px;font-size:15px}
+.dd{background:var(--sf);border:1px solid var(--bd);border-radius:16px;padding:22px;margin-top:20px}.dd h3{font-size:22px}.pl{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px;margin-top:14px}.pl div{border:1px solid var(--bd);border-radius:10px;padding:12px 14px;background:var(--bg);font-size:14px;color:var(--mu)}.pl b{display:block;font:700 12px 'Helvetica Neue',Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--ac);margin-bottom:4px}.cb{display:grid;grid-template-columns:70px 1fr;gap:6px 10px;align-items:center;font:13px 'Helvetica Neue',Arial,sans-serif;margin:14px 0}.cb i{display:block;height:11px;border-radius:3px;margin:2px 0}.cb span{color:var(--mu)}.pt{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:14px 18px;margin-top:10px;font-family:'Helvetica Neue',Arial,sans-serif}.pt small{display:block;color:var(--mu)}.pt a,.pt button{border:1px solid var(--ac);background:transparent;color:var(--ac);border-radius:8px;padding:7px 14px;font:600 13px 'Helvetica Neue',Arial,sans-serif;text-decoration:none;cursor:pointer;margin-left:6px;display:inline-flex;align-items:center;gap:4px}.pt button{background:var(--ac);color:#fff}.pt button.vw{background:transparent;color:var(--ac)}footer{padding:36px 0 60px;color:var(--mu);font-size:13px;border-top:1px solid var(--bd)}
+.search-box{background:var(--sf);border:1px solid var(--bd);border-radius:14px;padding:20px;margin:20px 0}
+.search-box label{font:600 12px 'Helvetica Neue',Arial,sans-serif;color:var(--mu);display:block;margin:14px 0 6px;text-transform:uppercase;letter-spacing:.05em}
+.search-box input,.search-box select{width:100%;padding:10px 12px;border-radius:8px;border:1px solid var(--bd);background:var(--bg);color:var(--tx);font:inherit}
+.search-box button{background:var(--ac);color:#fff;border:0;padding:10px 16px;border-radius:8px;font:600 13px 'Helvetica Neue',Arial,sans-serif;cursor:pointer;margin:12px 6px 0 0}
+.search-box .res{margin-top:16px;padding:12px;background:var(--bg);border-radius:8px;font-size:14px;line-height:1.6}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="brand"><span>RV</span> RUFINO VENTURES</a>
+  <a href="#top">Overview</a>
+  <a href="#grammar">Grammar</a>
+  <a href="#bdi">Local vs whole</a>
+  <a href="#carriers">Carriers</a>
+  <a href="#outputs">Outcomes</a>
+  <a href="#world">Real-world</a>
+  <a href="#evidence">Evidence</a>
+  <a href="#adapters">120 Adapters</a>
+  <a href="#lookup">Domain Lookup</a>
+  <a href="#deep">Deep dives</a>
+  <a href="#book">Full PDF</a>
+  <a href="#use">How to use</a>
+</nav>
+
+<div class="w" id="top">
+<header class="hero"><div class="k">Canonical Edition 1.0 · Human Primary Carrier v0.2</div>
+<h1>The Universal Reality Atlas</h1>
+<p>A visual guide to a consequential-systems encyclopedia: one grammar for tracing where an action’s consequences land, who carries them, and what must be built first.</p>
+<div class="chips"><span class="tag">LERM</span><span class="tag">IAMF-P</span><span class="tag">Mutual Uptick</span><span class="tag">K_R v1.1</span><span class="tag">120 adapters</span></div>
+<div class="stats"><div class="st"><b>25,727</b><span>pages in the full book</span></div><div class="st"><b>120</b><span>domain adapters</span></div><div class="st"><b>12</b><span>families</span></div><div class="st"><b>360</b><span>registered tests</span></div></div></header>
+<div class="note"><b>About this page.</b> The source runs 25,727 pages, with seven plates for each of 120 adapters. This is a condensed visual edition built from the foundation chapters and the full adapter index; it is not a page-by-page conversion. The real-world examples are labelled illustrations of how the grammar reads, not findings from the book.</div>
+
+<section id="grammar"><div class="k">Foundation 03 · 16</div><h2>One grammar, many substrates</h2>
+<p class="lead">The grammar does not demand the same mechanism everywhere. It demands that the same questions survive translation into each domain.</p>
+<div class="ov"><svg class="pipe" viewBox="0 0 900 250" role="img" aria-label="Pipeline from state to retest">
+<defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0L8,4L0,8z" fill="#8a8f9a"/></marker></defs>
+<g font-size="13" text-anchor="middle">
+<rect x="10" y="20" width="130" height="60" rx="10"/><text x="75" y="46">Evidence state</text><text x="75" y="64" fill="#888">X*</text>
+<rect x="170" y="20" width="130" height="60" rx="10"/><text x="235" y="46">Receiving schema</text><text x="235" y="64">Σ and gap</text>
+<rect x="330" y="20" width="130" height="60" rx="10"/><text x="395" y="46">Local vs whole</text><text x="395" y="64">BDI</text>
+<rect x="490" y="20" width="130" height="60" rx="10"/><text x="555" y="46">Displacement</text><text x="555" y="64">D_a(j,k,τ)</text>
+<rect x="650" y="20" width="130" height="60" rx="10"/><text x="715" y="46">Carrier C*</text><text x="715" y="64">Γ coupling, H hidden</text>
+<rect x="650" y="150" width="130" height="60" rx="10" style="stroke:var(--ac)"/><text x="715" y="176">Build capacity</text><text x="715" y="194">ΔR* (IAMF-P)</text>
+<rect x="490" y="150" width="130" height="60" rx="10"/><text x="555" y="176">Act</text><text x="555" y="194">release transition</text>
+<rect x="330" y="150" width="130" height="60" rx="10" style="stroke:var(--ok)"/><text x="395" y="176">Gate MU+</text><text x="395" y="194">every carrier clears</text>
+<rect x="170" y="150" width="130" height="60" rx="10"/><text x="235" y="176">Retest</text><text x="235" y="194">through time</text></g>
+<g stroke="#8a8f9a" stroke-width="1.6" fill="none" marker-end="url(#a)"><path d="M140 50H168"/><path d="M300 50H328"/><path d="M460 50H488"/><path d="M620 50H648"/><path d="M715 80V148"/><path d="M650 180H622"/><path d="M490 180H462"/><path d="M330 180H302"/><path d="M170 180H60V82" stroke-dasharray="4 4"/></g></svg></div>
+<div class="grid">
+<div class="card"><h3>LERM</h3><p>Tracing: where will consequence land, through which coupling, after what delay, and with what hidden compensator?</p></div>
+<div class="card"><h3>IAMF-P</h3><p>Construction: use LERM’s predicted carrier map to build the missing receiving capacity before the transition is released.</p></div>
+<div class="card"><h3>Mutual Uptick</h3><p>The acceptance gate. Every protected carrier must clear its own threshold, not just the average.</p><div class="eq">MU⁺ ⟺ ∀j: LCB(ΔVⱼ) > εⱼ ∧ Safety ∧ RVGⱼ ≤ 0</div></div></div></section>
+
+<section id="bdi"><div class="k">Foundation 04 · 05</div><h2>When the local best is not the whole best</h2>
+<p class="lead">The Boundary Divergence Index asks if the action a local actor prefers differs from the one the full consequential system prefers.</p>
+<div class="eq">BDI = J_G(a*_S) − J_G(a*_G) ≥ 0</div>
+<div class="grid"><div class="card"><h3>BDI = 0</h3><p>Optima agree. Output: NO ACTIVATION. Do nothing special.</p></div><div class="card"><h3>BDI &gt; 0</h3><p>The local winner costs the wider system. Trace the displacement and find who carries it.</p></div><div class="card"><h3>Schema gap</h3><p>Representation failure is not evidence that the unrepresented state is zero. What a receiver can’t see still exists.</p></div></div></section>
+
+<section id="carriers"><div class="k">Plate 4 · Numerical play-through</div><h2>Why carrier-level accounting beats the average</h2>
+<p class="lead">From Adapter 001, whole-person quality of life. The book labels these numbers illustrative teaching values, not measurements.</p>
+<div class="ov"><svg viewBox="0 0 720 300" role="img" aria-label="Grouped bars for carriers A B C">
+<g font-size="13"><line x1="50" y1="250" x2="700" y2="250" stroke="#8a8f9a"/>
+<g fill="#9aa3b2"><rect x="80" y="100" width="40" height="150" rx="3" style="height:0"/></g>
+<!-- scale: 1 unit = 3px, base 250 -->
+<rect x="80" y="85" width="44" height="165" rx="4" fill="#9aa3b2"/><rect x="130" y="58" width="44" height="192" rx="4" fill="var(--bad)"/><rect x="180" y="67" width="44" height="183" rx="4" fill="var(--ok)"/>
+<rect x="320" y="85" width="44" height="165" rx="4" fill="#9aa3b2"/><rect x="370" y="103" width="44" height="147" rx="4" fill="var(--bad)"/><rect x="420" y="70" width="44" height="180" rx="4" fill="var(--ok)"/>
+<rect x="540" y="61" width="44" height="189" rx="4" fill="#9aa3b2"/><rect x="590" y="61" width="44" height="189" rx="4" fill="var(--bad)"/><rect x="640" y="49" width="44" height="201" rx="4" fill="var(--ok)"/>
+<text x="150" y="275" text-anchor="middle">Carrier A</text><text x="390" y="275" text-anchor="middle">Carrier B (binding)</text><text x="610" y="275" text-anchor="middle">Carrier C</text>
+<text x="102" y="78" text-anchor="middle">55</text><text x="152" y="51" text-anchor="middle">64</text><text x="202" y="60" text-anchor="middle">61</text>
+<text x="342" y="78" text-anchor="middle">55</text><text x="392" y="96" text-anchor="middle">49</text><text x="442" y="63" text-anchor="middle">60</text>
+<text x="562" y="54" text-anchor="middle">63</text><text x="612" y="54" text-anchor="middle">63</text><text x="662" y="42" text-anchor="middle">67</text>
+<rect x="60" y="8" width="12" height="12" fill="#9aa3b2"/><text x="78" y="19">Baseline</text><rect x="150" y="8" width="12" height="12" fill="var(--bad)"/><text x="168" y="19">Local action</text><rect x="260" y="8" width="12" height="12" fill="var(--ok)"/><text x="278" y="19">IAMF-P action</text></g></svg></div>
+<p class="lead">The local action looks great at A (+9) but drops B from 55 to 49. IAMF-P gives up some of A’s gain to lift B to 60 and also lifts C. Only the second option passes every carrier’s gate.</p></section>
+
+<section id="outputs"><div class="k">Foundation 19</div><h2>Four honest outputs</h2>
+<div class="grid">
+<div class="card"><h3>NO ACTIVATION</h3><p>Local and whole-system optima don’t materially diverge.</p></div>
+<div class="card"><h3>UNKNOWN</h3><p>The consequential effect can’t be identified from the available evidence.</p></div>
+<div class="card"><h3>NO FEASIBLE MU+</h3><p>Displacement is real, but no feasible build clears every protected carrier.</p></div>
+<div class="card"><h3 class="good">MU+ PASS</h3><p>A preregistered construction clears thresholds, safety, concentration and reserve gates.</p></div></div>
+<div class="grid"><div class="card"><h3>Reserve / Value Gap</h3><div class="eq">RVGⱼ = ιⱼ − αⱼ</div><p>A system can look stable because a hidden reserve, caregiver or future self is compensating. RVG makes that visible: incoming burden minus absorption capacity.</p></div>
+<div class="card"><h3>Cost of truth</h3><div class="eq">K_T(q,t) &gt; R_G(t) ⇒ build first</div><p>A true statement can still overload a system not yet ready to absorb it. The answer is phased construction, not indefinite suppression.</p></div></div></section>
+
+<section id="world"><div class="k">Illustrative applications</div><h2>Real-world examples</h2>
+<p class="lead">My own plain-language readings of how the grammar would apply. Each is a worked intuition rather than a result from the book.</p>
+<div class="grid">
+<div class="ex"><div class="k">Caregiving · Adapter 007</div><h3>The hospital discharge</h3><p>A hospital cuts length of stay to hit its local KPI. The cost doesn’t vanish: it lands on a family caregiver who now has to cover wound care and lost wages. LERM names the caregiver as carrier C*; IAMF-P builds home-care support before discharge; the RVG shows the hidden reserve being drained.</p></div>
+<div class="ex"><div class="k">Luxury goods · Adapter 043</div><h3>Resale and value preservation</h3><p>A brand optimizes new-sales revenue. The schema can’t see authenticated resale, repair or lifecycle value, so a whole carrier (owners holding the goods) is invisible. Capacity built before a policy change, such as authentication and reconciliation records, keeps that value from being treated as zero.</p></div>
+<div class="ex"><div class="k">Banking · Adapter 053</div><h3>A branch closure</h3><p>Closing branches improves the bank’s cost ratio (local optimum). Rural elders and small merchants carry the cost as travel time and cash access. BDI &gt; 0; the build is agent-banking points and phased closure with retests.</p></div>
+<div class="ex"><div class="k">Education · Adapter 032</div><h3>Test-score targets</h3><p>A school lifts averages by focusing on borderline students. The score schema doesn’t record who was dropped from attention. Carrier-level gates require each group to clear its own threshold.</p></div>
+<div class="ex"><div class="k">AI · Adapter 061</div><h3>Automated moderation</h3><p>A model reduces average error. Minority-language users absorb the false positives. Per-carrier thresholds replace the single accuracy number.</p></div>
+<div class="ex"><div class="k">Climate · Adapter 079</div><h3>A flood wall</h3><p>A wall protects the city centre and pushes water to downstream farms. The build includes retention areas and compensation before the wall is released.</p></div></div></section>
+
+<section id="evidence"><div class="k">Foundation 20 · 21 · 22 · 23</div><h2>The sobering scoreboard</h2>
+<p class="lead">The 360-test register, as the book reports it. The Atlas marks structural translation separately from empirical validation.</p>
+<div class="bar"><em>Source documented</em><i style="width:20px"></i> 8</div>
+<div class="bar"><em>Phenomenon documented</em><i style="width:295px"></i> 118</div>
+<div class="bar"><em>Link partial/pending</em><i style="width:300px;background:var(--a3)"></i> 120</div>
+<div class="bar"><em>Kernel test open</em><i style="width:265px;background:var(--ac)"></i> 106</div>
+<div class="bar"><em>Not established</em><i style="width:20px;background:var(--bad)"></i> 8</div>
+<div class="grid"><div class="card"><h3>Negatives retained</h3><p>In a 250,000-case routing ablation, full telemetry cut burden 2.22% against 1.62% for LERM/IAMF-P. The book keeps that loss on the record.</p></div>
+<div class="card"><h3>Corrected run (exploratory)</h3><p>After building capacity at the predicted loss carrier: 5.67% vs 5.56%, roughly a 2% relative edge. Because the semantics changed after the failure, it is exploratory.</p></div>
+<div class="card"><h3>Universality ≠ one action</h3><p>In a 1M-system test a generic frozen action won only 1 of 20 domains. What’s universal is the grammar, not the move.</p></div></div>
+<div class="note"><b>Falsification.</b> Freeze the kernel, boundary, comparator, information budget and horizon before outcomes. Predict the carrier on untouched data. The programme weakens if carrier prediction doesn’t beat comparators or if MU+ repeatedly fails despite a feasible build.</div></section>
+
+<section id="adapters"><div class="k">120 adapters · 12 families</div><h2>The adapter map</h2>
+<p class="lead">Each adapter is a seven-plate mini-chapter: native system, topology, language, numbers, timeline, evidence, next steps. Open a family to browse it.</p>
+<div id="fams"></div></section>
+
+<!-- INTERACTIVE ADAPTER SEARCH & CROSS-DOMAIN INTERFACE CALCULATOR -->
+<section id="lookup"><div class="k">Interactive Domain Navigator</div><h2>Search 120 Domains &amp; Directed Interfaces</h2>
+<p class="lead">Query any originating domain adapter and receiving domain adapter to locate the exact page in the 25,727-page Atlas.</p>
+<div class="search-box">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+    <div>
+      <label>Search 120 domains</label>
+      <input id="query" placeholder="Type education, cancer, banking, power grid...">
+      <label>Source / originating adapter</label>
+      <select id="source"></select>
+    </div>
+    <div>
+      <label>Receiver / target adapter</label>
+      <select id="receiver"></select>
+      <div style="font-size:12px;color:var(--mu);margin-top:14px">Choose <b>Individual human / person</b> to inspect the six human receiving-system constructions for each domain.</div>
+    </div>
+  </div>
+  <div class="res" id="result"></div>
+  <button id="openorigin">Open source-domain brief</button>
+  <button id="openpair" style="background:var(--a2)">Open receiving-interface analysis</button>
+</div>
+</section>
+
+<section id="deep"><div class="k">Deep dives · all seven plates</div><h2>Two adapters, in full</h2><p class="lead">Adapter 043 is the one the book marks as closest to its origin business. Adapter 120 is the closure operator that ties the other 119 together. Numbers are the book’s illustrative teaching values.</p>
+<div class="dd"><div class="k">Adapter 043 · Family 5 · Luxury goods</div><h3>Governed luxury access and authenticated circular luxury</h3><div class="cb" id="c43"></div><p class="lead" style="font-size:15px">Local action: the mean rises from 62.0 to 64.3 and looks fine, but Carrier B falls 67 → 61. IAMF-P gives up some of A’s gain (58 instead of 61), and B reaches 74 while C reaches 73.</p>
+<div class="pl"><div><b>1 · Native system</b>State: provenance, scarcity, condition, access, identity, inventory and lifecycle value. Carriers: buyer, seller, inventory, environment. Position: origin-business fit.</div><div><b>2 · Topology</b>The incumbent sees a price/status/authenticity binary. Brand or access value can shift waste, capital lockup or trust burden onto another carrier.</div><div><b>3 · Language</b>Σ = price/status/authenticity binary. Blocker B = value shifted into waste, lockup or trust burden. ΔR* = provenance + condition + access + reconciliation layer.</div><div><b>4 · Numbers</b>See the chart: A 50/61/58, B 67/61/74, C 69/71/73 for baseline, local and IAMF-P.</div><div><b>5 · Timeline</b>Observe the state, propose via the binary, predict the displacement, build the reconciliation layer before release, transition, retest value retention, trust, access and waste, then recur.</div><div><b>6 · Evidence</b>Closest to the discovery record, so independence from the origin is the first test. Decisive design: an operational field study. Strong evidence needs sealed carrier prediction and independent replication.</div><div><b>7 · Next</b>Freeze the boundary and carriers, write the incumbent schema exactly, check BDI, specify the smallest feasible build, accept only if value retention, trust, access and waste all improve, and publish failed alternatives.</div></div></div>
+<div class="dd"><div class="k">Adapter 120 · Family 12 · Meta-adapter</div><h3>Cross-substrate consciousness, temporal coexistence and closure</h3><div class="cb" id="c120"></div><p class="lead" style="font-size:15px">Local action: the mean is nearly flat (58.0 → 58.7), yet B falls 64 → 59 and C falls 50 → 49. The IAMF-P action lifts all three: 65, 68 and 53.</p>
+<div class="pl"><div><b>1 · Native system</b>State: the whole coupled state across Adapters 001–119, with dependencies, horizons and consciousness-legibility. Carriers: all materially coupled conscious carriers, through direct, indirect and delayed paths.</div><div><b>2 · Topology</b>The incumbent is any adapter, species, institution or observer claiming closure from its own schema alone.</div><div><b>3 · Language</b>Blocker B: a new truth, capability or optimization is locally beneficial while dependent carriers lack the capacity to absorb it through time.</div><div><b>4 · Numbers</b>See the chart: A 60/68/65, B 64/59/68, C 50/49/53.</div><div><b>5 · Timeline</b>Capacity is built across relevant adapters before release and phased through time, and the post-state feeds the next state so newly visible burden is never discarded.</div><div><b>6 · Evidence</b>Status: meta-adapter, requires domain-native validation. Decisive design: a time-locked system-of-systems closure test across multiple adapters.</div><div><b>7 · Next</b>The same nine steps, run across adapters at once: freeze, model, check BDI, trace carriers, build the smallest feasible capacity, retain negatives and UNKNOWN, accept only on MU+.</div></div></div></section>
+
+<section id="book"><div class="k">The full source</div><h2>Read or download the entire PDF</h2><p class="lead">The complete 25,727-page book is included here in five consecutive parts (and as a full volume). Each part is a standard PDF, so they can be read or downloaded directly in your browser.</p>
+<div id="parts"></div>
+<div id="vwr" style="display:none;margin-top:14px">
+  <div class="pt" style="margin:0 0 8px">
+    <b id="vt"></b>
+    <div>
+      <a id="vopen" href="#" target="_blank" class="vw">Open in new tab ↗</a>
+      <button class="vw" id="vc" onclick="document.getElementById('vf').src='about:blank';document.getElementById('vwr').style.display='none'">Close viewer</button>
+    </div>
+  </div>
+  <iframe id="vf" title="PDF viewer" style="width:100%;height:80vh;border:1px solid var(--bd);border-radius:10px;background:#fff"></iframe>
+</div>
+<div style="margin-top:20px;padding:16px;background:var(--sf);border:1px solid var(--bd);border-radius:12px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px">
+  <div>
+    <b>Complete 25,727-Page Single Volume PDF</b>
+    <div style="font-size:13px;color:var(--mu)">Original Canonical Edition &bull; 82.1 MB</div>
+  </div>
+  <div>
+    <a href="/Universal_Reality_Atlas_Human_Primary_Carrier_Edition_v0_2_25727pp.pdf" target="_blank" style="border:1px solid var(--ac);padding:8px 14px;border-radius:8px;color:var(--ac);text-decoration:none;font:600 13px 'Helvetica Neue',Arial,sans-serif">Open Full PDF (82 MB) ↗</a>
+  </div>
+</div>
+</section>
+
+<section id="use"><div class="k">Foundation 24 · 25</div><h2>How to use it</h2>
+<div class="steps"><div><b>Freeze</b> the boundary, horizon, protected carriers and comparator before seeing outcomes.</div><div><b>Map</b> the native state and write the incumbent schema exactly as it exists.</div><div><b>Check BDI.</b> If local and whole optima don’t diverge, return NO ACTIVATION.</div><div><b>Trace</b> carriers, couplings and hidden compensators, then estimate displacement.</div><div><b>Build</b> the missing capacity before the transition is released.</div><div><b>Act and retest</b> until every carrier passes MU+.</div></div>
+<div class="grid"><div class="card"><h3>New reader</h3><p>Front matter → one familiar adapter → Adapter 120 → workflow.</p></div><div class="card"><h3>Scientist</h3><p>Kernel → domain plate → evidence plate → Formula Vault.</p></div><div class="card"><h3>Policymaker</h3><p>Boundary, carriers and cost-of-truth → governance and justice adapters → closure.</p></div><div class="card"><h3>AI researcher</h3><p>Adapters 061, 070, 091, 092, 110, 120.</p></div></div></section>
+<footer>Condensed visual edition of <i>The Universal Reality Atlas</i> by Jefferson Rafael Rufino (Canonical Edition 1.0, 2026-10-09). Structural translation is not empirical validation.</footer></div>
+
+<script>
+const F=[["Human life quality","Whole-person quality of life|Nutrition and metabolism|Sleep and recovery|Reproductive and sexual health|Disability and accessibility|Mobility and physical function|Family and caregiving|Safety and personal security|Housing and domestic environment|Human longevity and life-course planning"],["Mind and relationships","Psychology and social legibility|Identity and self-model|Relationships and intimacy|Parenting and child development|Purpose and self-actualization|Existential wellbeing|Spiritual life|Religion and community institutions|Emotion and affect regulation|Trust and fidelity between people"],["Medicine and biology of health","Healthcare delivery|Diagnostics|Cancer ecology|Neuroscience and neurodegeneration|Aging biology|Immunology|Infectious disease|Microbiome|Genomics and proteomics|Surgery and rehabilitation"],["Learning and institutions","Early-childhood development and education|K-12 education|Higher education|Vocational and workforce learning|Scientific research|Justice and courts|Policing and public safety systems|Corrections, rehabilitation and reintegration|Public administration|Governance and institutional design"],["Culture, beauty and experience","Beauty and aesthetics|Fashion and apparel|Luxury goods|Hospitality|Travel and tourism|Art and cultural markets|Music and entertainment|Gaming and virtual worlds|Sports and performance|Experience design and events"],["Money and enterprise","Currency and monetary experience|Payments and remittances|Banking and liquidity|Credit and underwriting|Insurance and resilience|Capital markets and investing|Private wealth and family capital|Labor and talent markets|Organizations and enterprises|Entrepreneurship and venture creation"],["Digital systems","Artificial intelligence|Software systems|Cybersecurity|Data infrastructure|Privacy|Digital identity|Internet and communications|Media and information ecosystems|Language and translation|Knowledge and ontologies"],["Physical infrastructure","Energy and power grids|Water and irrigation|Food and agriculture|Supply chains and logistics|Manufacturing|Waste and circular materials|Transportation and mobility|Cities and urban systems|Climate and disaster resilience|Ecology and biodiversity"],["Matter and formal science","Cell biology|Molecular biology|Nanotechnology|Chemistry and reaction systems|Materials science|Classical mechanics and control|Thermodynamics and nonequilibrium systems|Electromagnetism and circuits|Quantum systems|Pure mathematics and formal systems"],["Frontiers and hidden economies","Statistics and causal inference|Logic and reasoning systems|Geography and territorial systems|Informal economy|Illicit and black markets|Orbital and space economy|Extraterrestrial settlement|Astrobiology and biosignatures|Planetary systems and stewardship|Unknown and not-yet-named realities"],["Agency and consciousness","Conscious experience and self-model|Choice and option topology|Truth, deception and disclosure|Responsibility and causal attribution|Consent, coercion and autonomy|Addiction, compulsion and short-horizon choice|Crime, violence and reconciliation|Animal sentience and welfare|Collective agency and institutional choice|Human-AI co-agency"],["Evolution, transformation and emergence","Evolution and natural selection|Reproduction, inheritance, mitosis and division|Development and morphogenesis|Metabolism, diet and consumption|Predation, livestock and food-system ethics|Learning, plasticity and cultural evolution|Self-organization and emergence|Creation, provenance and dependency|Cosmological evolution and structure|Cross-substrate consciousness, temporal coexistence and closure"]];
+let n=0,h='';F.forEach((f,i)=>{h+='<details class="fam"'+(i==0?' open':'')+'><summary><i>F'+(i+1)+'</i>'+f[0]+'</summary><div>'+f[1].split('|').map(s=>'<span><b>'+String(++n).padStart(3,'0')+'</b>'+s+'</span>').join('')+'</div></details>'});
+document.getElementById('fams').innerHTML=h;
+
+// The 5 Canonical Split PDF Parts
+const P=[
+  ['1','1–5,146','/Universal_Reality_Atlas_Part_1_of_5.pdf','19.3 MB'],
+  ['2','5,147–10,292','/Universal_Reality_Atlas_Part_2_of_5.pdf','15.9 MB'],
+  ['3','10,293–15,438','/Universal_Reality_Atlas_Part_3_of_5.pdf','15.7 MB'],
+  ['4','15,439–20,584','/Universal_Reality_Atlas_Part_4_of_5.pdf','15.9 MB'],
+  ['5','20,585–25,727','/Universal_Reality_Atlas_Part_5_of_5.pdf','16.2 MB']
+];
+
+document.getElementById('parts').innerHTML=P.map(p=>`
+  <div class="pt">
+    <div>
+      <b>Part ${p[0]} of 5</b>
+      <small>Pages ${p[1]} · ${p[3]}</small>
+    </div>
+    <div>
+      <button class="vw" onclick="viewPdf('${p[2]}', 'Part ${p[0]} (Pages ${p[1]})')">View</button>
+      <a href="${p[2]}" download style="border:1px solid var(--ac);background:var(--ac);color:#fff;border-radius:8px;padding:7px 14px;font:600 13px 'Helvetica Neue',Arial,sans-serif;text-decoration:none;margin-left:6px">Download</a>
+    </div>
+  </div>
+`).join('');
+
+function viewPdf(url, title) {
+  const w = document.getElementById('vwr');
+  const f = document.getElementById('vf');
+  const t = document.getElementById('vt');
+  const o = document.getElementById('vopen');
+  f.src = url;
+  t.textContent = title;
+  o.href = url;
+  w.style.display = 'block';
+  w.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+const D={c43:[['A',50,61,58],['B',67,61,74],['C',69,71,73]],c120:[['A',60,68,65],['B',64,59,68],['C',50,49,53]]},col=['#9aa3b2','var(--bad)','var(--ok)'],lb=['Baseline','Local','IAMF-P'];
+Object.keys(D).forEach(k=>{document.getElementById(k).innerHTML=D[k].map(r=>'<span>Carrier '+r[0]+'</span><div>'+[1,2,3].map(i=>'<i style="width:'+(r[i]*1.1)+'%;background:'+col[i-1]+'" title="'+lb[i-1]+'"></i>').join('')+'<span>'+r[1]+' → '+r[2]+' → '+r[3]+'</span></div>').join('')+'<span></span><span>Grey baseline · red local action · green IAMF-P action</span>'});
+
+// 120 Adapters Domain Pairing Engine
+let A=[];
+const flatDomains=[];
+let idCounter=1;
+F.forEach((fam, famIdx)=>{
+  fam[1].split('|').forEach(title=>{
+    flatDomains.push({ id: idCounter++, title: title, family: fam[0], family_id: famIdx+1 });
+  });
+});
+A = flatDomains;
+
+const src=document.getElementById('source'), rcv=document.getElementById('receiver'), q=document.getElementById('query');
+const asOption=a=>`<option value="${a.id}">${String(a.id).padStart(3,'0')} · ${a.title}</option>`;
+src.innerHTML=A.map(asOption).join('');
+rcv.innerHTML=A.map(asOption).join('');
+src.value='1';
+rcv.value='110';
+
+const base=id=>1608+(id-1)*201;
+const link=n=>`/Universal_Reality_Atlas_Human_Primary_Carrier_Edition_v0_2_25727pp.pdf#page=${n}`;
+const domain=id=>A.find(x=>x.id===+id);
+
+const renderLookup=()=>{
+  let s=domain(src.value), r=domain(rcv.value), p=base(s.id), v=p+7+r.id;
+  document.getElementById('result').innerHTML=`
+    <div><b>SOURCE DOMAIN:</b> ${String(s.id).padStart(3,'0')} · ${s.title} (${s.family})</div>
+    <div><b>RECEIVING INTERFACE:</b> ${String(r.id).padStart(3,'0')} · ${r.title} (${r.family})</div>
+    <div style="margin-top:6px;color:var(--ac);font-weight:bold">PDF LOCATION: Source Brief Page ${p.toLocaleString()} &bull; Interface Analysis Page ${v.toLocaleString()}</div>
+  `;
+};
+src.onchange=renderLookup;
+rcv.onchange=renderLookup;
+
+document.getElementById('openorigin').onclick=()=>{
+  const s=domain(src.value);
+  window.open(link(base(s.id)),'_blank');
+};
+document.getElementById('openpair').onclick=()=>{
+  const s=domain(src.value), r=domain(rcv.value);
+  window.open(link(base(s.id)+7+r.id),'_blank');
+};
+
+q.addEventListener('input',()=>{
+  const v=q.value.trim().toLowerCase();
+  const found=A.find(a=>a.title.toLowerCase().includes(v));
+  if(found){
+    src.value=found.id;
+    renderLookup();
+  }
+});
+renderLookup();
+</script>
+</body>
+</html>
